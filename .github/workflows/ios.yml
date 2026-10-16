@@ -1,0 +1,46 @@
+name: iPhone unsigned build
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: headlink-ios-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 25
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.1.1.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify dependency tree
+        run: python3 scripts/verify-vendor.py
+      - name: Generate native projects
+        run: bash scripts/install-xcodegen.sh
+      - name: Minimal physical-device SDK check
+        run: |
+          mkdir -p build/logs
+          set -o pipefail
+          xcodebuild -project HeadLink.xcodeproj -scheme HeadLinkSmoke -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath build/Smoke CODE_SIGNING_ALLOWED=NO build | tee build/logs/smoke.log
+      - name: Core and protocol tests
+        run: |
+          set -o pipefail
+          bash scripts/test-core.sh | tee build/logs/core-tests.log
+      - name: Physical-device build and packaging
+        run: bash scripts/build-unsigned.sh
+      - name: Retain device artifact and evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: HeadLink-unsigned-${{ github.run_number }}
+          path: |
+            build/HeadLink-unsigned.ipa
+            build/build-metadata.json
+            build/SHA256SUMS
+            build/logs
+            build/device-build.xcresult
+          retention-days: 3
+          if-no-files-found: warn
