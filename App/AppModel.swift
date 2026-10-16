@@ -10,11 +10,13 @@ import HeadLinkCore
     var commissioning=CommissioningSession()
     var motionLabel="未准备好"
     var notice:String?
-    var callbackHz=0.0, sendHz=0.0
+    var callbackHz=0.0
+    var sendHz=0.0
     var now=ProcessInfo.processInfo.systemUptime
     var diagnostics:[DiagnosticRow]=[]
     var exportURL:URL?
-    var showingCalibration=false, showingCommissioning=false
+    var showingCalibration=false
+    var showingCommissioning=false
     var calibrationStarted:Double?
     var manualFirmware="" { didSet { if oldValue != manualFirmware { confirmedModel=false; revokeExperiment() } } }
     var confirmedModel=false { didSet { if oldValue != confirmedModel { revokeExperiment() } } }
@@ -27,7 +29,9 @@ import HeadLinkCore
     @ObservationIgnored private var loop:Task<Void,Never>?
     @ObservationIgnored private var connectedBefore=false
     @ObservationIgnored private var lastSensor:Double?
-    @ObservationIgnored private var rateAt=0.0, diagnosticAt=0.0, controlInfoAt=0.0
+    @ObservationIgnored private var rateAt=0.0
+    @ObservationIgnored private var diagnosticAt=0.0
+    @ObservationIgnored private var controlInfoAt=0.0
     @ObservationIgnored private var writesBefore=0
     @ObservationIgnored private var errorSince:Double?
     @ObservationIgnored private var verifiedProfiles:[VerifiedLimits]=[]
