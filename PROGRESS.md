@@ -13,11 +13,11 @@
 - 已通过：最小真机SDK编译、15项核心/协议测试、完整iPhoneOS arm64 Release编译、device IPA检查。
 - 首版已由用户通过Sideloadly安装，AirPods/Pocket连接与实时图传报告正常；实际跟随仍待新版实验验收。
 - Git智能HTTP传输在本机失败；本次通过connector写workflow、gh REST Git Data API上传源码，无需扩大CLI权限。
-- 真机目标：iPhone + AirPods Pro 3 + Pocket 4；实际型号/固件/iOS待确认。正式VerifiedProfiles为空；0.2.0提供明确点击的首次实验流程，完成后启用本次局部范围。
+- 真机目标：iPhone + AirPods Pro 3 + Pocket 4；实际型号/固件/iOS待确认。正式VerifiedProfiles为空；1.1.0提供明确点击的首次实验流程，完成后启用本次局部范围。
 
 - 已下载并复核：HeadLink-unsigned.ipa，SHA256 c9e3abf6b1dbafddb53eb5f08e964d402a56af4db50652ce436c2de04b1db442；iPhoneOS arm64，最低iOS17.0，无开发者签名和provisioning profile。
 
-## 0.2.0 首次联动实验
+## 1.1.0 首次联动实验
 
 - 用户已反馈：首版安装、AirPods连接、Pocket配对/连接、实时图传正常；头转不带动云台。未收到准确iOS/机型/固件。
 - 确定原因：正式profile为空，且精确firmware匹配，没有首次验证入口，故canStart恒假；旧版未校准前也没有可观察的头部角度。不能据连接成功断言姿态回调或角度指令已实测。
@@ -25,7 +25,7 @@
 - 已保留：首版连接与预览关键函数逐字不变；bundle ID不变。没有改变上游wire或软件限位。
 - 核心跟随代码已通过run #3云端iOS编译和25项测试。按用户追加要求，Wi-Fi密码增加复制按钮及选中复制；最终run #4也已成功：https://github.com/wch33e/HeadLink/actions/runs/38905644553 。安装/跟随验收由用户执行docs/FIRST_FOLLOW_TEST.md。
 
-## 0.2.0（4）最终交付
+## 中间构建run #4（不交付）
 
 - 源码：dbcb050166ee85c89f5d100281f100be51c1629b。
 - 云构建：https://github.com/wch33e/HeadLink/actions/runs/38905644553 ，完整iPhoneOS编译、25项测试、IPA打包通过；job 3分4秒。
@@ -33,3 +33,16 @@
 - bundle ID：org.headlink.personal，与首版相同。
 - Wi-Fi密码：显式点击复制按钮，也可显示后选中复制；仅写本机剪贴板，不写诊断/日志。
 - 真实yaw/pitch回调、型号/固件/模式、5°动作与停止、1∶1跟随仍需用户在固定机身基线下验收。
+
+- 下载核对发现XcodeGen默认Info.plist仍写1.0（1）；已将版本字段绑定MARKETING_VERSION/CURRENT_PROJECT_VERSION，正式版本改为1.1.0以高于首版1.0。打包新增校验构建号等于workflow run，并实际验证旧包会被拒绝。最终使用修复后的run #5。
+
+## 1.1.0（5）最终交付
+
+- 源码：ed94612f7944a2a6fb10d5a78ec9f9f3123eda38。
+- 云构建：https://github.com/wch33e/HeadLink/actions/runs/38906748373 ，job 2分23秒，25项测试、完整iPhoneOS编译、构建号校验和IPA打包通过。
+- 产物：https://github.com/wch33e/HeadLink/actions/runs/38906748373/artifacts/12048202912 。
+- 当前功能含明确点击5°实验、实验后校准1∶1跟随，以及Wi-Fi密码复制；关键连接/图传路径未改。
+- 新包保持org.headlink.personal，用首次相同Sideloadly签名账户/设置覆盖安装；本次未启用付费服务。
+
+- 已下载直接复核IPA：CFBundleShortVersionString=1.1.0、CFBundleVersion=5、bundle ID=org.headlink.personal、最低iOS17.0、iPhoneOS arm64、未签名，无内嵌provisioning profile。
+- SHA256：83af04c07372541565e9b65bf1c707680722c527b6f0c9ffaa4841ba08bf684a；与云端metadata一致。真实运动验收仍待用户。

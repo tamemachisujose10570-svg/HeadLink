@@ -1,4 +1,4 @@
-# 0.2.0 固定基座首次联动测试
+# 1.1.0 固定基座首次联动测试
 
 首版阻塞已定位：VerifiedProfiles.json=[]；AppModel 的 profile 匹配同时要求真实型号和 firmware 精确相等，故 canStart 永远为假，TrackingController.start 也会拒绝。此前角度命令链路存在，但没有被这个安装版本调用。首版头部角度仅在完成跟随校准后显示，不能排查首次姿态。此次没有改变配对、Wi-Fi手动加入或预览绑定实现。
 

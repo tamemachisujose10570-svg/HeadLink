@@ -41,7 +41,7 @@ fixture 为本项目合成的合法脱敏数据，没有私人设备信息。测
 
 首次云构建：https://github.com/wch33e/HeadLink/actions/runs/38896370871 ，源码 c47dc56b46e8e3016cb124618514d697b79b19e7。上传产物包含device-build.xcresult与原始日志。job 2026-10-16 19:50:01–19:52:09（Asia/Shanghai）。
 
-## 0.2.0 首次跟随实验
+## 1.1.0 首次跟随实验
 
 本地 Swift Testing **25项、3组全部通过**，新增10项实验与集成测试。App语法解析通过；固定依赖236个文件哈希通过。原连接、Wi-Fi交接、图传关键函数与首版逐字一致。
 
@@ -49,4 +49,10 @@ fixture 为本项目合成的合法脱敏数据，没有私人设备信息。测
 
 本地日志：`commissioning-tests.log`。其中相机反馈由测试合成；**不构成真实Pocket 4运动、方向、停止或机械限位证据**。真实验收步骤见 `FIRST_FOLLOW_TEST.md`。跟随代码已通过云端run #3完整iOS编译和IPA打包（34dbce88f1287f507145d8a1209a42abf24e0544）；随后按用户要求加入密码复制，最终构建结果另记。
 
-最终交付构建0.2.0（4）：[https://github.com/wch33e/HeadLink/actions/runs/38905644553](https://github.com/wch33e/HeadLink/actions/runs/38905644553)，源码dbcb050166ee85c89f5d100281f100be51c1629b。25项测试、完整iPhoneOS arm64 Release编译与打包全部通过，包含追加的Wi-Fi密码复制功能。密码复制代码通过App语法和云端SDK编译检查。
+中间构建run #4（不交付）：[https://github.com/wch33e/HeadLink/actions/runs/38905644553](https://github.com/wch33e/HeadLink/actions/runs/38905644553)，源码dbcb050166ee85c89f5d100281f100be51c1629b。25项测试、完整iPhoneOS arm64 Release编译与打包全部通过，包含追加的Wi-Fi密码复制功能。密码复制代码通过App语法和云端SDK编译检查。
+
+下载后直接检查真实IPA发现版本仍为1.0（1），已修正XcodeGen info.properties，使版本/构建号继承build settings。本地重新生成工程并校验引用通过；打包反例使用run #4真实Info.plist，在run=5时被明确拒绝，避免旧构建号再通过。最终交付需由run #5真实IPA复核。
+
+最终云构建run #5：[https://github.com/wch33e/HeadLink/actions/runs/38906748373](https://github.com/wch33e/HeadLink/actions/runs/38906748373)，源码ed94612f7944a2a6fb10d5a78ec9f9f3123eda38。25项测试与完整设备编译、递增构建号检查、打包通过。
+
+下载真实run #5 IPA并独立读取plist与Mach-O通过：版本1.1.0（5）、org.headlink.personal、最低iOS17.0、iPhoneOS arm64。codesign确认未签名、无profile，需Sideloadly签名。SHA256 83af04c07372541565e9b65bf1c707680722c527b6f0c9ffaa4841ba08bf684a 与云端metadata相等。记录随产物保存在inspection.json。

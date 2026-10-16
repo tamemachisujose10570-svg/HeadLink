@@ -10,6 +10,7 @@
 | 未校准 | 首版App/AppModel.swift:32；TrackingController.swift:77 | 是独立启动条件；不知道用户当时是否完成，不能从连接正常推断 |
 | 耳机真实回调 | App/HeadphoneMotion.swift:19–29；TrackingController.swift:45–73 | 真正使用CMHeadphoneMotionManager。连接正常不能证明回调、新鲜度或yaw/pitch变化，需新版观测 |
 | 相机反馈 | App/PocketCamera.swift:137–153 | 仅支持已核实50字节姿态格式；视频成功不能证明此反馈可用 |
+| 当前云台模式 | App/PocketCamera.swift:181–187 | 新版读取真实family/俯仰锁定参数，明确不兼容就拒绝；本机模式需新版运行记录，不能推测 |
 | 角度命令 | App/PocketCamera.swift:157–174；Vendor/OpenCine/Sources/OpenCineDJI/Commands.swift:549 | 链路已存在，首版被启动门槛挡住；没有本机运动成功证据，不能宣称相机已接受 |
 
 首版位置可在[已安装构建源码](https://github.com/wch33e/HeadLink/blob/c47dc56b46e8e3016cb124618514d697b79b19e7/App/AppModel.swift#L68)复核。
