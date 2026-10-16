@@ -101,7 +101,7 @@ struct RootView: View {
                 if let request=model.camera.wifiRequest {
                     Text("打开系统“设置 → Wi-Fi”，加入下方网络，然后返回此处验证连接。").font(.footnote)
                     Text(request.ssid).font(.body.monospaced()).privacySensitive()
-                    // Credentials never enter exported diagnostics, clipboard or normal logs.
+                    // Credentials enter the clipboard only after an explicit user copy action.
                     SecureCredential(password:request.password)
                     Button("已加入 Wi-Fi，验证连接") { model.camera.confirmWiFi() }.buttonStyle(.borderedProminent)
                 } else {
@@ -197,7 +197,22 @@ struct RootView: View {
 private struct SecureCredential: View {
     let password:String
     @State private var reveal=false
-    var body:some View { VStack(alignment:.leading) { Button(reveal ? "隐藏 Wi-Fi 密码" : "显示 Wi-Fi 密码") { reveal.toggle() }; if reveal { Text(password).font(.body.monospaced()).privacySensitive() } } }
+    @State private var copied=false
+    var body:some View {
+        VStack(alignment:.leading,spacing:10) {
+            HStack {
+                Button(reveal ? "隐藏 Wi-Fi 密码" : "显示 Wi-Fi 密码") { reveal.toggle() }
+                Spacer()
+                Button {
+                    UIPasteboard.general.setItems([["public.utf8-plain-text":password]],options:[.localOnly:true])
+                    copied=true
+                } label: {
+                    Label(copied ? "密码已复制" : "复制密码",systemImage:copied ? "checkmark" : "doc.on.doc")
+                }.buttonStyle(.bordered).disabled(password.isEmpty)
+            }
+            if reveal { Text(password).font(.body.monospaced()).textSelection(.enabled).privacySensitive() }
+        }.onChange(of:password) { _,_ in copied=false; reveal=false }
+    }
 }
 struct PreviewSurface: UIViewRepresentable {
     let runtime:MonitorLiveVideoRuntime
