@@ -13,6 +13,16 @@ import HeadLinkCore
     var connected = false
     var selected: DjiAppleSighting?
     var pose: CameraPose?
+    var lastAttitudeLength:Int?
+    var attitudeFrames=0
+    var poseFrames=0
+    var parameterAt:Double?
+    var lastSubmittedAngles:Angles?
+    var lastSubmittedNativePitch:Double?
+    var targetSubmissions=0
+    var lastCommandIssue:String?
+    var lastStopAttemptAt:Double?
+
     var status = CameraStatus()
     var statusAt: Double?
     var recordingAt: Double?
@@ -126,7 +136,11 @@ import HeadLinkCore
     }
     private func receive(_ frame: Duml.Frame) {
         exchange.receive(frame)
-        if CameraStatusDecoder.apply(frame,to:&status,model:selected?.model) { statusAt=now }
+        if frame.cmdSet == 4,frame.cmdId == 5 { lastAttitudeLength=frame.payload.count; attitudeFrames += 1 }
+        if CameraStatusDecoder.apply(frame,to:&status,model:selected?.model) {
+            statusAt=now
+            if frame.cmdSet == 4,frame.cmdId == 0x50 { parameterAt=now }
+        }
         if frame.cmdSet == 2,frame.cmdId == 0x80,frame.payload.count >= 13 {
             recordingAt=now
             if recordPending == status.isRecording { recordPending=nil; recordDeadline=nil }
@@ -134,6 +148,7 @@ import HeadLinkCore
         if frame.cmdSet == 4,frame.cmdId == 5,
            let yaw=GimbalStick.yawTenthDeg(frame.payload),let pitch=GimbalStick.pitchTenthDeg(frame.payload),
            let native=GimbalStick.nativePitchTenthDeg(frame.payload) {
+            poseFrames += 1
             let unwrapped=GimbalWaypoint.unwrapYaw(Double(yaw)/10)
             pose = .init(angles:.init(yaw:unwrapped,pitch:Double(pitch)/10),nativePitch:Double(native)/10,receivedAt:now)
         }
@@ -144,12 +159,45 @@ import HeadLinkCore
         stopTargets(); tokenCounter &+= 1; targetToken=tokenCounter; link?.beginNativeTargets(token:tokenCounter); return true
     }
     func submit(_ output: TrackingOutput) -> Bool {
-        guard transportHealthy,freshPose != nil,let token=targetToken,
-              let frame=Commands.gimbalTimedTarget(yawDeg:output.command.yaw,nativePitchDeg:output.nativePitch,duration:0.1) else { return false }
-        return link?.noteNativeTarget(frame,token:token) == true
+        submit(angles:output.command,nativePitch:output.nativePitch)
+    }
+    func submit(angles:Angles,nativePitch:Double) -> Bool {
+        guard transportHealthy else { lastCommandIssue="相机传输不可用"; return false }
+        guard freshPose != nil else { lastCommandIssue="镜头姿态已过期或布局不受支持"; return false }
+        guard let token=targetToken else { lastCommandIssue="目标流未启动或已经暂停"; return false }
+        guard let frame=Commands.gimbalTimedTarget(yawDeg:angles.yaw,nativePitchDeg:nativePitch,duration:0.1) else {
+            lastCommandIssue="角度被已核实命令编码器拒绝"; return false
+        }
+        guard link?.noteNativeTarget(frame,token:token) == true else {
+            lastCommandIssue="目标队列拒绝：可能被底层新鲜度或可达路径检查停止"; return false
+        }
+        lastSubmittedAngles=angles; lastSubmittedNativePitch=nativePitch; targetSubmissions += 1; lastCommandIssue=nil
+        return true
+    }
+    func refreshControlInfo() {
+        guard connected else { return }
+        _=link?.sendUntracked(Commands.gimbalParamsGet())
+    }
+    var followModeBlock:String? {
+        if let family=status.gimbalModeFamily, family != .follow { return "机身当前不是跟随模式，请在相机下拉菜单选择跟随" }
+        if let parameterAt,now-parameterAt < 3,status.gimbalParams?.tiltLock == .locked {
+            return "相机报告俯仰已锁定，请在机身改为跟随模式"
+        }
+        return nil
+    }
+    var modeSummary:String {
+        guard let family=status.gimbalModeFamily,let pose,pose.fresh(at:now) else { return "不可用；请在机身下拉菜单核对" }
+        switch family {
+        case .directionLock:return "方向锁定（姿态推送）"
+        case .fpv:return "FPV（姿态推送）"
+        case .follow:
+            guard let parameterAt,now-parameterAt < 3,let params=status.gimbalParams else { return "跟随族；俯仰锁定参数未收到" }
+            return params.tiltLock == .unlocked ? "跟随／俯仰未锁定（真实回报）" : "俯仰锁定（真实回报）"
+        }
     }
     func stopTargets() {
         guard let token=targetToken else { return }; targetToken=nil
+        lastStopAttemptAt=now
         link?.endNativeTargets(token:token)
         // This command is notify-only; no claim that a stopped pose was confirmed.
     }
@@ -168,6 +216,8 @@ import HeadLinkCore
         stopTargets(); scanTask?.cancel(); scanTask=nil; bluetooth.stopScan()
         connectRun?.retire(); connectRun=nil; heartbeat.stop(); exchange.stopBLEDrain(); exchange.retire(DjiAppleControlExchange.Error.disconnected)
         link?.close(); link=nil; bluetooth.disconnect(); decoder.close(); lastPresentedAt=nil
+        lastAttitudeLength=nil; attitudeFrames=0; poseFrames=0; parameterAt=nil
+        lastSubmittedAngles=nil; lastSubmittedNativePitch=nil; targetSubmissions=0; lastCommandIssue=nil; lastStopAttemptAt=nil
         connected=false; pose=nil; status = .init(); statusAt=nil; recordingAt=nil
         recordPending=nil; recordDeadline=nil; wifiRequest=nil; message="未连接"; onDisconnected?()
     }

@@ -55,6 +55,7 @@ struct RootView: View {
                 }
             }
             .sheet(isPresented:$settings) { SettingsView(model:model) }
+            .sheet(isPresented:$model.showingCommissioning) { CommissioningView(model:model) }
             .sheet(isPresented:$model.showingCalibration,onDismiss:{
                 if model.controller.state == .calibrating { model.clearCalibration() }
             }) {
@@ -83,6 +84,9 @@ struct RootView: View {
             Text("头部联动拍摄").font(.title3).foregroundStyle(.secondary)
             card("耳机运动数据",icon:"airpodspro") {
                 Text(LocalizedStringKey(model.motionLabel))
+                Text("观察 yaw / pitch：\(format((model.headAge.map{$0 <= 0.2} ?? false) ? model.probe.look : nil))").monospacedDigit()
+                Text(String(format:"实际回调 %.1f Hz",model.callbackHz)).font(.caption)
+                Button("检查真实数据与首次5°实验") { model.pause(); model.showingCommissioning=true }.buttonStyle(.bordered)
                 Text("先在 iPhone 系统中连接 AirPods。只有收到新鲜姿态，才表示运动数据可用。").font(.footnote).foregroundStyle(.secondary)
                 Button("检查运动数据") { model.retryMotion() }.buttonStyle(.bordered)
                 if model.motion.authorization == .denied { settingsLink }
@@ -109,7 +113,7 @@ struct RootView: View {
                 Text("配对时请在相机屏幕确认。关闭 DJI Mimo，避免占用连接。").font(.footnote).foregroundStyle(.secondary)
             }
             Button("进入拍摄",systemImage:"viewfinder") { shooting=true }.frame(maxWidth:.infinity,minHeight:44).buttonStyle(.borderedProminent)
-            Text("当前为开发构建。机型、固件与可达范围待验证时，可以查看真实数据和预览，跟随保持禁用。").font(.footnote).foregroundStyle(.orange)
+            Text("首次使用请进入“首次5°实验”。真实姿态、单轴运动及返回确认通过后，可启用本次固定基座实验跟随。").font(.footnote).foregroundStyle(.orange)
         }
     }
     private var statusBar: some View {
@@ -143,7 +147,11 @@ struct RootView: View {
     private var controls: some View {
         VStack(spacing:14) {
             Text(model.axes == .both ? "左右＋上下 1∶1" : model.axes == .yaw ? "仅左右 1∶1" : "仅上下 1∶1").font(.headline)
-            if !model.profileReady { Text("机型与限位待验证，跟随尚未开放").font(.footnote).foregroundStyle(.orange) }
+            Button("真实数据检查／首次5°实验",systemImage:"testtube.2") { model.pause(); model.showingCommissioning=true }.buttonStyle(.bordered)
+            if !model.profileReady { Text("先完成本次小角度实验，再启用局部1∶1跟随").font(.footnote).foregroundStyle(.orange) }
+            if model.experimentAccepted,let limits=model.controller.limits {
+                Text(String(format:"实验包络 yaw %.1f…%.1f° / pitch %.1f…%.1f°",limits.yawMin,limits.yawMax,limits.pitchMin,limits.pitchMax)).font(.caption).monospacedDigit()
+            }
             if model.controller.output?.transitioning == true { Text("正在过渡到目标方向").font(.caption).foregroundStyle(accent) }
             Button(model.isFollowing ? "暂停跟随" : "开始／恢复跟随",systemImage:model.isFollowing ? "pause.fill" : "play.fill") {
                 if model.isFollowing { model.pause() }
@@ -162,7 +170,8 @@ struct RootView: View {
     }
     private var diagnosticsPanel: some View {
         VStack(spacing:10) {
-            metric("头部相对方向",format(model.controller.head))
+            metric("观察头部方向（未校准也可看）",format((model.headAge.map{$0 <= 0.2} ?? false) ? model.probe.look : nil))
+            metric("校准后头部方向",format(model.controller.head))
             metric("未裁剪目标",format(model.controller.rawTarget))
             metric("命令目标（已提交）",format(model.controller.output?.command))
             metric("镜头反馈（机身参考）",format(model.camera.freshPose?.angles))
@@ -171,6 +180,7 @@ struct RootView: View {
             metric("实际回调频率",String(format:"%.1f Hz",model.callbackHz))
             metric("实际网络写入频率",String(format:"%.1f Hz",model.sendHz))
             metric("完整端到端延迟","不可用：需要外部同步测量")
+            if !model.blockers.isEmpty { ForEach(model.blockers,id:\.self) { Text(LocalizedStringKey($0)).foregroundStyle(.orange) } }
             Text("命令提交或网络写入不等于镜头已到位。暂停命令尚无停止确认。").font(.caption).foregroundStyle(.secondary)
         }.padding(.top,12).font(.footnote).monospacedDigit()
     }

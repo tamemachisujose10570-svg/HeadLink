@@ -28,7 +28,7 @@ struct SettingsView:View {
                 }
                 Section("本地诊断") {
                     Toggle("记录诊断",isOn:$recordDiagnostics)
-                    Text("最多保留最近约 10 分钟的角度、状态和频率。无视频、设备标识或网络密码；退出应用后不保留记录。").font(.footnote)
+                    Text("最多保留最近约 10 分钟的角度、状态和频率；联动实验会自动记录。无视频、设备标识或网络密码；退出应用后不保留记录。").font(.footnote)
                     Button("生成脱敏诊断文件") { model.exportDiagnostics() }
                     if let url=model.exportURL { ShareLink("分享 JSON",item:url) }
                     Button("清除记录",role:.destructive) {
@@ -38,9 +38,9 @@ struct SettingsView:View {
                     }
                 }
                 Section("关于 HeadLink") {
-                    LabeledContent("版本",value:"0.1.0 · 开发构建")
+                    LabeledContent("版本",value:(Bundle.main.object(forInfoDictionaryKey:"CFBundleShortVersionString") as? String ?? "开发构建"))
                     Text("原生 iPhone 工具，数据在本地处理。无需账号，无广告，不上传运动数据或相机画面。")
-                    Text("目标设备：iPhone、AirPods Pro 3、DJI Pocket 4。已验证真机组合：无。").foregroundStyle(.orange)
+                    Text("已收到用户反馈：首版安装、耳机连接、Pocket配对与图传正常。头部姿态和运动控制需按本次实验逐项确认。").foregroundStyle(.orange)
                     NavigationLink("开源许可与署名") { ScrollView { Text(licenseText).font(.footnote).textSelection(.enabled).padding() }.navigationTitle("开源许可") }
                     Text("使用 OpenCine / OpenPocketCine 的 Apache-2.0 开源实现。与 Apple、DJI 无官方关联。")
                 }

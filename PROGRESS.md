@@ -16,3 +16,11 @@
 - 真机目标：iPhone + AirPods Pro 3 + Pocket 4；实际型号/固件/iOS待确认。VerifiedProfiles为空，跟随未开放。
 
 - 已下载并复核：HeadLink-unsigned.ipa，SHA256 c9e3abf6b1dbafddb53eb5f08e964d402a56af4db50652ce436c2de04b1db442；iPhoneOS arm64，最低iOS17.0，无开发者签名和provisioning profile。
+
+## 0.2.0 进行中
+
+- 用户已反馈：首版安装、AirPods连接、Pocket配对/连接、实时图传正常；头转不带动云台。未收到准确iOS/机型/固件。
+- 确定原因：正式profile为空，且精确firmware匹配，没有首次验证入口，故canStart恒假；旧版未校准前也没有可观察的头部角度。不能据连接成功断言姿态回调或角度指令已实测。
+- 已实现：未校准头部观察、具体阻塞列表、只读模式/真实姿态诊断、人工固件来源、session-only明确点击的5°实验、停止后保持和物理确认、返回确认、逐次扩展5°包络、完成后校准再1∶1跟随。
+- 已保留：首版连接与预览关键函数逐字不变；bundle ID不变。没有改变上游wire或软件限位。
+- 新版尚未云端编译；完成测试后提交并手动构建。安装/跟随验收要由用户执行docs/FIRST_FOLLOW_TEST.md。

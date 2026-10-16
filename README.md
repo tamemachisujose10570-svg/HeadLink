@@ -1,18 +1,18 @@
 # HeadLink · 头部联动拍摄
 
-原生 Swift / SwiftUI iPhone 工程。目标组合是 iPhone + AirPods Pro 3 + DJI Pocket 4，先以固定支架、相机机身不动为基线。当前为 **0.1.0 开发构建，云端真机编译和未签名 IPA 打包已通过，硬件尚未验证**。
+原生 Swift / SwiftUI iPhone 工程。目标组合是 iPhone + AirPods Pro 3 + DJI Pocket 4，先以固定支架、相机机身不动为基线。当前为 **0.2.0 开发构建，云端真机编译和未签名 IPA 打包已通过，硬件尚未验证**。
 
 ## 当前状态（2026-10-16）
 
 | 层次 | 结果 |
 | --- | --- |
 | 代码已写 | 耳机运动读取、配对与手动 Wi-Fi 适配、真实遥测解析、绝对角度命令、预览接入、录像请求/确认、中文界面、诊断导出 |
-| 核心编译和测试 | macOS / Swift 6.2，15 项 Swift Testing 测试通过；工程生成、Swift 语法检查、plist 校验通过 |
+| 核心编译和测试 | macOS / Swift 6.2，首版15项；新版新增实验和贯通跟随测试，见测试记录；工程生成、Swift 语法检查、plist 校验通过 |
 | iOS App 编译 | **云端成功**：Actions run #1，Xcode 26.1.1，iPhoneOS arm64 Release |
 | IPA / 安装 | **已生成未签名 device IPA**，供 Sideloadly 本地重签；尚未安装 |
-| 硬件运行 | **未验证**；机型固件、iOS、方向符号、实测限位、延迟和精度都不能宣称已确认 |
+| 硬件运行 | 用户已反馈首版安装、耳机连接、Pocket配对/连接和图传正常；具体版本组合、真实头部数据及运动控制仍待本次实验确认 |
 
-`App/VerifiedProfiles.json` 故意为空。未配置匹配真实型号/固件和测试证据的限位时，跟随按钮禁用，真实连接、姿态采集、校准、诊断与预览仍可测试。它不是自动退回模拟器的 App，也不包含假实时画面、假角度反馈或模拟 REC。
+`App/VerifiedProfiles.json` 仍是正式验证配置表，当前为空。0.2.0 新增独立的“首次5°实验”：实时显示未校准头部角度、真实机型/固件/姿态/模式与具体启动阻塞；用户主动测试单轴端点、停止保持和返回，并确认物理观察后，可启用仅本次连接的局部实验包络。完整流程见 [FIRST_FOLLOW_TEST.md](docs/FIRST_FOLLOW_TEST.md)。不会删除正式验证条件，也不把实验包络冒充机械全行程。
 
 ## 已实现的控制行为
 
@@ -58,3 +58,7 @@ HeadLink 新增代码采用 Apache-2.0，见 `LICENSE`。固定依赖版本、�
 - [Actions run #1](https://github.com/wch33e/HeadLink/actions/runs/38896370871)：success，job 用时 2分8秒。
 - [未签名 IPA 产物](https://github.com/wch33e/HeadLink/actions/runs/38896370871/artifacts/12044256826)：`HeadLink-unsigned-1`，保留3天，下载需仓库权限。
 - 已通过最小真机SDK编译、15项核心/协议测试、完整App真机编译和打包检查；未进行安装或硬件验收。
+
+## 0.2.0 首次联动
+
+新增独立头部观察、固件来源区分、模式只读查询、小角度实验和当前启动阻塞列表。保持bundle ID `org.headlink.personal`，配对、Wi-Fi交接、预览绑定与首版逐字相同。新版构建结果以PROGRESS.md为准，首版IPA仍可用于回退。
