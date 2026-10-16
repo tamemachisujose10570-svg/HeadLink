@@ -1,0 +1,1376 @@
+{
+  "sourceLanguage": "zh-Hans",
+  "strings": {
+    "0.1.0 · 开发构建": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0.1.0 · 开发构建"
+          }
+        }
+      }
+    },
+    "Pocket 相机": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pocket 相机"
+          }
+        }
+      }
+    },
+    "① 连接耳机与相机\n② 看向正前方并校准\n③ 点击开始，随时暂停": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "① 连接耳机与相机\n② 看向正前方并校准\n③ 点击开始，随时暂停"
+          }
+        }
+      }
+    },
+    "不可用": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不可用"
+          }
+        }
+      }
+    },
+    "不可用：参考与时间对齐待验证": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不可用：参考与时间对齐待验证"
+          }
+        }
+      }
+    },
+    "不可用：需要外部同步测量": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不可用：需要外部同步测量"
+          }
+        }
+      }
+    },
+    "仅上下": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仅上下"
+          }
+        }
+      }
+    },
+    "仅左右": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仅左右"
+          }
+        }
+      }
+    },
+    "以当前姿势重新对齐": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "以当前姿势重新对齐"
+          }
+        }
+      }
+    },
+    "低延迟": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "低延迟"
+          }
+        }
+      }
+    },
+    "使用 OpenCine / OpenPocketCine 的 Apache-2.0 开源实现。与 Apple、DJI 无官方关联。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用 OpenCine / OpenPocketCine 的 Apache-2.0 开源实现。与 Apple、DJI 无官方关联。"
+          }
+        }
+      }
+    },
+    "倍率": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "倍率"
+          }
+        }
+      }
+    },
+    "停止录像": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "停止录像"
+          }
+        }
+      }
+    },
+    "先在 iPhone 系统中连接 AirPods。只有收到新鲜姿态，才表示运动数据可用。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "先在 iPhone 系统中连接 AirPods。只有收到新鲜姿态，才表示运动数据可用。"
+          }
+        }
+      }
+    },
+    "关于 HeadLink": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关于 HeadLink"
+          }
+        }
+      }
+    },
+    "准备好后，建立新的方向对应关系": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "准备好后，建立新的方向对应关系"
+          }
+        }
+      }
+    },
+    "分享 JSON": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分享 JSON"
+          }
+        }
+      }
+    },
+    "十字线": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "十字线"
+          }
+        }
+      }
+    },
+    "原生 iPhone 工具，数据在本地处理。无需账号，无广告，不上传运动数据或相机画面。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "原生 iPhone 工具，数据在本地处理。无需账号，无广告，不上传运动数据或相机画面。"
+          }
+        }
+      }
+    },
+    "取消": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取消"
+          }
+        }
+      }
+    },
+    "命令提交或网络写入不等于镜头已到位。暂停命令尚无停止确认。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "命令提交或网络写入不等于镜头已到位。暂停命令尚无停止确认。"
+          }
+        }
+      }
+    },
+    "命令目标（已提交）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "命令目标（已提交）"
+          }
+        }
+      }
+    },
+    "响应": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "响应"
+          }
+        }
+      }
+    },
+    "固定基座跟随中；起步与恢复采用受限速度过渡": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "固定基座跟随中；起步与恢复采用受限速度过渡"
+          }
+        }
+      }
+    },
+    "固定支架": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "固定支架"
+          }
+        }
+      }
+    },
+    "固定支架 · 移动基座补偿尚未支持": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "固定支架 · 移动基座补偿尚未支持"
+          }
+        }
+      }
+    },
+    "头部相对方向": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "头部相对方向"
+          }
+        }
+      }
+    },
+    "头部联动拍摄": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "头部联动拍摄"
+          }
+        }
+      }
+    },
+    "姿态异常，请重新校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "姿态异常，请重新校准"
+          }
+        }
+      }
+    },
+    "安装方式": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "安装方式"
+          }
+        }
+      }
+    },
+    "完成": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完成"
+          }
+        }
+      }
+    },
+    "完整端到端延迟": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完整端到端延迟"
+          }
+        }
+      }
+    },
+    "实际回调频率": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实际回调频率"
+          }
+        }
+      }
+    },
+    "实际网络写入频率": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实际网络写入频率"
+          }
+        }
+      }
+    },
+    "尚不能开始：请检查校准、数据及机型验证配置": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "尚不能开始：请检查校准、数据及机型验证配置"
+          }
+        }
+      }
+    },
+    "就绪，尚未校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "就绪，尚未校准"
+          }
+        }
+      }
+    },
+    "左右＋上下": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "左右＋上下"
+          }
+        }
+      }
+    },
+    "左右＋上下 1∶1": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "左右＋上下 1∶1"
+          }
+        }
+      }
+    },
+    "左手布局": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "左手布局"
+          }
+        }
+      }
+    },
+    "已加入 Wi-Fi，验证连接": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已加入 Wi-Fi，验证连接"
+          }
+        }
+      }
+    },
+    "已校准，等待开始": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已校准，等待开始"
+          }
+        }
+      }
+    },
+    "已校准，请点击开始跟随": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已校准，请点击开始跟随"
+          }
+        }
+      }
+    },
+    "已连接（兼容性待真机验证）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已连接（兼容性待真机验证）"
+          }
+        }
+      }
+    },
+    "已连接，等待运动数据": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已连接，等待运动数据"
+          }
+        }
+      }
+    },
+    "平滑只改变过渡，停稳后收敛到原始目标。更改控制设置会暂停跟随。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "平滑只改变过渡，停稳后收敛到原始目标。更改控制设置会暂停跟随。"
+          }
+        }
+      }
+    },
+    "开始／恢复跟随": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开始／恢复跟随"
+          }
+        }
+      }
+    },
+    "开源许可": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开源许可"
+          }
+        }
+      }
+    },
+    "开源许可与署名": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开源许可与署名"
+          }
+        }
+      }
+    },
+    "当前为开发构建。机型、固件与可达范围待验证时，可以查看真实数据和预览，跟随保持禁用。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前为开发构建。机型、固件与可达范围待验证时，可以查看真实数据和预览，跟随保持禁用。"
+          }
+        }
+      }
+    },
+    "录像": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "录像"
+          }
+        }
+      }
+    },
+    "录像请求未确认，请检查相机": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "录像请求未确认，请检查相机"
+          }
+        }
+      }
+    },
+    "恢复跟随": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "恢复跟随"
+          }
+        }
+      }
+    },
+    "手持、胸前、肩带的移动基座补偿尚未验证。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "手持、胸前、肩带的移动基座补偿尚未验证。"
+          }
+        }
+      }
+    },
+    "打开应用设置": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开应用设置"
+          }
+        }
+      }
+    },
+    "打开系统“设置 → Wi-Fi”，加入下方网络，然后返回此处验证连接。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开系统“设置 → Wi-Fi”，加入下方网络，然后返回此处验证连接。"
+          }
+        }
+      }
+    },
+    "拍摄页保持常亮": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "拍摄页保持常亮"
+          }
+        }
+      }
+    },
+    "控制轴": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "控制轴"
+          }
+        }
+      }
+    },
+    "搜索相机": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜索相机"
+          }
+        }
+      }
+    },
+    "搜索相机…": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "搜索相机…"
+          }
+        }
+      }
+    },
+    "操作震动": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "操作震动"
+          }
+        }
+      }
+    },
+    "数据失效或姿态跳变，已暂停；请重新校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "数据失效或姿态跳变，已暂停；请重新校准"
+          }
+        }
+      }
+    },
+    "数据失效，已暂停": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "数据失效，已暂停"
+          }
+        }
+      }
+    },
+    "数据正常": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "数据正常"
+          }
+        }
+      }
+    },
+    "断开": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "断开"
+          }
+        }
+      }
+    },
+    "显示 Wi-Fi 密码": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示 Wi-Fi 密码"
+          }
+        }
+      }
+    },
+    "显示与反馈": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "显示与反馈"
+          }
+        }
+      }
+    },
+    "暂停跟随": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂停跟随"
+          }
+        }
+      }
+    },
+    "最多保留最近约 10 分钟的角度、状态和频率。无视频、设备标识或网络密码；退出应用后不保留记录。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最多保留最近约 10 分钟的角度、状态和频率。无视频、设备标识或网络密码；退出应用后不保留记录。"
+          }
+        }
+      }
+    },
+    "未准备好": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未准备好"
+          }
+        }
+      }
+    },
+    "未裁剪目标": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未裁剪目标"
+          }
+        }
+      }
+    },
+    "未连接": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未连接"
+          }
+        }
+      }
+    },
+    "本地诊断": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本地诊断"
+          }
+        }
+      }
+    },
+    "机型与限位待验证，跟随尚未开放": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "机型与限位待验证，跟随尚未开放"
+          }
+        }
+      }
+    },
+    "校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "校准"
+          }
+        }
+      }
+    },
+    "校准中": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "校准中"
+          }
+        }
+      }
+    },
+    "校准中断：请检查耳机和镜头数据": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "校准中断：请检查耳机和镜头数据"
+          }
+        }
+      }
+    },
+    "校准未完成，请保持头部和机身静止后重试": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "校准未完成，请保持头部和机身静止后重试"
+          }
+        }
+      }
+    },
+    "检查运动数据": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "检查运动数据"
+          }
+        }
+      }
+    },
+    "正在建立连接": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在建立连接"
+          }
+        }
+      }
+    },
+    "正在检查稳定性，请保持头部和机身静止": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在检查稳定性，请保持头部和机身静止"
+          }
+        }
+      }
+    },
+    "正在读取相机连接信息": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在读取相机连接信息"
+          }
+        }
+      }
+    },
+    "正在过渡到目标方向": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在过渡到目标方向"
+          }
+        }
+      }
+    },
+    "正在连接蓝牙": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在连接蓝牙"
+          }
+        }
+      }
+    },
+    "正在验证相机通信": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在验证相机通信"
+          }
+        }
+      }
+    },
+    "此操作不会发送机械回中指令": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此操作不会发送机械回中指令"
+          }
+        }
+      }
+    },
+    "清除校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "清除校准"
+          }
+        }
+      }
+    },
+    "清除记录": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "清除记录"
+          }
+        }
+      }
+    },
+    "版本": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "版本"
+          }
+        }
+      }
+    },
+    "生成脱敏诊断文件": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "生成脱敏诊断文件"
+          }
+        }
+      }
+    },
+    "用户暂停": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用户暂停"
+          }
+        }
+      }
+    },
+    "画面已暂停 · 最后一帧": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "画面已暂停 · 最后一帧"
+          }
+        }
+      }
+    },
+    "目标命令未被发送，请重新检查连接并校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标命令未被发送，请重新检查连接并校准"
+          }
+        }
+      }
+    },
+    "目标设备：iPhone、AirPods Pro 3、DJI Pocket 4。已验证真机组合：无。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标设备：iPhone、AirPods Pro 3、DJI Pocket 4。已验证真机组合：无。"
+          }
+        }
+      }
+    },
+    "目标超出可达范围": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标超出可达范围"
+          }
+        }
+      }
+    },
+    "相机已连接": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机已连接"
+          }
+        }
+      }
+    },
+    "相机未连接": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机未连接"
+          }
+        }
+      }
+    },
+    "看向你想设定的正前方，并让镜头对准同一方向。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "看向你想设定的正前方，并让镜头对准同一方向。"
+          }
+        }
+      }
+    },
+    "知道了": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "知道了"
+          }
+        }
+      }
+    },
+    "等待录像确认…": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "等待录像确认…"
+          }
+        }
+      }
+    },
+    "等待手动加入 Wi-Fi": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "等待手动加入 Wi-Fi"
+          }
+        }
+      }
+    },
+    "等待新的运动数据": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "等待新的运动数据"
+          }
+        }
+      }
+    },
+    "等待真实相机预览": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "等待真实相机预览"
+          }
+        }
+      }
+    },
+    "精度与诊断": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "精度与诊断"
+          }
+        }
+      }
+    },
+    "继续原关系会以受限速度过渡到当前目标；重新对齐会保留当前构图。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "继续原关系会以受限速度过渡到当前目标；重新对齐会保留当前构图。"
+          }
+        }
+      }
+    },
+    "继续原对应关系": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "继续原对应关系"
+          }
+        }
+      }
+    },
+    "耳机运动数据": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耳机运动数据"
+          }
+        }
+      }
+    },
+    "蓝牙尚未就绪": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "蓝牙尚未就绪"
+          }
+        }
+      }
+    },
+    "角度误差": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "角度误差"
+          }
+        }
+      }
+    },
+    "让镜头跟随你的头部方向": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "让镜头跟随你的头部方向"
+          }
+        }
+      }
+    },
+    "记录诊断": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "记录诊断"
+          }
+        }
+      }
+    },
+    "设备": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设备"
+          }
+        }
+      }
+    },
+    "设备断连": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设备断连"
+          }
+        }
+      }
+    },
+    "设置": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设置"
+          }
+        }
+      }
+    },
+    "诊断导出失败，请重试": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "诊断导出失败，请重试"
+          }
+        }
+      }
+    },
+    "请在相机上确认配对": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请在相机上确认配对"
+          }
+        }
+      }
+    },
+    "请在系统中连接支持运动数据的耳机": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请在系统中连接支持运动数据的耳机"
+          }
+        }
+      }
+    },
+    "请在设置中允许蓝牙权限": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请在设置中允许蓝牙权限"
+          }
+        }
+      }
+    },
+    "请开启蓝牙": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请开启蓝牙"
+          }
+        }
+      }
+    },
+    "请手动加入相机 Wi-Fi": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请手动加入相机 Wi-Fi"
+          }
+        }
+      }
+    },
+    "跟随": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跟随"
+          }
+        }
+      }
+    },
+    "跟随中": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跟随中"
+          }
+        }
+      }
+    },
+    "跟随已暂停；已尝试发送停止，未确认镜头静止。移动机身时不保证锁定世界方向。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跟随已暂停；已尝试发送停止，未确认镜头静止。移动机身时不保证锁定世界方向。"
+          }
+        }
+      }
+    },
+    "轻度平滑": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "轻度平滑"
+          }
+        }
+      }
+    },
+    "运动数据中断，请重新连接": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "运动数据中断，请重新连接"
+          }
+        }
+      }
+    },
+    "运动数据时效": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "运动数据时效"
+          }
+        }
+      }
+    },
+    "运动权限未允许": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "运动权限未允许"
+          }
+        }
+      }
+    },
+    "进入拍摄": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "进入拍摄"
+          }
+        }
+      }
+    },
+    "连接中": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连接中"
+          }
+        }
+      }
+    },
+    "连接中…": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连接中…"
+          }
+        }
+      }
+    },
+    "连接中断，停止未确认": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连接中断，停止未确认"
+          }
+        }
+      }
+    },
+    "连接失败：请检查相机确认、Wi-Fi 和本地网络权限后重试": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连接失败：请检查相机确认、Wi-Fi 和本地网络权限后重试"
+          }
+        }
+      }
+    },
+    "配对时请在相机屏幕确认。关闭 DJI Mimo，避免占用连接。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "配对时请在相机屏幕确认。关闭 DJI Mimo，避免占用连接。"
+          }
+        }
+      }
+    },
+    "镜头反馈（机身参考）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "镜头反馈（机身参考）"
+          }
+        }
+      }
+    },
+    "隐藏 Wi-Fi 密码": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "隐藏 Wi-Fi 密码"
+          }
+        }
+      }
+    },
+    "需要新鲜的耳机姿态和镜头反馈才能校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "需要新鲜的耳机姿态和镜头反馈才能校准"
+          }
+        }
+      }
+    },
+    "仅左右 1∶1": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仅左右 1∶1"
+          }
+        }
+      }
+    },
+    "仅上下 1∶1": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仅上下 1∶1"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

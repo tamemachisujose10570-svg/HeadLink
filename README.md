@@ -1,0 +1,53 @@
+# HeadLink · 头部联动拍摄
+
+原生 Swift / SwiftUI iPhone 工程。目标组合是 iPhone + AirPods Pro 3 + DJI Pocket 4，先以固定支架、相机机身不动为基线。当前是 **0.1.0 开发源码交付，不是经过真机验证的成品**。
+
+## 当前状态（2026-10-16）
+
+| 层次 | 结果 |
+| --- | --- |
+| 代码已写 | 耳机运动读取、配对与手动 Wi-Fi 适配、真实遥测解析、绝对角度命令、预览接入、录像请求/确认、中文界面、诊断导出 |
+| 核心编译和测试 | macOS / Swift 6.2，15 项 Swift Testing 测试通过；工程生成、Swift 语法检查、plist 校验通过 |
+| iOS App 编译 | **未执行成功**：本机没有完整 Xcode，尚无用户指定和授权的云端仓库 |
+| IPA / 安装 | **未生成 IPA，未安装**；没有可提供的安装包下载链接 |
+| 硬件运行 | **未验证**；机型固件、iOS、方向符号、实测限位、延迟和精度都不能宣称已确认 |
+
+`App/VerifiedProfiles.json` 故意为空。未配置匹配真实型号/固件和测试证据的限位时，跟随按钮禁用，真实连接、姿态采集、校准、诊断与预览仍可测试。它不是自动退回模拟器的 App，也不包含假实时画面、假角度反馈或模拟 REC。
+
+## 已实现的控制行为
+
+- 通过四元数相对旋转得到校准后的视线 yaw / pitch，增益固定 1.00；roll 不跟随。
+- 0.7 秒稳定采样校准；连续 yaw 展开，q 与 -q 等价；接近竖直、姿态参考跳变、数据过期时停止并要求重校准。
+- 原始目标、限位目标、命令目标分别保存；低延迟/轻度平滑不改变静态增益。
+- 起步和恢复采用速率/加速度限制；暂停后可继续原关系或保留构图重新对齐。
+- 上游原生 UDP 队列保留一个最新角度目标，停止操作清空待发目标并发送上游停止命令。没有停止确认时不会显示“已确认停稳”。
+- 录像状态来自实际状态推送，命令或 ACK 不被当成 REC。
+- 不请求手机相机、麦克风、定位、照片库权限；无后台音频、自动 Wi-Fi entitlement、App Extension、账户和上传后端。
+
+## 开始使用代码
+
+1. 阅读 [上游调查](docs/UPSTREAM_FINDINGS.md)、[云端仓库设置](GITHUB_SETUP.md)。
+2. 本机可运行 `bash scripts/test-core.sh`，只需要现有 Swift 命令行工具。受限执行环境必要时附加 `--disable-sandbox`，不需要安装 Xcode。
+3. 将工程放进自己的私有 GitHub 仓库；先确认 Actions 额度及禁止超额付费的设置。
+4. 手动运行 `iPhone unsigned build`。它先生成工程、验证最小真机 SDK 链路、运行核心测试，再编译 iOS 真机目标并封装 IPA。
+5. 仅在工作流成功且产物检查通过后，按 [免费安装说明](INSTALL_FREE.md) 使用 Sideloadly 本地签名安装。
+6. 按 [真机测试清单](HARDWARE_TESTS.md) 逐步验证；不能把本页“代码已写”改成“硬件正常”。
+
+原生工程配置是 `project.yml`；XcodeGen 2.44.1 会生成 `HeadLink.xcodeproj`。iOS 最低版本暂定 17.0，源于上游要求；必须再用用户的实际 iOS 验证。云端选择 `macos-15` + `/Applications/Xcode_26.1.1.app`，不跟随 runner 默认 Xcode。
+
+## 目录
+
+- `Sources/HeadLinkCore`：不依赖 iOS 的坐标、稳定校准、状态机、限位和平滑。
+- `App`：真实设备适配器、SwiftUI、生命周期、资源与许可。
+- `Vendor/OpenCine`：固定版本的七个所需模块；Apache-2.0。没有 Sentry、Frame.io、Watch、共享 UI 字体或第三方 SDK。
+- `Tests`：数学、状态机及真实上游协议编码/解析测试；fixture 是脱敏的合成帧。
+- `scripts` / `.github/workflows`：核心测试、固定工程生成器、真机打包和供应链校验。
+- [架构](ARCHITECTURE.md) · [兼容性](COMPATIBILITY.md) · [故障排除](TROUBLESHOOTING.md) · [测试记录](docs/TEST_RESULTS.md) · [尚未完成项](docs/REMAINING_WORK.md)
+
+## 费用与维护
+
+本地算法、界面和协议无收费服务。私有仓库的 GitHub macOS 构建和产物存储会使用账户额度，超额可能收费；本次没有触发云构建或购买服务。免费签名通常需每 7 天刷新，Sideloadly 刷新需要符合工具要求的电脑和设备连接。参见安装文档，不承诺永久免费或永久免维护。
+
+## 许可
+
+HeadLink 新增代码采用 Apache-2.0，见 `LICENSE`。固定依赖版本、文件哈希和本地修改见 `Vendor/manifest.json`、`Vendor/OpenCine/HEADLINK_MODIFICATIONS.md`。本项目与 Apple / DJI 无官方关联；不修改相机固件，不使用官方 DJI SDK。

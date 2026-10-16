@@ -1,0 +1,53 @@
+warning: $USER_HOME/Library/org.swift.swiftpm/configuration is not accessible or not writable, disabling user-level cache features.
+warning: $USER_HOME/Library/org.swift.swiftpm/security is not accessible or not writable, disabling user-level cache features.
+warning: $USER_HOME/Library/Caches/org.swift.swiftpm is not accessible or not writable, disabling user-level cache features.
+warning: 'headlink': failed storing manifest for 'headlink' in cache: attempt to write a readonly database
+Building for debugging...
+[0/4] Write sources
+[2/4] Write swift-version--1AB21518FC5DEDBE.txt
+[4/6] Emitting module HeadLinkCore
+[5/6] Compiling HeadLinkCore TrackingController.swift
+[6/8] Compiling HeadLinkCoreTests TrackingTests.swift
+[7/8] Emitting module HeadLinkCoreTests
+[7/9] Write Objects.LinkFileList
+ld: warning: building for macOS-13.0, but linking with dylib '@rpath/Testing.framework/Versions/A/Testing' which was built for newer version 14.0
+[8/9] Linking HeadLinkPackageTests
+Build complete! (10.88s)
+◇ Test run started.
+↳ Testing Library Version: 1084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite TrackingTests started.
+◇ Suite ProtocolTests started.
+◇ Test testPausedYawRemainsContinuousAndMotionLossRequiresCalibration() started.
+◇ Test testUnverifiedLimitsCannotMove() started.
+◇ Test testSignScaleBoundaryAndVertical() started.
+◇ Test testStaleCameraStopsEvenWithFreshHead() started.
+◇ Test testNativeAngleEncodingAndStop() started.
+◇ Test testUnstableCalibrationDoesNotFinish() started.
+◇ Test testNativeLatestWinsAndPauseFence() started.
+◇ Test testIdentityAndSingleAxisGain() started.
+◇ Test testStaleAndTimestampResetInvalidateCalibration() started.
+◇ Test testRawTargetLimitAndSmoothConvergence() started.
+◇ Test testExplicitStartPauseAndReconnect() started.
+◇ Test testCompoundRotationAndNonIdentityCalibration() started.
+◇ Test splitNotificationsCorruptionAndUnknownOpcode() started.
+◇ Test telemetryIsNotDerivedFromCommandOrAck() started.
+◇ Test assemblerBoundsAndTruncation() started.
+✔ Test testNativeAngleEncodingAndStop() passed after 0.003 seconds.
+✔ Test testNativeLatestWinsAndPauseFence() passed after 0.003 seconds.
+✔ Test testPausedYawRemainsContinuousAndMotionLossRequiresCalibration() passed after 0.003 seconds.
+✔ Test testUnverifiedLimitsCannotMove() passed after 0.003 seconds.
+✔ Test testSignScaleBoundaryAndVertical() passed after 0.003 seconds.
+✔ Test testCompoundRotationAndNonIdentityCalibration() passed after 0.003 seconds.
+✔ Test testUnstableCalibrationDoesNotFinish() passed after 0.003 seconds.
+✔ Test testIdentityAndSingleAxisGain() passed after 0.003 seconds.
+✔ Test testStaleAndTimestampResetInvalidateCalibration() passed after 0.003 seconds.
+✔ Test testStaleCameraStopsEvenWithFreshHead() passed after 0.003 seconds.
+✔ Test telemetryIsNotDerivedFromCommandOrAck() passed after 0.003 seconds.
+✔ Test testExplicitStartPauseAndReconnect() passed after 0.003 seconds.
+✔ Test assemblerBoundsAndTruncation() passed after 0.003 seconds.
+✔ Test splitNotificationsCorruptionAndUnknownOpcode() passed after 0.006 seconds.
+✔ Suite ProtocolTests passed after 0.007 seconds.
+✔ Test testRawTargetLimitAndSmoothConvergence() passed after 0.007 seconds.
+✔ Suite TrackingTests passed after 0.007 seconds.
+✔ Test run with 15 tests in 2 suites passed after 0.009 seconds.
