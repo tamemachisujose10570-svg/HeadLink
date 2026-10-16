@@ -5,6 +5,9 @@ app=pathlib.Path(sys.argv[1]).resolve(); out=pathlib.Path(sys.argv[2]).resolve()
 assert app.is_dir() and app.suffix=='.app', 'Missing device .app'
 info=plistlib.loads((app/'Info.plist').read_bytes())
 assert info.get('CFBundleIdentifier')=='org.headlink.personal', 'Unexpected bundle identifier'
+assert info.get('CFBundleShortVersionString') and '$(' not in info['CFBundleShortVersionString'], 'Unresolved app version'
+if os.environ.get('GITHUB_RUN_NUMBER'):
+    assert info.get('CFBundleVersion')==os.environ['GITHUB_RUN_NUMBER'], 'Build number must match this workflow run'
 assert info.get('CFBundleSupportedPlatforms')==['iPhoneOS'], 'Not an iPhoneOS build'
 assert info.get('DTPlatformName')=='iphoneos', 'Simulator or unknown platform'
 assert not list(app.glob('PlugIns/*.appex')), 'Unexpected extension'
@@ -39,7 +42,8 @@ sha=hashlib.sha256(ipa.read_bytes()).hexdigest()
 (out/'SHA256SUMS').write_text(sha+'  '+ipa.name+'\n')
 metadata={'signature':'UNSIGNED; local signing required','commit':os.environ.get('GITHUB_SHA','local-uncommitted'),
           'run':os.environ.get('GITHUB_RUN_NUMBER'), 'createdUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),
-          'sha256':sha,'bundleID':info['CFBundleIdentifier'],'minimumOS':info['MinimumOSVersion'],
+          'sha256':sha,'bundleID':info['CFBundleIdentifier'],'version':info['CFBundleShortVersionString'],
+          'buildVersion':info['CFBundleVersion'],'minimumOS':info['MinimumOSVersion'],
           'sdk':info.get('DTSDKName'),'architectures':'arm64','hardwareValidated':False}
 (out/'build-metadata.json').write_text(json.dumps(metadata,indent=2)+'\n')
 print(ipa)
