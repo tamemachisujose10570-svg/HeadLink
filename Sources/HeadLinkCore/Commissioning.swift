@@ -49,6 +49,13 @@ public struct CommissioningIdentity: Sendable, Codable, Equatable {
     }
 }
 
+extension VerifiedLimits {
+    /// A saved local envelope is reusable only for an explicitly sourced exact identity.
+    public func matches(_ identity:CommissioningIdentity) -> Bool {
+        valid && identity.valid && model == identity.model && firmware == identity.firmware
+    }
+}
+
 public enum TestDirection:String,CaseIterable,Sendable,Codable {
     case right, left, up, down, origin
     public var axisYaw:Bool { self == .right || self == .left }

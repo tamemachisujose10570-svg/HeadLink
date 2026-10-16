@@ -40,7 +40,7 @@ struct SettingsView:View {
                 Section("关于 HeadLink") {
                     LabeledContent("版本",value:(Bundle.main.object(forInfoDictionaryKey:"CFBundleShortVersionString") as? String ?? "开发构建"))
                     Text("原生 iPhone 工具，数据在本地处理。无需账号，无广告，不上传运动数据或相机画面。")
-                    Text("已收到用户反馈：首版安装、耳机连接、Pocket配对与图传正常。头部姿态和运动控制需按本次实验逐项确认。").foregroundStyle(.orange)
+                    Text("已收到真实耳机姿态及四向5°运动、停止保持与返回确认记录。已保存该型号/固件的局部范围；校准后1∶1实测仍待完成。").foregroundStyle(.orange)
                     NavigationLink("开源许可与署名") { ScrollView { Text(licenseText).font(.footnote).textSelection(.enabled).padding() }.navigationTitle("开源许可") }
                     Text("使用 OpenCine / OpenPocketCine 的 Apache-2.0 开源实现。与 Apple、DJI 无官方关联。")
                 }

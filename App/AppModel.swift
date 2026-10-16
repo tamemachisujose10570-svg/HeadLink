@@ -23,6 +23,7 @@ import HeadLinkCore
     var fixedBaseConfirmed=false { didSet { if oldValue != fixedBaseConfirmed { revokeExperiment() } } }
     var followModeConfirmed=false { didSet { if oldValue != followModeConfirmed { revokeExperiment() } } }
     var experimentAccepted=false
+    var savedProfileAccepted=false
     var axes:ControlAxes = .both { didSet { pause(); controller.axes=axes; UserDefaults.standard.set(axes.rawValue,forKey:"axes") } }
     var response:ResponseMode = .immediate { didSet { pause(); controller.response=response; UserDefaults.standard.set(response.rawValue,forKey:"response") } }
     @ObservationIgnored let motion=HeadphoneMotion()
@@ -37,6 +38,12 @@ import HeadLinkCore
     @ObservationIgnored private var verifiedProfiles:[VerifiedLimits]=[]
     var headAge:Double? { controller.sample.map { max(0,now-$0.receivedAt) } }
     var profileReady:Bool { controller.limits?.valid == true }
+    var savedProfile:VerifiedLimits? { verifiedProfiles.first { $0.matches(currentIdentity) } }
+    var canUseSavedProfile:Bool {
+        guard let limits=savedProfile,let pose=camera.freshPose else { return false }
+        return camera.transportHealthy && confirmedModel && fixedBaseConfirmed && followModeConfirmed &&
+            camera.followModeBlock == nil && probe.movementObserved && canCalibrate && limits.clamp(pose.angles) == pose.angles
+    }
     var isFollowing:Bool { controller.state == .following }
     var canCalibrate:Bool { !commissioning.running && commissioning.state != .awaitingConfirmation && camera.freshPose != nil && (headAge.map{$0 < 0.2} ?? false) }
     var currentIdentity:CommissioningIdentity {
@@ -51,7 +58,11 @@ import HeadLinkCore
         if !probe.movementObserved { result.append("尚未观察到左右和上下各至少3°的真实头部变化") }
         if camera.freshPose == nil { result.append("镜头姿态缺失或超过300ms") }
         if let reason=camera.followModeBlock { result.append(reason) }
-        if !profileReady { result.append("未启用匹配的配置；请完成本次小角度实验") }
+        if !profileReady { result.append("未启用匹配的配置；请在跟随准备中选择已测配置或完成实验") }
+        if savedProfileAccepted && savedProfile == nil { result.append("保存的局部配置与当前真实型号或固件不匹配") }
+        if let limits=controller.limits,let pose=camera.freshPose,limits.clamp(pose.angles) != pose.angles {
+            result.append("镜头当前角度超出已测局部范围，请用机身摇杆调整回范围内")
+        }
         if !controller.hasCalibration { result.append("尚未校准头部与镜头方向") }
         if commissioning.running || commissioning.state == .awaitingConfirmation { result.append("云台实验仍在进行或等待确认") }
         return result
@@ -93,7 +104,11 @@ import HeadLinkCore
         if let bound=commissioning.identity,(bound.model != identity.model || bound.firmware != identity.firmware) {
             revokeExperiment(); notice="机型或固件信息变化，本次实验配置已清除"
         }
-        let verified=verifiedProfiles.first { $0.model == identity.model && $0.firmware == identity.firmware }
+        let verified=savedProfileAccepted ? savedProfile : nil
+        if savedProfileAccepted && verified == nil {
+            savedProfileAccepted=false; camera.stopTargets(); controller.pause(invalidateCalibration:true)
+            notice="真实型号或固件不再匹配，已撤销本次配置启用"
+        }
         controller.limits=verified ?? (experimentAccepted && commissioning.readyForFollow ? commissioning.experimentalLimits : nil)
     }
     private func step() {
@@ -108,10 +123,10 @@ import HeadLinkCore
         else if probe.referenceChanged { motionLabel="姿态参考中断或跳变，请重设观察零点并重新校准" }
         else { motionLabel=(headAge.map{$0 <= 0.2} ?? false) ? "数据正常" : "等待新的运动数据" }
         synchronizeLimits()
-        if let reason=camera.followModeBlock,(commissioning.state != .inactive || isFollowing) {
+        if let reason=camera.followModeBlock,(commissioning.state != .inactive || isFollowing || savedProfileAccepted) {
             revokeExperiment(); notice=reason
         }
-        if camera.connected,showingCommissioning || isFollowing || commissioning.running,now-controlInfoAt >= 2 {
+        if camera.connected,showingCommissioning || isFollowing || commissioning.running || savedProfileAccepted,now-controlInfoAt >= 2 {
             camera.refreshControlInfo(); controlInfoAt=now
         }
         if controller.state == .calibrating {
@@ -144,7 +159,7 @@ import HeadLinkCore
             sendHz=rateAt > 0 && count >= writesBefore ? Double(count-writesBefore)/(now-rateAt) : 0
             writesBefore=count; rateAt=now
         }
-        if (UserDefaults.standard.bool(forKey:"recordDiagnostics") || commissioning.state != .inactive),now-diagnosticAt >= 0.1 {
+        if (UserDefaults.standard.bool(forKey:"recordDiagnostics") || commissioning.state != .inactive || savedProfileAccepted),now-diagnosticAt >= 0.1 {
             diagnosticAt=now
             diagnostics.append(.init(uptime:now,state:controller.state.rawValue,headAge:headAge,
                 head:controller.head,probe:probe.look,raw:controller.rawTarget,command:camera.lastSubmittedAngles,
@@ -157,7 +172,12 @@ import HeadLinkCore
     func retryMotion() { motion.stop(); lastSensor=nil; controller.motionUnavailable(); probe.reset(); camera.stopTargets(); motion.start() }
     func revokeExperiment() {
         camera.stopTargets(); controller.pause(invalidateCalibration:true); controller.limits=nil
-        commissioning = .init(); experimentAccepted=false; errorSince=nil
+        commissioning = .init(); experimentAccepted=false; savedProfileAccepted=false; errorSince=nil
+    }
+    func useSavedProfile() {
+        guard canUseSavedProfile else { notice="请核对真实型号、固件、固定机身和跟随模式，确认数据新鲜且镜头处于已测范围"; return }
+        revokeExperiment(); savedProfileAccepted=true; synchronizeLimits()
+        notice="已启用保存的局部配置，尚不运动。点击校准，并在弹窗点击开始校准；成功后点击开始／恢复跟随。"
     }
     func beginExperiment() {
         guard camera.transportHealthy,let pose=camera.freshPose,confirmedModel,fixedBaseConfirmed,followModeConfirmed,
@@ -231,7 +251,8 @@ import HeadLinkCore
                 limits:controller.limits,stopAttemptAt:camera.lastStopAttemptAt,
                 targetSubmissions:camera.targetSubmissions,nativeWrites:camera.nativeWrites,
                 lastSubmittedAngles:camera.lastSubmittedAngles,lastSubmittedNativePitch:camera.lastSubmittedNativePitch,
-                lastCommandIssue:camera.lastCommandIssue)
+                lastCommandIssue:camera.lastCommandIssue,calibrationComplete:controller.hasCalibration,
+                configurationSource:savedProfileAccepted ? "saved-local-envelope" : (experimentAccepted ? "session-experiment" : "none"))
             try encoder.encode(DiagnosticExport(schema:2,generatedAt:Date(),context:context,rows:diagnostics)).write(to:url,options:.atomic)
             exportURL=url
         } catch { notice="诊断导出失败，请重试" }
@@ -255,6 +276,7 @@ struct DiagnosticContext:Codable {
     let blockers:[String]; let receipts:[MovementReceipt]; let pendingReceipt:MovementReceipt?
     let limits:VerifiedLimits?; let stopAttemptAt:Double?
     let targetSubmissions:Int; let nativeWrites:Int; let lastSubmittedAngles:Angles?; let lastSubmittedNativePitch:Double?; let lastCommandIssue:String?
+    let calibrationComplete:Bool; let configurationSource:String
 }
 struct DiagnosticExport:Codable { let schema:Int; let generatedAt:Date; let context:DiagnosticContext; let rows:[DiagnosticRow] }
 func commissioningFailure(_ reason:CommissioningError?) -> String {

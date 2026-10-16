@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "model": "Osmo Pocket 4",
+    "firmware": "01.03.14.04",
+    "yawMin": -4.5,
+    "yawMax": 5.1,
+    "pitchMin": -5.4,
+    "pitchMax": 4.6,
+    "evidence": "Personal fixed-base local envelope; operator-confirmed firmware and 4 directions + 4 returns; conservative intersection of commanded endpoints and final reports; not mechanical limits or full 1:1 accuracy certification. Diagnostic SHA256 167e16e6ec363a0fd8cd8e347fb03eb2ae813872b46f5e40963ddb0cd48b76a3; docs/DEVICE_EVIDENCE.md"
+  }
+]

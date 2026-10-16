@@ -56,3 +56,7 @@ fixture 为本项目合成的合法脱敏数据，没有私人设备信息。测
 最终云构建run #5：[https://github.com/wch33e/HeadLink/actions/runs/38906748373](https://github.com/wch33e/HeadLink/actions/runs/38906748373)，源码ed94612f7944a2a6fb10d5a78ec9f9f3123eda38。25项测试与完整设备编译、递增构建号检查、打包通过。
 
 下载真实run #5 IPA并独立读取plist与Mach-O通过：版本1.1.0（5）、org.headlink.personal、最低iOS17.0、iPhoneOS arm64。codesign确认未签名、无profile，需Sideloadly签名。SHA256 83af04c07372541565e9b65bf1c707680722c527b6f0c9ffaa4841ba08bf684a 与云端metadata相等。记录随产物保存在inspection.json。
+
+## 1.1.1 实机已测配置
+
+本地28项/4组测试通过。新增：打包配置从真实端点生成、精确型号/固件/来源匹配拒绝错误身份、真实起点native pitch约180°时1∶1/保持/回基准/跨±180映射及重连必须重校准。CLI-only Testing Foundation交叉overlay缺模块接口，本地追加 `-Xswiftc -Xfrontend -Xswiftc -disable-cross-import-overlays`，未改变App编译或云端标准测试。App语法和236个依赖哈希通过。用户实机证据与不能证明的内容见DEVICE_EVIDENCE.md。

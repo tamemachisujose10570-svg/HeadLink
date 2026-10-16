@@ -37,10 +37,21 @@ struct CommissioningView:View {
                     Button("读取云台参数（不发运动命令）") { model.camera.refreshControlInfo() }
                     Text("相机从屏幕顶部下滑，选择跟随模式，并关闭ActiveTrack和智能云台。未收到模式参数时需人工核对；收到不兼容模式时会阻止运动。")
                 }
-                Section("3 · 准备本次固定基座实验") {
+                Section("3 · 固定基座跟随准备") {
                     Toggle("已核对机身为识别出的Pocket 4及固件",isOn:$model.confirmedModel)
                     Toggle("机身已固定，所测方向活动范围无遮挡",isOn:$model.fixedBaseConfirmed)
                     Toggle("已选跟随模式，已关闭跟踪和智能云台",isOn:$model.followModeConfirmed)
+                    if let limits=model.savedProfile {
+                        Text(String(format:"已保存局部配置：yaw %.1f°…%.1f°；pitch %.1f°…%.1f°",limits.yawMin,limits.yawMax,limits.pitchMin,limits.pitchMax)).monospacedDigit()
+                        Text("型号和固件已精确匹配，可复用已测范围，无需重复5°实验。需重新核对现场条件、校准并点击开始；不会连接后自动运动。")
+                        if let pose=model.camera.freshPose,limits.clamp(pose.angles) != pose.angles {
+                            Text("当前镜头超出已测范围，请用机身摇杆调整回上方范围内。App不会自动回中。").foregroundStyle(.orange)
+                        }
+                        Button("使用已测配置，返回拍摄页校准") {
+                            model.useSavedProfile()
+                            if model.savedProfileAccepted { dismiss() }
+                        }.disabled(!model.canUseSavedProfile)
+                    }
                     Button("准备本次实验（尚不运动）") { observed=false; model.beginExperiment() }
                         .disabled(!model.camera.connected || model.commissioning.running || !model.currentIdentity.valid ||
                                   !model.confirmedModel || !model.fixedBaseConfirmed || !model.followModeConfirmed || model.camera.freshPose == nil)
@@ -97,7 +108,7 @@ struct CommissioningView:View {
                     Text("不包含相机密码、完整设备标识或视频。固件来源、姿态帧长度、目标/反馈、停止观察与未通过原因会保留。")
                     if let notice=model.notice { Text(LocalizedStringKey(notice)).foregroundStyle(.secondary) }
                 }
-            }.navigationTitle("首次联动实验")
+            }.navigationTitle("跟随准备与实验")
                 .toolbar { Button("完成") { if model.commissioning.running { model.stopTest() }; dismiss() } }
                 .confirmationDialog("确认机身已固定且目标方向无遮挡",isPresented:Binding(get:{requestedDirection != nil},set:{if !$0 { requestedDirection=nil }}),titleVisibility:.visible) {
                     if let direction=requestedDirection {

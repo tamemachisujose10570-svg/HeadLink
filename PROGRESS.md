@@ -46,3 +46,11 @@
 
 - 已下载直接复核IPA：CFBundleShortVersionString=1.1.0、CFBundleVersion=5、bundle ID=org.headlink.personal、最低iOS17.0、iPhoneOS arm64、未签名，无内嵌provisioning profile。
 - SHA256：83af04c07372541565e9b65bf1c707680722c527b6f0c9ffaa4841ba08bf684a；与云端metadata一致。真实运动验收仍待用户。
+
+## 1.1.1：根据用户实机证据保存局部配置
+
+- 用户诊断确认真实耳机约50Hz回调、Osmo Pocket 4、人工固件01.03.14.04、iOS27.0、跟随/俯仰未锁定、4端点+4返回与停止保持均人工确认。
+- 导出时唯一blocker是未校准；1591行均userPaused，1∶1尚无运行证据。
+- 保存保守局部窗口：yaw -4.5…5.1，display pitch -5.4…4.6；不叫机械极限，不扩大。证据docs/DEVICE_EVIDENCE.md及摘要。
+- 复用仍需精确身份来源、3项现场确认、新鲜数据、头部实际变化和当前角度在范围内，明确点击启用后再校准、开始。连接/断连/校准不会自动运动；配置跨连接保存，启用资格不保存。
+- 本地28项测试通过（包括真实起点native pitch±180的映射回归），App语法及236个Vendor哈希通过。CLI Testing缺Foundation overlay的模块接口，本地运行追加-disable-cross-import-overlays；云端full Xcode仍运行标准测试。新版云端构建待完成。

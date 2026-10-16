@@ -2780,6 +2780,226 @@
           }
         }
       }
+    },
+    "已收到真实耳机姿态及四向5°运动、停止保持与返回确认记录。已保存该型号/固件的局部范围；校准后1∶1实测仍待完成。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已收到真实耳机姿态及四向5°运动、停止保持与返回确认记录。已保存该型号/固件的局部范围；校准后1∶1实测仍待完成。"
+          }
+        }
+      }
+    },
+    "保存的局部配置与当前真实型号或固件不匹配": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存的局部配置与当前真实型号或固件不匹配"
+          }
+        }
+      }
+    },
+    "镜头当前角度超出已测局部范围，请用机身摇杆调整回范围内": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "镜头当前角度超出已测局部范围，请用机身摇杆调整回范围内"
+          }
+        }
+      }
+    },
+    "真实型号或固件不再匹配，已撤销本次配置启用": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "真实型号或固件不再匹配，已撤销本次配置启用"
+          }
+        }
+      }
+    },
+    "请核对真实型号、固件、固定机身和跟随模式，确认数据新鲜且镜头处于已测范围": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请核对真实型号、固件、固定机身和跟随模式，确认数据新鲜且镜头处于已测范围"
+          }
+        }
+      }
+    },
+    "已启用保存的局部配置，尚不运动。请进入拍摄，点击校准，并在弹窗再次点击校准；成功后点击开始／恢复跟随。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已启用保存的局部配置，尚不运动。请进入拍摄，点击校准，并在弹窗再次点击校准；成功后点击开始／恢复跟随。"
+          }
+        }
+      }
+    },
+    "3 · 固定基座跟随准备": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3 · 固定基座跟随准备"
+          }
+        }
+      }
+    },
+    "已保存局部配置：yaw %.1f°…%.1f°；pitch %.1f°…%.1f°": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已保存局部配置：yaw %.1f°…%.1f°；pitch %.1f°…%.1f°"
+          }
+        }
+      }
+    },
+    "型号和固件已精确匹配，可复用已测范围，无需重复5°实验。需重新核对现场条件、校准并点击开始；不会连接后自动运动。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "型号和固件已精确匹配，可复用已测范围，无需重复5°实验。需重新核对现场条件、校准并点击开始；不会连接后自动运动。"
+          }
+        }
+      }
+    },
+    "当前镜头超出已测范围，请用机身摇杆调整回上方范围内。App不会自动回中。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前镜头超出已测范围，请用机身摇杆调整回上方范围内。App不会自动回中。"
+          }
+        }
+      }
+    },
+    "使用已测配置，返回拍摄页校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用已测配置，返回拍摄页校准"
+          }
+        }
+      }
+    },
+    "跟随准备与实验": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跟随准备与实验"
+          }
+        }
+      }
+    },
+    "真实数据与跟随准备": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "真实数据与跟随准备"
+          }
+        }
+      }
+    },
+    "进入“真实数据与跟随准备”：核对现场条件后使用匹配的已测配置，或完成首次5°实验，再校准并开始。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "进入“真实数据与跟随准备”：核对现场条件后使用匹配的已测配置，或完成首次5°实验，再校准并开始。"
+          }
+        }
+      }
+    },
+    "先打开跟随准备，使用匹配的已测配置或完成小角度实验": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "先打开跟随准备，使用匹配的已测配置或完成小角度实验"
+          }
+        }
+      }
+    },
+    "已启用保存的局部配置": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已启用保存的局部配置"
+          }
+        }
+      }
+    },
+    "已启用本次实验配置": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已启用本次实验配置"
+          }
+        }
+      }
+    },
+    "已测范围 yaw %.1f…%.1f° / pitch %.1f…%.1f°": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已测范围 yaw %.1f…%.1f° / pitch %.1f…%.1f°"
+          }
+        }
+      }
+    },
+    "未启用匹配的配置；请在跟随准备中选择已测配置或完成实验": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未启用匹配的配置；请在跟随准备中选择已测配置或完成实验"
+          }
+        }
+      }
+    },
+    "已启用保存的局部配置，尚不运动。点击校准，并在弹窗点击开始校准；成功后点击开始／恢复跟随。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已启用保存的局部配置，尚不运动。点击校准，并在弹窗点击开始校准；成功后点击开始／恢复跟随。"
+          }
+        }
+      }
+    },
+    "开始校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开始校准"
+          }
+        }
+      }
+    },
+    "范围已启用：点击“校准”，再在弹窗点击“开始校准”；成功后再开始跟随。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "范围已启用：点击“校准”，再在弹窗点击“开始校准”；成功后再开始跟随。"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

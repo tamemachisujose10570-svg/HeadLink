@@ -65,7 +65,7 @@ struct RootView: View {
                     Text(model.controller.state == .calibrating ? "正在检查稳定性，请保持头部和机身静止" : "准备好后，建立新的方向对应关系")
                     Text("此操作不会发送机械回中指令").font(.footnote).foregroundStyle(.secondary)
                     if model.controller.state == .calibrating { ProgressView() }
-                    else { Button("校准") { model.calibrate() }.buttonStyle(.borderedProminent).disabled(!model.canCalibrate) }
+                    else { Button("开始校准") { model.calibrate() }.buttonStyle(.borderedProminent).disabled(!model.canCalibrate) }
                     Button("取消") { model.clearCalibration(); model.showingCalibration=false }
                 }.padding(28).presentationDetents([.medium,.large])
             }
@@ -75,6 +75,8 @@ struct RootView: View {
                 Button("取消",role:.cancel) {}
             } message: { Text("继续原关系会以受限速度过渡到当前目标；重新对齐会保留当前构图。") }
             .onChange(of:shooting) { _,value in UIApplication.shared.isIdleTimerDisabled=value && keepAwake }
+            .onChange(of:model.savedProfileAccepted) { _,value in if value { shooting=true } }
+            .onChange(of:model.experimentAccepted) { _,value in if value { shooting=true } }
             .onChange(of:keepAwake) { _,value in UIApplication.shared.isIdleTimerDisabled=value && shooting }
             .tint(accent)
         }
@@ -86,7 +88,7 @@ struct RootView: View {
                 Text(LocalizedStringKey(model.motionLabel))
                 Text("观察 yaw / pitch：\(format((model.headAge.map{$0 <= 0.2} ?? false) ? model.probe.look : nil))").monospacedDigit()
                 Text(String(format:"实际回调 %.1f Hz",model.callbackHz)).font(.caption)
-                Button("检查真实数据与首次5°实验") { model.pause(); model.showingCommissioning=true }.buttonStyle(.bordered)
+                Button("真实数据与跟随准备") { model.pause(); model.showingCommissioning=true }.buttonStyle(.bordered)
                 Text("先在 iPhone 系统中连接 AirPods。只有收到新鲜姿态，才表示运动数据可用。").font(.footnote).foregroundStyle(.secondary)
                 Button("检查运动数据") { model.retryMotion() }.buttonStyle(.bordered)
                 if model.motion.authorization == .denied { settingsLink }
@@ -113,7 +115,7 @@ struct RootView: View {
                 Text("配对时请在相机屏幕确认。关闭 DJI Mimo，避免占用连接。").font(.footnote).foregroundStyle(.secondary)
             }
             Button("进入拍摄",systemImage:"viewfinder") { shooting=true }.frame(maxWidth:.infinity,minHeight:44).buttonStyle(.borderedProminent)
-            Text("首次使用请进入“首次5°实验”。真实姿态、单轴运动及返回确认通过后，可启用本次固定基座实验跟随。").font(.footnote).foregroundStyle(.orange)
+            Text("进入“真实数据与跟随准备”：核对现场条件后使用匹配的已测配置，或完成首次5°实验，再校准并开始。").font(.footnote).foregroundStyle(.orange)
         }
     }
     private var statusBar: some View {
@@ -147,10 +149,14 @@ struct RootView: View {
     private var controls: some View {
         VStack(spacing:14) {
             Text(model.axes == .both ? "左右＋上下 1∶1" : model.axes == .yaw ? "仅左右 1∶1" : "仅上下 1∶1").font(.headline)
-            Button("真实数据检查／首次5°实验",systemImage:"testtube.2") { model.pause(); model.showingCommissioning=true }.buttonStyle(.bordered)
-            if !model.profileReady { Text("先完成本次小角度实验，再启用局部1∶1跟随").font(.footnote).foregroundStyle(.orange) }
-            if model.experimentAccepted,let limits=model.controller.limits {
-                Text(String(format:"实验包络 yaw %.1f…%.1f° / pitch %.1f…%.1f°",limits.yawMin,limits.yawMax,limits.pitchMin,limits.pitchMax)).font(.caption).monospacedDigit()
+            Button("真实数据与跟随准备",systemImage:"testtube.2") { model.pause(); model.showingCommissioning=true }.buttonStyle(.bordered)
+            if !model.profileReady { Text("先打开跟随准备，使用匹配的已测配置或完成小角度实验").font(.footnote).foregroundStyle(.orange) }
+            if model.profileReady,let limits=model.controller.limits {
+                Text(model.savedProfileAccepted ? "已启用保存的局部配置" : "已启用本次实验配置").font(.caption)
+                Text(String(format:"已测范围 yaw %.1f…%.1f° / pitch %.1f…%.1f°",limits.yawMin,limits.yawMax,limits.pitchMin,limits.pitchMax)).font(.caption).monospacedDigit()
+            }
+            if model.profileReady && !model.controller.hasCalibration {
+                Text("范围已启用：点击“校准”，再在弹窗点击“开始校准”；成功后再开始跟随。").font(.footnote).foregroundStyle(.orange)
             }
             if model.controller.output?.transitioning == true { Text("正在过渡到目标方向").font(.caption).foregroundStyle(accent) }
             Button(model.isFollowing ? "暂停跟随" : "开始／恢复跟随",systemImage:model.isFollowing ? "pause.fill" : "play.fill") {

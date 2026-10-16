@@ -1,0 +1,142 @@
+{
+  "sourceSHA256": "167e16e6ec363a0fd8cd8e347fb03eb2ae813872b46f5e40963ddb0cd48b76a3",
+  "schema": 2,
+  "model": "Osmo Pocket 4",
+  "firmware": "01.03.14.04",
+  "firmwareSource": "operator-confirmed",
+  "iOS": "27.0",
+  "mode": "跟随／俯仰未锁定（真实回报）",
+  "rows": 1591,
+  "freshHeadRows": 1583,
+  "medianFreshHeadHz": 50.24893531927795,
+  "medianFreshHeadAgeMs": 13.162000000193075,
+  "states": {
+    "userPaused": 1591
+  },
+  "blockersAtExport": [
+    "尚未校准头部与镜头方向"
+  ],
+  "profile": {
+    "model": "Osmo Pocket 4",
+    "firmware": "01.03.14.04",
+    "yawMin": -4.5,
+    "yawMax": 5.1,
+    "pitchMin": -5.4,
+    "pitchMax": 4.6,
+    "evidence": "Personal fixed-base local envelope; operator-confirmed firmware and 4 directions + 4 returns; conservative intersection of commanded endpoints and final reports; not mechanical limits or full 1:1 accuracy certification. Diagnostic SHA256 167e16e6ec363a0fd8cd8e347fb03eb2ae813872b46f5e40963ddb0cd48b76a3; docs/DEVICE_EVIDENCE.md"
+  },
+  "receipts": [
+    {
+      "direction": "right",
+      "target": {
+        "pitch": -0.4,
+        "yaw": 5.3
+      },
+      "final": {
+        "pitch": -0.4,
+        "yaw": 5.1
+      },
+      "operatorConfirmed": true,
+      "maximumPostStopMovement": 0.10000000000000053,
+      "submittedTargets": 87
+    },
+    {
+      "direction": "origin",
+      "target": {
+        "pitch": -0.4,
+        "yaw": 0.3
+      },
+      "final": {
+        "pitch": -0.4,
+        "yaw": 0.5
+      },
+      "operatorConfirmed": true,
+      "maximumPostStopMovement": 0.09999999999999998,
+      "submittedTargets": 91
+    },
+    {
+      "direction": "left",
+      "target": {
+        "pitch": -0.4,
+        "yaw": -4.7
+      },
+      "final": {
+        "pitch": -0.4,
+        "yaw": -4.5
+      },
+      "operatorConfirmed": true,
+      "maximumPostStopMovement": 0.09999999999999964,
+      "submittedTargets": 92
+    },
+    {
+      "direction": "origin",
+      "target": {
+        "pitch": -0.4,
+        "yaw": 0.3
+      },
+      "final": {
+        "pitch": -0.4,
+        "yaw": 0.1
+      },
+      "operatorConfirmed": true,
+      "maximumPostStopMovement": 0.1,
+      "submittedTargets": 89
+    },
+    {
+      "direction": "up",
+      "target": {
+        "pitch": 4.6,
+        "yaw": 0.3
+      },
+      "final": {
+        "pitch": 4.6,
+        "yaw": 0.3
+      },
+      "operatorConfirmed": true,
+      "maximumPostStopMovement": 0,
+      "submittedTargets": 88
+    },
+    {
+      "direction": "origin",
+      "target": {
+        "pitch": -0.4,
+        "yaw": 0.3
+      },
+      "final": {
+        "pitch": -0.3,
+        "yaw": 0.3
+      },
+      "operatorConfirmed": true,
+      "maximumPostStopMovement": 0.10000000000000003,
+      "submittedTargets": 89
+    },
+    {
+      "direction": "down",
+      "target": {
+        "pitch": -5.4,
+        "yaw": 0.3
+      },
+      "final": {
+        "pitch": -5.5,
+        "yaw": 0.3
+      },
+      "operatorConfirmed": true,
+      "maximumPostStopMovement": 0,
+      "submittedTargets": 92
+    },
+    {
+      "direction": "origin",
+      "target": {
+        "pitch": -0.4,
+        "yaw": 0.3
+      },
+      "final": {
+        "pitch": -0.3,
+        "yaw": 0.3
+      },
+      "operatorConfirmed": true,
+      "maximumPostStopMovement": 0,
+      "submittedTargets": 93
+    }
+  ]
+}
