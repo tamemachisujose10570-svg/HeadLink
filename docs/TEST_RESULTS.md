@@ -1,6 +1,6 @@
 # 验证记录
 
-日期：2026-10-16（Asia/Shanghai）。执行环境：macOS 26.1 / Apple Silicon / Swift 6.2 / CommandLineTools。**没有本地 Xcode、iOS SDK 或模拟器测试。**
+日期：2026-10-16（Asia/Shanghai）。执行环境：macOS 26.1 / Apple Silicon / Swift 6.2 / CommandLineTools。**没有安装本地 Xcode 或模拟器；首次云端 iOS device 编译现已成功。**
 
 | 检查 | 结果 | 能证明什么 |
 | --- | --- | --- |
@@ -13,7 +13,9 @@
 | Info.plist `plutil -lint` | 通过 | plist 格式正确 |
 | shell `bash -n` / Python 编译 | 通过 | 脚本语法；不是已实际打出 IPA |
 | Vendor manifest SHA-256 | 通过 | 当前固定依赖及已记录修改与文件哈希一致 |
-| iOS smoke / full device build | 未运行 | 缺少已指定云端仓库及本次构建权限/费用确认 |
+| iOS smoke / full device build | 云端通过 | run #1，Xcode 26.1.1，iPhoneOS arm64 Release |
+| 云端核心/协议测试 | 15项通过 | 与本机相同测试文件 |
+| device IPA 打包检查 | 云端通过 | arm64、iPhoneOS、权限说明、内嵌依赖、无Hotspot entitlement |
 | App 安装、UI、AirPods、Pocket | 未运行 | 无本项目硬件证据 |
 
 ## 测试内容
@@ -36,3 +38,5 @@ fixture 为本项目合成的合法脱敏数据，没有私人设备信息。测
 在工程根目录执行 `bash scripts/test-core.sh`。受限工具环境可追加 `--disable-sandbox`。云端 full Xcode 使用同一测试文件，不需要本机安装 Xcode。
 
 不要将“15 项通过”解读为物理精度证明，或把测试耗时解读为控制延迟。
+
+首次云构建：https://github.com/wch33e/HeadLink/actions/runs/38896370871 ，源码 c47dc56b46e8e3016cb124618514d697b79b19e7。上传产物包含device-build.xcresult与原始日志。job 2026-10-16 19:50:01–19:52:09（Asia/Shanghai）。

@@ -13,13 +13,13 @@
 | 固定支架 | 机身不动的第一阶段基线 | 未验证 |
 | 移动基座 | 手持/胸前/肩带 | 当前不支持 |
 | 自动加入相机 Wi-Fi | 无 Hotspot entitlement | 当前不提供；手动加入路径待真机验证 |
-| Sideloadly 免费签名 | 未签名 device IPA 供本地重签 | 未生成 IPA，未安装 |
+| Sideloadly 免费签名 | 已生成未签名 device IPA 供本地重签 | 未安装验证 |
 
 ## 工具链
 
 - 本机 macOS 26.1 / arm64，Swift 6.2，CommandLineTools：15 个核心/协议测试通过。
 - XcodeGen 2.44.1：本机成功生成工程。
-- 云端 macos-15 / Xcode 26.1.1 / iOS 26.1 SDK：已核实 runner 清单，尚未运行本项目构建。
+- 云端 macos-15 / Xcode 26.1.1 / iOS 26.1 SDK：Actions run #1 已通过最小与完整 iPhoneOS arm64 Release 编译及IPA打包。
 - OpenCine 固定 `acc38b57d43d4308c79ad5ce951bcb6f44d14d68`。上游声明支持 Pocket 4/4 Pro/3；HeadLink 没有继承其验证结论。
 
 ## 限位的三个层次

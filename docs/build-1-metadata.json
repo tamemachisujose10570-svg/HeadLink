@@ -1,0 +1,12 @@
+{
+  "signature": "UNSIGNED; local signing required",
+  "commit": "c47dc56b46e8e3016cb124618514d697b79b19e7",
+  "run": "1",
+  "createdUTC": "2026-10-16T11:52:06.459286+00:00",
+  "sha256": "c9e3abf6b1dbafddb53eb5f08e964d402a56af4db50652ce436c2de04b1db442",
+  "bundleID": "org.headlink.personal",
+  "minimumOS": "17.0",
+  "sdk": "iphoneos26.1",
+  "architectures": "arm64",
+  "hardwareValidated": false
+}

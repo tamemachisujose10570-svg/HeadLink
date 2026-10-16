@@ -1,6 +1,6 @@
 # 不安装 Xcode 的安装、更新和刷新
 
-**当前尚未生成 IPA。** 以下是源码中的预定交付路线，必须等 GitHub 的真机构建成功才能操作。没有签名的 IPA 不能在 iPhone 上直接点开安装。
+**首次云端 IPA 已生成。** [下载 run #1 产物](https://github.com/wch33e/HeadLink/actions/runs/38896370871/artifacts/12044256826)，解压得到 `HeadLink-unsigned.ipa`。这是 iPhoneOS arm64 Release 包，需要 Sideloadly 本地签名；尚未验证安装和硬件。未签名 IPA 不能直接点开安装。
 
 ## 1. 云端获得正确产物
 

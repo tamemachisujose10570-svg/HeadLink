@@ -1,6 +1,6 @@
 # HeadLink · 头部联动拍摄
 
-原生 Swift / SwiftUI iPhone 工程。目标组合是 iPhone + AirPods Pro 3 + DJI Pocket 4，先以固定支架、相机机身不动为基线。当前是 **0.1.0 开发源码交付，不是经过真机验证的成品**。
+原生 Swift / SwiftUI iPhone 工程。目标组合是 iPhone + AirPods Pro 3 + DJI Pocket 4，先以固定支架、相机机身不动为基线。当前为 **0.1.0 开发构建，云端真机编译和未签名 IPA 打包已通过，硬件尚未验证**。
 
 ## 当前状态（2026-10-16）
 
@@ -8,8 +8,8 @@
 | --- | --- |
 | 代码已写 | 耳机运动读取、配对与手动 Wi-Fi 适配、真实遥测解析、绝对角度命令、预览接入、录像请求/确认、中文界面、诊断导出 |
 | 核心编译和测试 | macOS / Swift 6.2，15 项 Swift Testing 测试通过；工程生成、Swift 语法检查、plist 校验通过 |
-| iOS App 编译 | **未执行成功**：本机没有完整 Xcode，尚无用户指定和授权的云端仓库 |
-| IPA / 安装 | **未生成 IPA，未安装**；没有可提供的安装包下载链接 |
+| iOS App 编译 | **云端成功**：Actions run #1，Xcode 26.1.1，iPhoneOS arm64 Release |
+| IPA / 安装 | **已生成未签名 device IPA**，供 Sideloadly 本地重签；尚未安装 |
 | 硬件运行 | **未验证**；机型固件、iOS、方向符号、实测限位、延迟和精度都不能宣称已确认 |
 
 `App/VerifiedProfiles.json` 故意为空。未配置匹配真实型号/固件和测试证据的限位时，跟随按钮禁用，真实连接、姿态采集、校准、诊断与预览仍可测试。它不是自动退回模拟器的 App，也不包含假实时画面、假角度反馈或模拟 REC。
@@ -46,8 +46,15 @@
 
 ## 费用与维护
 
-本地算法、界面和协议无收费服务。私有仓库的 GitHub macOS 构建和产物存储会使用账户额度，超额可能收费；本次没有触发云构建或购买服务。免费签名通常需每 7 天刷新，Sideloadly 刷新需要符合工具要求的电脑和设备连接。参见安装文档，不承诺永久免费或永久免维护。
+本地算法、界面和协议无收费服务。私有仓库的 GitHub macOS 构建和产物存储会使用账户额度，超额可能收费；首次云构建已在账户 Actions $0 付费预算限制下完成，没有调整计费设置或购买服务。免费签名通常需每 7 天刷新，Sideloadly 刷新需要符合工具要求的电脑和设备连接。参见安装文档，不承诺永久免费或永久免维护。
 
 ## 许可
 
 HeadLink 新增代码采用 Apache-2.0，见 `LICENSE`。固定依赖版本、文件哈希和本地修改见 `Vendor/manifest.json`、`Vendor/OpenCine/HEADLINK_MODIFICATIONS.md`。本项目与 Apple / DJI 无官方关联；不修改相机固件，不使用官方 DJI SDK。
+
+## 首次云端构建
+
+- 代码提交：`c47dc56b46e8e3016cb124618514d697b79b19e7`。
+- [Actions run #1](https://github.com/wch33e/HeadLink/actions/runs/38896370871)：success，job 用时 2分8秒。
+- [未签名 IPA 产物](https://github.com/wch33e/HeadLink/actions/runs/38896370871/artifacts/12044256826)：`HeadLink-unsigned-1`，保留3天，下载需仓库权限。
+- 已通过最小真机SDK编译、15项核心/协议测试、完整App真机编译和打包检查；未进行安装或硬件验收。
