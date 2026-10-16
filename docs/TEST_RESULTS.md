@@ -59,4 +59,8 @@ fixture 为本项目合成的合法脱敏数据，没有私人设备信息。测
 
 ## 1.1.1 实机已测配置
 
-本地28项/4组测试通过。新增：打包配置从真实端点生成、精确型号/固件/来源匹配拒绝错误身份、真实起点native pitch约180°时1∶1/保持/回基准/跨±180映射及重连必须重校准。CLI-only Testing Foundation交叉overlay缺模块接口，本地追加 `-Xswiftc -Xfrontend -Xswiftc -disable-cross-import-overlays`，未改变App编译或云端标准测试。App语法和236个依赖哈希通过。用户实机证据与不能证明的内容见DEVICE_EVIDENCE.md。
+本地28项/4组测试通过。新增：打包配置从真实端点生成、精确型号/固件/来源匹配拒绝错误身份、真实起点native pitch约180°时1∶1/保持/回基准/跨±180映射及重连必须重校准。CLI-only Testing Foundation交叉overlay缺模块接口，test-core.sh已在CLT-only分支自动追加 `-Xswiftc -Xfrontend -Xswiftc -disable-cross-import-overlays`，默认本地命令28项通过；未改变App编译或云端标准测试。App语法和236个依赖哈希通过。用户实机证据与不能证明的内容见DEVICE_EVIDENCE.md。
+
+1.1.1（6）云端成功：[https://github.com/wch33e/HeadLink/actions/runs/38919199454](https://github.com/wch33e/HeadLink/actions/runs/38919199454)，源码107834d9e6d9b874bd49281fab72d630860554a6。标准full Xcode环境28项/4组全部通过，完整iOS device编译及IPA打包通过；本地测试脚本的CLT分支兼容修复不影响本次App二进制或云端测试命令。
+
+真实IPA本地复核通过：版本1.1.1（6）、bundle ID不变、arm64/iPhoneOS、未签名、无provisioning profile；包内已测配置资源与源文件逐字相同。SHA256 82477b322e879863774193f2fb9638cc27455661d819361e0babd69c1622d70a 与云端metadata/SHA256SUMS相同。

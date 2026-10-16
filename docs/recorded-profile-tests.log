@@ -2,247 +2,74 @@ warning: /Users/wch/Library/org.swift.swiftpm/configuration is not accessible or
 warning: /Users/wch/Library/org.swift.swiftpm/security is not accessible or not writable, disabling user-level cache features.
 warning: /Users/wch/Library/Caches/org.swift.swiftpm is not accessible or not writable, disabling user-level cache features.
 warning: 'headlink': failed storing manifest for 'headlink' in cache: attempt to write a readonly database
-warning: 'opencine': failed storing manifest for 'opencine' in cache: attempt to write a readonly database
-[0/1] Planning build
 Building for debugging...
-[0/3] Write swift-version--1AB21518FC5DEDBE.txt
-[2/22] Compiling OpenCineCore Integration.swift
-[3/22] Compiling OpenCineCore LayoutProjection.swift
-[4/23] Compiling HeadLinkCore Commissioning.swift
-[5/23] Compiling OpenCineCore MulticamQualification.swift
-[6/23] Compiling OpenCineCore ObservedValue.swift
-[7/23] Compiling OpenCineCore LocalVPNFilter.swift
-[8/23] Compiling OpenCineCore MonitorEntry.swift
-[9/23] Compiling OpenCineCore RetryBackoff.swift
-[10/23] Compiling OpenCineCore SavedCameras.swift
-[11/23] Compiling OpenCineCore Commands.swift
-[12/23] Compiling OpenCineCore Identity.swift
-[13/23] Compiling OpenCineCore CameraValuePin.swift
-[14/23] Compiling OpenCineCore CommandDispatchAdmission.swift
-[15/23] Emitting module OpenCineCore
-[16/23] Compiling OpenCineCore CameraSession.swift
-[17/23] Compiling OpenCineCore CameraState.swift
-[18/23] Emitting module HeadLinkCore
-[19/23] Compiling HeadLinkCore TrackingController.swift
-[20/23] Compiling HeadLinkCore Orientation.swift
-[21/23] Compiling OpenCineCore Settings.swift
-[22/81] Compiling OpenCineMotion NativeProgramZoom.swift
-[23/81] Compiling OpenCineMotion MotionProgramSession.swift
-[24/82] Compiling OpenCineMotion WorldLevel.swift
-[25/82] Compiling OpenCineMedia MonitorPlaybackSourceValues.swift
-[26/82] Compiling OpenCineMedia MonitorPreviewAdmission.swift
-[27/82] Compiling OpenCineMedia MonitorSceneToneMap.swift
-[28/82] Compiling OpenCineMedia MonitorZebraMaskPolicy.swift
-[29/82] Compiling OpenCineMedia PlaybackVideoLayout.swift
-[30/82] Compiling OpenCineMedia ScopeExposureCeiling.swift
-[31/88] Compiling OpenCineMedia MonitorBackdropRenderValues.swift
-[32/88] Compiling OpenCineMedia MonitorBlockArtifactSettings.swift
-[33/88] Compiling OpenCineMedia MonitorColorSourceProfile.swift
-[34/88] Compiling OpenCineMedia MonitorConformPreview.swift
-[35/88] Compiling OpenCineMedia MonitorFalseColorLattice.swift
-[36/88] Compiling OpenCineMedia MonitorFrameEffects.swift
-[37/88] Emitting module OpenCineMedia
-[38/88] Compiling OpenCineMedia Avc.swift
-[39/88] Compiling OpenCineMedia CameraLinkHealth.swift
-[40/88] Compiling OpenCineMedia CameraMediaService.swift
-[41/88] Compiling OpenCineMedia CubeLUT.swift
-[42/88] Compiling OpenCineMedia CubeLUTPacking.swift
-[43/88] Compiling OpenCineMedia CustomLUTIndex.swift
-[44/88] Compiling OpenCineMedia DeliveryCadence.swift
-[46/88] Compiling OpenCineMedia FeedIncidentSnapshot.swift
-[49/88] Emitting module OpenCineMotion
-[52/88] Compiling OpenCineMedia FeedPresentPolicy.swift
-[53/88] Compiling OpenCineMedia FrameRateSampler.swift
-[56/88] Compiling OpenCineMedia LinkSignalBars.swift
-[57/88] Compiling OpenCineMedia LiveFrameTap.swift
-[58/88] Compiling OpenCineMedia MediaCatalog.swift
-[59/88] Compiling OpenCineMedia MediaTransferPlan.swift
-[60/88] Compiling OpenCineMedia MonitorAssistOptions.swift
-[61/88] Compiling OpenCineMedia MonitorAudioMeterBallistics.swift
-[62/88] Compiling OpenCineMedia MonitorMediaProjection.swift
-[63/88] Compiling OpenCineMedia MonitorMediaReturnSession.swift
-[64/88] Compiling OpenCineMedia MonitorMediaShareStaging.swift
-[65/88] Compiling OpenCineMedia MonitorNDFilterRecommendation.swift
-[66/88] Compiling OpenCineMedia MonitorPlayback.swift
-[67/88] Compiling OpenCineMedia MonitorPlaybackAssistService.swift
-[68/88] Compiling OpenCineMedia Diagnostics.swift
-[69/88] Compiling OpenCineMedia EncodedVideoUnit.swift
-[70/88] Compiling OpenCineMedia EncoderPresentPath.swift
-[71/88] Compiling OpenCineMedia FalseColor.swift
-[72/88] Compiling OpenCineMedia FeedIncidentExport.swift
-[73/88] Compiling OpenCineMedia FeedIncidentIngress.swift
-[74/88] Compiling OpenCineMedia FeedIncidentRecorder.swift
-[75/88] Compiling OpenCineMedia ScopeMath.swift
-[76/88] Compiling OpenCineMedia ScopeSampling.swift
-[77/88] Compiling OpenCineMedia ShutterAngle.swift
-[78/88] Compiling OpenCineMedia TransferCurves.swift
-[79/88] Compiling OpenCineMedia VectorscopeRaster.swift
-[80/88] Compiling OpenCineMedia WaveformIre.swift
-[84/88] Compiling OpenCineMedia Framing.swift
-[85/88] Compiling OpenCineMedia Hevc.swift
-[86/88] Compiling OpenCineMedia LUTExposureCompensation.swift
-[87/117] Compiling OpenCineCameraVocabulary LiveColorScience.swift
-[88/117] Compiling OpenCineCameraVocabulary LiveViewLink.swift
-[89/117] Compiling OpenCineCameraVocabulary LogColorTransform.swift
-[90/117] Compiling OpenCineCameraVocabulary MediaManifest.swift
-[91/120] Emitting module OpenCineCameraVocabulary
-[92/120] Compiling OpenCineCameraVocabulary CaptureSetting.swift
-[93/120] Compiling OpenCineCameraVocabulary ClipColorProfile.swift
-[94/120] Compiling OpenCineCameraVocabulary ExposureLock.swift
-[95/120] Compiling OpenCineCameraVocabulary ExposureMeterReading.swift
-[96/120] Compiling OpenCineCameraVocabulary AudioMeterLevels.swift
-[97/120] Compiling OpenCineCameraVocabulary CamCap.swift
-[98/120] Compiling OpenCineCameraVocabulary CameraCaptureProfile.swift
-[99/120] Compiling OpenCineCameraVocabulary CameraConnectionPhase.swift
-[100/120] Compiling OpenCineCameraVocabulary CameraSoftAP.swift
-[101/120] Compiling OpenCineCameraVocabulary CameraStatus.swift
-[102/120] Compiling OpenCineCameraVocabulary CameraWiFiQRCode.swift
-[103/120] Compiling OpenCineCameraVocabulary CaptureLadder.swift
-[104/120] Compiling OpenCineCameraVocabulary SessionRecovery.swift
-[105/120] Compiling OpenCineCameraVocabulary SessionRecoveryDrive.swift
-[106/120] Compiling OpenCineCameraVocabulary TrackingBox.swift
-[107/120] Compiling OpenCineCameraVocabulary MonitorLUT.swift
-[108/120] Compiling OpenCineCameraVocabulary MonitorLUTStore.swift
-[109/120] Compiling OpenCineCameraVocabulary PrivacyRedactor+CameraNetwork.swift
-[110/120] Compiling OpenCineCameraVocabulary ReconnectBackoff.swift
-[111/120] Compiling OpenCineCameraVocabulary CameraControl.swift
-[112/120] Compiling OpenCineCameraVocabulary CameraLUTProfile.swift
-[113/120] Compiling OpenCineCameraVocabulary CameraLabelProfile.swift
-[114/120] Compiling OpenCineCameraVocabulary CameraModel.swift
-[115/120] Compiling OpenCineCameraVocabulary FacePriorityExposure.swift
-[116/120] Compiling OpenCineCameraVocabulary FeedWatchdog.swift
-[117/120] Compiling OpenCineCameraVocabulary GamepadOperator.swift
-[118/120] Compiling OpenCineCameraVocabulary LiveChromeThrottle.swift
-[119/162] Emitting module OpenCineDJI
-[120/167] Compiling OpenCineDJI DJIIntegration.swift
-[121/167] Compiling OpenCineDJI DJIMediaHTTPSource.swift
-[122/167] Compiling OpenCineDJI DJIMediaSourcePolicy.swift
-[123/167] Compiling OpenCineDJI DJIMonitorColorProfile.swift
-[124/167] Compiling OpenCineDJI DJISavedCameraConnection.swift
-[125/167] Compiling OpenCineDJI DatalinkHandshakeAdmission.swift
-[126/167] Compiling OpenCineDJI OpenCineCameraVocabulary.swift
-[127/167] Compiling OpenCineDJI OpenCineMedia.swift
-[128/167] Compiling OpenCineDJI StationJoin.swift
-[129/167] Compiling OpenCineDJI TrackingBox+DJIWire.swift
-[130/167] Compiling OpenCineDJI WorldLevel+DJI.swift
-[131/167] Compiling OpenCineDJI GimbalReach.swift
-[132/167] Compiling OpenCineDJI GimbalWaypoint+DJI.swift
-[133/167] Compiling OpenCineDJI Hevc+DJI.swift
-[134/167] Compiling OpenCineDJI HevcDepacketizer.swift
-[135/167] Compiling OpenCineDJI LinkDiagnosis.swift
-[136/167] Compiling OpenCineDJI MediaLiveResume.swift
-[137/167] Compiling OpenCineDJI DJICameraLUTProfile.swift
-[138/167] Compiling OpenCineDJI DJICameraSessionAdapter.swift
-[139/167] Compiling OpenCineDJI DJICaptureCapabilityProfile.swift
-[140/167] Compiling OpenCineDJI DJICaptureControlState.swift
-[141/167] Compiling OpenCineDJI DJICommandAdmission.swift
-[142/167] Compiling OpenCineDJI DJIControlSessionBinding.swift
-[143/167] Compiling OpenCineDJI DumlFrame.swift
-[144/167] Compiling OpenCineDJI DumlNotificationAssembler.swift
-[145/167] Compiling OpenCineDJI DumlTransport.swift
-[146/167] Compiling OpenCineDJI EncoderPresentPath+DJI.swift
-[147/167] Compiling OpenCineDJI GimbalNativeTargetStream.swift
-[148/167] Compiling OpenCineDJI GimbalProgramZoom.swift
-[149/167] Compiling OpenCineDJI BleAdvert.swift
-[150/167] Compiling OpenCineDJI BlePeerPolicy.swift
-[151/167] Compiling OpenCineDJI CamAudioStatus.swift
-[152/167] Compiling OpenCineDJI CamCap+DJIWire.swift
-[153/167] Compiling OpenCineDJI CameraControl+DJIWire.swift
-[154/167] Compiling OpenCineDJI CameraModel+DJIProfile.swift
-[155/167] Compiling OpenCineDJI CameraModel+DJIWire.swift
-[156/167] Compiling OpenCineDJI CameraPathRecovery.swift
-[157/167] Compiling OpenCineDJI CameraSetMailbox.swift
-[158/167] Compiling OpenCineDJI CameraStatus+DJIWire.swift
-[159/167] Compiling OpenCineDJI Commands.swift
-[160/167] Compiling OpenCineDJI ConnectTimeline.swift
-[161/167] Compiling OpenCineDJI MediaManifest+DJIWire.swift
-[162/167] Compiling OpenCineDJI MulticamCommands.swift
-[163/167] Compiling OpenCineDJI MulticamDiscovery.swift
-[164/167] Compiling OpenCineDJI MulticamWiFiScan.swift
-[165/167] Compiling OpenCineDJI MultiviewRecovery.swift
-[166/172] Compiling HeadLinkCoreTests ProtocolTests.swift
-[167/172] Compiling HeadLinkCoreTests RecordedProfileTests.swift
-[168/172] Emitting module HeadLinkCoreTests
-[169/172] Compiling HeadLinkCoreTests TrackingTests.swift
-[170/172] Compiling HeadLinkCoreTests CommissioningTests.swift
-<PROJECT>/Tests/HeadLinkCoreTests/CommissioningTests.swift:85:86: warning: '#require(_:_:)' is redundant because 'session.experimentalLimits' never equals 'nil' (from macro 'require')
- 83 |             _=try complete(&session,.origin,time:&time,actual:&actual)
- 84 |         }
- 85 |         var c=TrackingController(); c.connectionChanged(true); c.limits=try #require(session.experimentalLimits)
-    |                                                                                      `- warning: '#require(_:_:)' is redundant because 'session.experimentalLimits' never equals 'nil' (from macro 'require')
- 86 |         func feed(_ q:Quaternion) {
- 87 |             time += 0.025
-[171/174] Compiling HeadLinkPackageTests runner.swift
-[172/174] Emitting module HeadLinkPackageTests
-[172/174] Write Objects.LinkFileList
-ld: warning: building for macOS-13.0, but linking with dylib '@rpath/Testing.framework/Versions/A/Testing' which was built for newer version 14.0
-[173/174] Linking HeadLinkPackageTests
-Build complete! (15.82s)
+[0/2] Write swift-version--1AB21518FC5DEDBE.txt
+Build complete! (0.13s)
 ◇ Test run started.
 ↳ Testing Library Version: 1084
 ↳ Target Platform: arm64e-apple-macos14.0
-◇ Suite CommissioningTests started.
+◇ Suite RecordedProfileTests started.
 ◇ Suite TrackingTests started.
 ◇ Suite ProtocolTests started.
-◇ Suite RecordedProfileTests started.
+◇ Suite CommissioningTests started.
 ◇ Test assemblerBoundsAndTruncation() started.
-◇ Test packagedEnvelopeUsesOnlyObservedLocalEndpoints() started.
+◇ Test returnRefusesUncommandedRepositioning() started.
+◇ Test testUnstableCalibrationDoesNotFinish() started.
+◇ Test testCompoundRotationAndNonIdentityCalibration() started.
 ◇ Test testExplicitStartPauseAndReconnect() started.
 ◇ Test testRawTargetLimitAndSmoothConvergence() started.
-◇ Test testCompoundRotationAndNonIdentityCalibration() started.
-◇ Test exactConfirmedIdentityRequiredForReuse() started.
-◇ Test recordedOriginRequiresCalibrationThenPreservesGainAndNativeWrap() started.
-◇ Test testUnstableCalibrationDoesNotFinish() started.
-◇ Test testNativeAngleEncodingAndStop() started.
-◇ Test testStaleCameraStopsEvenWithFreshHead() started.
-◇ Test testUnverifiedLimitsCannotMove() started.
-◇ Test testSignScaleBoundaryAndVertical() started.
-◇ Test testIdentityAndSingleAxisGain() started.
-◇ Test splitNotificationsCorruptionAndUnknownOpcode() started.
+◇ Test lossAndPauseCannotEmitHistoricalTargets() started.
 ◇ Test telemetryIsNotDerivedFromCommandOrAck() started.
 ◇ Test testNativeLatestWinsAndPauseFence() started.
-◇ Test testStaleAndTimestampResetInvalidateCalibration() started.
-◇ Test testPausedYawRemainsContinuousAndMotionLossRequiresCalibration() started.
+◇ Test testIdentityAndSingleAxisGain() started.
+◇ Test splitNotificationsCorruptionAndUnknownOpcode() started.
+◇ Test testStaleCameraStopsEvenWithFreshHead() started.
 ◇ Test commissionedRangeFeedsOneToOneTrackingWithoutAutomaticStart() started.
-◇ Test candidateRangeDoesNotBecomeVerifiedRange() started.
-◇ Test preparingAndConnectionNeverCommandMotion() started.
-◇ Test wrongAxisDirectionAndNoMotionFail() started.
-◇ Test unknownIdentityAndStalePoseCannotArm() started.
-◇ Test lossAndPauseCannotEmitHistoricalTargets() started.
 ◇ Test stopMustBeObservedAndCannotBeConfirmedEarly() started.
-◇ Test allAxesNeedExplicitPhysicalAndReturnConfirmation() started.
-◇ Test returnRefusesUncommandedRepositioning() started.
-✔ Test testCompoundRotationAndNonIdentityCalibration() passed after 0.001 seconds.
-✔ Test testNativeAngleEncodingAndStop() passed after 0.001 seconds.
-✔ Test testUnstableCalibrationDoesNotFinish() passed after 0.001 seconds.
-✔ Test testUnverifiedLimitsCannotMove() passed after 0.001 seconds.
-✔ Test testExplicitStartPauseAndReconnect() passed after 0.001 seconds.
-✔ Test packagedEnvelopeUsesOnlyObservedLocalEndpoints() passed after 0.001 seconds.
-✔ Test testSignScaleBoundaryAndVertical() passed after 0.001 seconds.
-✔ Test testStaleCameraStopsEvenWithFreshHead() passed after 0.001 seconds.
+◇ Test wrongAxisDirectionAndNoMotionFail() started.
+◇ Test testSignScaleBoundaryAndVertical() started.
+◇ Test testPausedYawRemainsContinuousAndMotionLossRequiresCalibration() started.
 ◇ Test observerWorksBeforeCameraCalibrationAndRejectsReferenceJump() started.
-✔ Test exactConfirmedIdentityRequiredForReuse() passed after 0.001 seconds.
-✔ Test assemblerBoundsAndTruncation() passed after 0.002 seconds.
-✔ Test testIdentityAndSingleAxisGain() passed after 0.002 seconds.
-✔ Test testNativeLatestWinsAndPauseFence() passed after 0.002 seconds.
-✔ Test telemetryIsNotDerivedFromCommandOrAck() passed after 0.002 seconds.
-✔ Test testStaleAndTimestampResetInvalidateCalibration() passed after 0.002 seconds.
-✔ Test preparingAndConnectionNeverCommandMotion() passed after 0.001 seconds.
-✔ Test candidateRangeDoesNotBecomeVerifiedRange() passed after 0.001 seconds.
-✔ Test testPausedYawRemainsContinuousAndMotionLossRequiresCalibration() passed after 0.002 seconds.
-✔ Test unknownIdentityAndStalePoseCannotArm() passed after 0.001 seconds.
-✔ Test lossAndPauseCannotEmitHistoricalTargets() passed after 0.001 seconds.
-✔ Test stopMustBeObservedAndCannotBeConfirmedEarly() passed after 0.001 seconds.
-✔ Test wrongAxisDirectionAndNoMotionFail() passed after 0.001 seconds.
-✔ Test observerWorksBeforeCameraCalibrationAndRejectsReferenceJump() passed after 0.001 seconds.
-✔ Test recordedOriginRequiresCalibrationThenPreservesGainAndNativeWrap() passed after 0.003 seconds.
-✔ Test returnRefusesUncommandedRepositioning() passed after 0.001 seconds.
-✔ Suite RecordedProfileTests passed after 0.003 seconds.
+◇ Test testStaleAndTimestampResetInvalidateCalibration() started.
+◇ Test preparingAndConnectionNeverCommandMotion() started.
+◇ Test candidateRangeDoesNotBecomeVerifiedRange() started.
+◇ Test testNativeAngleEncodingAndStop() started.
+◇ Test allAxesNeedExplicitPhysicalAndReturnConfirmation() started.
+◇ Test unknownIdentityAndStalePoseCannotArm() started.
+◇ Test testUnverifiedLimitsCannotMove() started.
+◇ Test recordedOriginRequiresCalibrationThenPreservesGainAndNativeWrap() started.
+◇ Test packagedEnvelopeUsesOnlyObservedLocalEndpoints() started.
+◇ Test exactConfirmedIdentityRequiredForReuse() started.
+✔ Test testCompoundRotationAndNonIdentityCalibration() passed after 0.003 seconds.
+✔ Test lossAndPauseCannotEmitHistoricalTargets() passed after 0.003 seconds.
+✔ Test testIdentityAndSingleAxisGain() passed after 0.003 seconds.
+✔ Test telemetryIsNotDerivedFromCommandOrAck() passed after 0.003 seconds.
+✔ Test testExplicitStartPauseAndReconnect() passed after 0.003 seconds.
+✔ Test testStaleCameraStopsEvenWithFreshHead() passed after 0.003 seconds.
+✔ Test assemblerBoundsAndTruncation() passed after 0.003 seconds.
+✔ Test testSignScaleBoundaryAndVertical() passed after 0.003 seconds.
+✔ Test testUnstableCalibrationDoesNotFinish() passed after 0.003 seconds.
+✔ Test testNativeLatestWinsAndPauseFence() passed after 0.003 seconds.
+✔ Test testStaleAndTimestampResetInvalidateCalibration() passed after 0.003 seconds.
+✔ Test preparingAndConnectionNeverCommandMotion() passed after 0.003 seconds.
+✔ Test testPausedYawRemainsContinuousAndMotionLossRequiresCalibration() passed after 0.003 seconds.
+✔ Test testNativeAngleEncodingAndStop() passed after 0.003 seconds.
+✔ Test wrongAxisDirectionAndNoMotionFail() passed after 0.003 seconds.
+✔ Test returnRefusesUncommandedRepositioning() passed after 0.003 seconds.
+✔ Test unknownIdentityAndStalePoseCannotArm() passed after 0.003 seconds.
+✔ Test observerWorksBeforeCameraCalibrationAndRejectsReferenceJump() passed after 0.003 seconds.
+✔ Test testUnverifiedLimitsCannotMove() passed after 0.003 seconds.
+✔ Test candidateRangeDoesNotBecomeVerifiedRange() passed after 0.003 seconds.
 ✔ Test splitNotificationsCorruptionAndUnknownOpcode() passed after 0.003 seconds.
-✔ Suite ProtocolTests passed after 0.003 seconds.
-✔ Test testRawTargetLimitAndSmoothConvergence() passed after 0.003 seconds.
-✔ Suite TrackingTests passed after 0.003 seconds.
-✔ Test commissionedRangeFeedsOneToOneTrackingWithoutAutomaticStart() passed after 0.004 seconds.
-✔ Test allAxesNeedExplicitPhysicalAndReturnConfirmation() passed after 0.005 seconds.
+✔ Test stopMustBeObservedAndCannotBeConfirmedEarly() passed after 0.003 seconds.
+✔ Suite ProtocolTests passed after 0.004 seconds.
+✔ Test packagedEnvelopeUsesOnlyObservedLocalEndpoints() passed after 0.002 seconds.
+✔ Test exactConfirmedIdentityRequiredForReuse() passed after 0.002 seconds.
+✔ Test testRawTargetLimitAndSmoothConvergence() passed after 0.004 seconds.
+✔ Suite TrackingTests passed after 0.004 seconds.
+✔ Test recordedOriginRequiresCalibrationThenPreservesGainAndNativeWrap() passed after 0.004 seconds.
+✔ Suite RecordedProfileTests passed after 0.006 seconds.
+✔ Test commissionedRangeFeedsOneToOneTrackingWithoutAutomaticStart() passed after 0.006 seconds.
+✔ Test allAxesNeedExplicitPhysicalAndReturnConfirmation() passed after 0.006 seconds.
 ✔ Suite CommissioningTests passed after 0.007 seconds.
 ✔ Test run with 28 tests in 4 suites passed after 0.007 seconds.

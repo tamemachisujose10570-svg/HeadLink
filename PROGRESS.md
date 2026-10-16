@@ -2,7 +2,7 @@
 
 - 项目：wch33e/HeadLink（私有）。
 - 本地代码：当前工程目录，project.yml 可重建。
-- 已验证：25 项核心/协议/实验测试，iOS device云编译；用户报告首版安装、连接及图传正常，真实跟随尚待实验。
+- 当前：1.1.1（6）；28项本地及云端测试通过，用户诊断证实真实姿态和四向小角度运动，保存个人局部范围；1∶1仍待校准后实测。
 - 2026-10-16：工作流和完整工程已提交。构建源commit：c47dc56b46e8e3016cb124618514d697b79b19e7。
 - 构建命令：GitHub 手动 iPhone unsigned build；Xcode 26.1.1 / macos-15；内部 bash scripts/build-unsigned.sh。
 - 权限：Contents/Workflows 写入已实际证实，Actions 已启用；CLI 不需新增 workflow scope。
@@ -53,4 +53,8 @@
 - 导出时唯一blocker是未校准；1591行均userPaused，1∶1尚无运行证据。
 - 保存保守局部窗口：yaw -4.5…5.1，display pitch -5.4…4.6；不叫机械极限，不扩大。证据docs/DEVICE_EVIDENCE.md及摘要。
 - 复用仍需精确身份来源、3项现场确认、新鲜数据、头部实际变化和当前角度在范围内，明确点击启用后再校准、开始。连接/断连/校准不会自动运动；配置跨连接保存，启用资格不保存。
-- 本地28项测试通过（包括真实起点native pitch±180的映射回归），App语法及236个Vendor哈希通过。CLI Testing缺Foundation overlay的模块接口，本地运行追加-disable-cross-import-overlays；云端full Xcode仍运行标准测试。新版云端构建待完成。
+- 本地28项测试通过（包括真实起点native pitch±180的映射回归），App语法及236个Vendor哈希通过。CLI Testing缺Foundation overlay的模块接口，本地测试脚本CLT分支自动追加-disable-cross-import-overlays并通过默认命令；云端full Xcode仍运行标准测试。run #6已通过28项测试及设备编译，产物下载核验中。
+
+- 1.1.1（6）云端成功：https://github.com/wch33e/HeadLink/actions/runs/38919199454 ，源码107834d9e6d9b874bd49281fab72d630860554a6，28项测试/4组、完整iPhoneOS arm64 Release编译与打包通过，job2分21秒。
+- 产物：https://github.com/wch33e/HeadLink/actions/runs/38919199454/artifacts/12053409458 。本次未启用付费服务。
+- 已下载核对：版本1.1.1（6）、org.headlink.personal、iPhoneOS arm64、最低iOS17.0、未签名。包内VerifiedProfiles.json与本地已测配置逐字相等。SHA256 82477b322e879863774193f2fb9638cc27455661d819361e0babd69c1622d70a 与云端一致。

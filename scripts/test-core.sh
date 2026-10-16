@@ -9,5 +9,8 @@ args=(--disable-xctest --scratch-path work/build)
 if [[ "$(xcode-select -p)" == */CommandLineTools ]]; then
   frameworks="$(xcode-select -p)/Library/Developer/Frameworks"
   args+=(-Xswiftc "-F$frameworks" -Xlinker -rpath -Xlinker "$frameworks")
+  # CLT ships the _Testing_Foundation binary without a Swift module interface.
+  # These tests use ordinary Foundation, not that optional cross-import overlay.
+  args+=(-Xswiftc -Xfrontend -Xswiftc -disable-cross-import-overlays)
 fi
 swift test "${args[@]}" "$@"
