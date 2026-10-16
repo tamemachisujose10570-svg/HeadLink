@@ -6,18 +6,18 @@
 
 | 项目 | 目标/现状 | 验证状态 |
 | --- | --- | --- |
-| 手机 | 用户自己的 iPhone，型号待确认 | 未安装 |
-| iOS | 用户版本待确认，工程最低 17.0 | 未真机编译/安装验证 |
-| 耳机 | AirPods Pro 3，运行时检查运动能力和真实回调 | 未验证 |
-| 相机 | DJI Pocket 4，实物型号及固件待确认 | 未连接验证 |
+| 手机 | 用户自己的 iPhone，型号待确认 | 用户报告首版安装正常 |
+| iOS | 用户版本待确认，工程最低 17.0 | 云端device编译通过，首版安装正常；具体版本待确认 |
+| 耳机 | AirPods Pro 3，运行时检查运动能力和真实回调 | 首版连接正常；真实yaw/pitch待实验 |
+| 相机 | DJI Pocket 4，实物型号及固件待确认 | 用户报告首版配对、连接和图传正常；运动待实验 |
 | 固定支架 | 机身不动的第一阶段基线 | 未验证 |
 | 移动基座 | 手持/胸前/肩带 | 当前不支持 |
-| 自动加入相机 Wi-Fi | 无 Hotspot entitlement | 当前不提供；手动加入路径待真机验证 |
-| Sideloadly 免费签名 | 已生成未签名 device IPA 供本地重签 | 未安装验证 |
+| 自动加入相机 Wi-Fi | 无 Hotspot entitlement | 当前不提供；用户报告手动加入路径正常 |
+| Sideloadly 免费签名 | 已生成未签名 device IPA 供本地重签 | 用户报告首版安装正常 |
 
 ## 工具链
 
-- 本机 macOS 26.1 / arm64，Swift 6.2，CommandLineTools：15 个核心/协议测试通过。
+- 本机 macOS 26.1 / arm64，Swift 6.2，CommandLineTools：25 个核心/协议/实验测试通过。
 - XcodeGen 2.44.1：本机成功生成工程。
 - 云端 macos-15 / Xcode 26.1.1 / iOS 26.1 SDK：Actions run #1 已通过最小与完整 iPhoneOS arm64 Release 编译及IPA打包。
 - OpenCine 固定 `acc38b57d43d4308c79ad5ce951bcb6f44d14d68`。上游声明支持 Pocket 4/4 Pro/3；HeadLink 没有继承其验证结论。

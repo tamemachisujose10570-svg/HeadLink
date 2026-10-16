@@ -47,4 +47,6 @@ fixture 为本项目合成的合法脱敏数据，没有私人设备信息。测
 
 新增覆盖：独立头部观察、参考跳变/纯roll、真实身份来源与新鲜度、准备时零命令、5°逐项测试、反向/串轴/超时拒绝、停止后稳定反馈、人工确认、沿已测路径返回、四向完整确认后才产生局部范围、每次显式扩展5°，以及该范围接入校准后1∶1目标、保持、回基准与暂停的集成流程。确认时还需新鲜姿态保持在本次目标附近。
 
-本地日志：`commissioning-tests.log`。其中相机反馈由测试合成；**不构成真实Pocket 4运动、方向、停止或机械限位证据**。真实验收步骤见 `FIRST_FOLLOW_TEST.md`。新版云端iOS编译结果待记录。
+本地日志：`commissioning-tests.log`。其中相机反馈由测试合成；**不构成真实Pocket 4运动、方向、停止或机械限位证据**。真实验收步骤见 `FIRST_FOLLOW_TEST.md`。跟随代码已通过云端run #3完整iOS编译和IPA打包（34dbce88f1287f507145d8a1209a42abf24e0544）；随后按用户要求加入密码复制，最终构建结果另记。
+
+最终交付构建0.2.0（4）：[https://github.com/wch33e/HeadLink/actions/runs/38905644553](https://github.com/wch33e/HeadLink/actions/runs/38905644553)，源码dbcb050166ee85c89f5d100281f100be51c1629b。25项测试、完整iPhoneOS arm64 Release编译与打包全部通过，包含追加的Wi-Fi密码复制功能。密码复制代码通过App语法和云端SDK编译检查。

@@ -1,6 +1,8 @@
 # 不安装 Xcode 的安装、更新和刷新
 
-**首次云端 IPA 已生成。** [下载 run #1 产物](https://github.com/wch33e/HeadLink/actions/runs/38896370871/artifacts/12044256826)，解压得到 `HeadLink-unsigned.ipa`。这是 iPhoneOS arm64 Release 包，需要 Sideloadly 本地签名；尚未验证安装和硬件。未签名 IPA 不能直接点开安装。
+**首次云端 IPA 已生成。** [下载 run #1 产物](https://github.com/wch33e/HeadLink/actions/runs/38896370871/artifacts/12044256826)，解压得到 `HeadLink-unsigned.ipa`。这是 iPhoneOS arm64 Release 包，需要 Sideloadly 本地签名；用户已报告首版安装、连接和图传正常，真实跟随尚待实验。未签名 IPA 不能直接点开安装。
+
+**当前新版0.2.0（4）：** [下载run #4产物](https://github.com/wch33e/HeadLink/actions/runs/38905644553/artifacts/12048451898)。保留 org.headlink.personal 和首次相同签名设置覆盖更新；包含首次5°实验、局部1∶1跟随与Wi-Fi密码复制。测试步骤见 [FIRST_FOLLOW_TEST.md](docs/FIRST_FOLLOW_TEST.md)。
 
 ## 1. 云端获得正确产物
 
@@ -30,8 +32,8 @@ iPhone 提示开发者不受信任时，按系统“设置 → 通用 → VPN �
 2. 搜索你自己的 Pocket，选择实际相机，按相机屏幕确认配对；不要仅凭目标名称认定型号。
 3. App 读取相机网络信息后，去系统设置手动加入显示的相机 Wi-Fi，返回点击“已加入 Wi-Fi，验证连接”。密码只在需要时显示；截图前隐藏。
 4. 允许本地网络权限，等真正的相机握手成功。仅加入 Wi-Fi 不等于相机通信成功。
-5. 进入拍摄查看真实预览/反馈。首个开发构建没有验证 profile，跟随保持禁用；先完成 HARDWARE_TESTS 的非运动项目，记录型号固件与 iOS。
-6. 校准不会机械回中，也不会自动开始运动。只有经过审核的机型配置、校准及新鲜数据全部满足后，明确点击开始才发送角度命令。
+5. 进入拍摄查看真实预览/反馈。0.2.0请进入“真实数据检查／首次5°实验”，按 docs/FIRST_FOLLOW_TEST.md 检查头部回调、真实型号/固件/模式，再由本人点击各5°运动和返回测试。
+6. 校准不会机械回中，也不会自动开始运动。只有有效正式配置或本次四向及返回确认生成的局部实验范围、校准及新鲜数据全部满足后，明确点击开始才发送角度命令。
 
 ## 5. 免费签名维护
 
