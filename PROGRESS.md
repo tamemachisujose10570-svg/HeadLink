@@ -82,5 +82,12 @@
 - 正式范围来自固定GimbalReach，机身反馈yaw -48…225°、display pitch -44…70°，保留相机实际边界、原生可达路径及新鲜度保护，不扩大为机械止挡。
 - 加重力水平参考，校准时俯仰/侧歪不倾斜yaw平面；正式模式始终增益1.00。roll ignored，要求真实Follow/俯仰未锁定；不擅自切模式。
 - 低延迟提交最新目标方向；仅开始/恢复采用有限过渡保护；轻度平滑40ms不改终值。新增停稳后真实回报核对与schema4原点/参考/误差诊断。
-- 配对/Wi-Fi、录像、原视频恢复与健康路径和基线逐字比较一致；Vendor236文件未改。本地55项/8组通过，App语法检查通过。云端设备编译待完成。
+- 配对/Wi-Fi、录像、原视频恢复与健康路径和基线逐字比较一致；Vendor236文件未改。本地55项/8组通过，App语法检查通过。云端设备编译通过，见本节交付记录。
 - 安装方式答复待收到；先交付机身竖直固定。无独立机身姿态时不伪造移动补偿，移动模式明确未验证并阻止运动；不因此暂停固定机身实现/构建。细节docs/FORMAL_FOLLOW.md，最短步骤docs/FORMAL_FOLLOW_QUICKSTART.md。
+
+### 1.2.0（8）交付
+
+- 源码c9fde2635ba030fd7d47b3cd7c2127350d6242a8，[run #8](https://github.com/wch33e/HeadLink/actions/runs/39009820676)成功，job2分12秒；标准云端55项/8组、完整iPhoneOS arm64 Release编译和IPA打包全部通过。
+- [产物](https://github.com/wch33e/HeadLink/actions/runs/39009820676/artifacts/12092815403)已下载独立核验：版本1.2.0（8）、org.headlink.personal、最低iOS17.0、iphoneos26.1 SDK/arm64、未签名、无provisioning profile；archive CRC及原已测配置资源逐字相同检查通过。
+- SHA256 ef39939b6e0e7b31f48eede78cd39cd98018a628120a6b764e6dc5ff5002f9f5，与metadata和SHA256SUMS一致；inspection.json随IPA保存，hardwareValidated=false。后续文档提交不改已构建App源码。
+- 沿用原Sideloadly账户/身份覆盖更新。无额外付费服务或计费设置变更。实际30°/复合运动/连续5分钟结果待用户提供，移动补偿仍未验证。

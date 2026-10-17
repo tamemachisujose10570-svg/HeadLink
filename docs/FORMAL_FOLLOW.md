@@ -44,3 +44,12 @@
 与保存基线比较，PocketCamera的配对/手动Wi-Fi、状态接收、目标所有权、录像、连接健康及整个PocketCamera+Video恢复文件逐字一致；只在角度提交处增加不可达扇区的明确拒绝，在模式查询旁增加正式启动条件。Vendor236文件哈希不变。暂停、重新对齐、数据过期/参考跳变、后台、断连、重连不自动跟随继续有效。
 
 相关测试：FormalFollowTests覆盖自动机型配置/无实验校准、±30°和复合30°、保持/回基准、roll、非零校准、yaw连续、native pitch参考、低延迟及恢复保护、限位不改倍率、反馈符号/原生单位错误、移动/过期不误报到位和自然小幅保持抖动不掩盖无响应。相机反馈在自动测试中为合成数据，不属于硬件验收。完整编译及产物记录见PROGRESS.md和TEST_RESULTS.md。
+
+## 关键代码位置（1.2.0）
+
+- `Sources/HeadLinkCore/HeadDirectionReference.swift`：重力水平参考与复合朝向。
+- `Sources/HeadLinkCore/FormalFollowProfile.swift`：正式机型、明确来源的协议范围与安装模式。
+- `Sources/HeadLinkCore/TrackingController.swift:103`：稳定校准；`:160`：绝对目标与低延迟/起步过渡。
+- `App/AppModel.swift:136`：自动匹配；`:286`/`:294`：校准及开始；`:206`：反馈核对；`:337`：schema4导出。
+- `App/PocketCamera.swift:187`：真实编码/队列与不可达扇区拒绝；`:214`：真实模式条件。
+- `Sources/HeadLinkCore/FollowFeedback.swift`、`Tests/HeadLinkCoreTests/FormalFollowTests.swift`：反馈状态与正式跟随回归。

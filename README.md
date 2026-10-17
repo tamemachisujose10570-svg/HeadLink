@@ -1,28 +1,26 @@
 # HeadLink · 头部联动拍摄
 
-**1.2.0 正式方向跟随开发中**：默认连接→校准→开始，移除个人±5°实验窗口，倍率1.00；机身竖直固定，移动补偿未验证。55项本地测试通过，完整云端编译结果见最新PROGRESS.md。用户已确认上一版局部范围头部联动通过。
+**1.2.0（8）正式方向跟随**：默认连接→校准→开始，移除个人±5°实验窗口，倍率1.00；机身竖直固定，移动补偿未验证。55项本地/云端测试和完整iPhoneOS编译通过，[下载未签名IPA](https://github.com/wch33e/HeadLink/actions/runs/39009820676/artifacts/12092815403)。用户已确认上一版局部联动通过；新版大角度/复合响应仍待真机验证。
 
 [正式映射与范围依据](docs/FORMAL_FOLLOW.md) · [最短使用步骤](docs/FORMAL_FOLLOW_QUICKSTART.md)
 
-以下保留1.1.2交付历史，最新状态以本节及PROGRESS.md为准。
-
-原生 Swift / SwiftUI iPhone 工程。目标组合是 iPhone + AirPods Pro 3 + DJI Pocket 4，先以固定支架、相机机身不动为基线。当前为 **1.1.2（7）稳定性修复构建，完整iPhoneOS编译及45项回归测试通过；图传恢复、一次校准后启动和连续5分钟运行仍需新版真机验证**。
+原生Swift/SwiftUI iPhone工程，复用已跑通的AirPods、Pocket配对/手动Wi-Fi、图传恢复和录像链路。当前正式协议机身范围yaw -48…225°、display pitch -44…70°；不是DJI规格表的同号坐标，也不是本机全行程机械认证。
 
 ## 当前状态（2026-10-17）
 
 | 层次 | 结果 |
 | --- | --- |
 | 代码已写 | 耳机运动读取、配对与手动 Wi-Fi 适配、真实遥测解析、绝对角度命令、预览接入、录像请求/确认、中文界面、诊断导出 |
-| 核心编译和测试 | 本地与云端45项/7组通过，覆盖校准生命周期、输入时间竞态、1∶1映射及有界视频恢复；工程生成、Swift语法与236个Vendor哈希通过 |
-| iOS App 编译 | **云端成功**：Actions run #7，Xcode 26.1.1，iPhoneOS arm64 Release |
+| 核心编译和测试 | 本地与云端55项/8组通过，覆盖校准生命周期、输入时间竞态、1∶1映射及有界视频恢复；工程生成、Swift语法与236个Vendor哈希通过 |
+| iOS App 编译 | **云端成功**：Actions run #8，Xcode 26.1.1，iPhoneOS arm64 Release |
 | IPA / 安装 | **已生成未签名 device IPA**，供 Sideloadly 本地重签；首版已安装，新版待覆盖更新 |
 | 硬件运行 | 用户已确认配对、录像、小角度控制及真实耳机数据；后续报告连接间歇中断、视频冻结和校准循环。旧诊断未包含本轮失败现场，新版修复待连续5分钟真机核对 |
 
-`App/VerifiedProfiles.json` 现保存用户实机确认的Pocket 4 / 01.03.14.04局部窗口（yaw -4.5…5.1°，pitch -5.4…4.6°），不是机械全行程认证。证据与复用步骤见 [DEVICE_EVIDENCE.md](docs/DEVICE_EVIDENCE.md)。1.1.1可在现场核对后主动使用，随后校准并开始，无需重复首次实验。1.1.0 新增独立的“首次5°实验”：实时显示未校准头部角度、真实机型/固件/姿态/模式与具体启动阻塞；用户主动测试单轴端点、停止保持和返回，并确认物理观察后，可启用仅本次连接的局部实验包络。完整流程见 [FIRST_FOLLOW_TEST.md](docs/FIRST_FOLLOW_TEST.md)。不会删除正式验证条件，也不把实验包络冒充机械全行程。
+历史个人局部配置与原实验记录仍在`App/VerifiedProfiles.json`和[DEVICE_EVIDENCE.md](docs/DEVICE_EVIDENCE.md)保留，正式控制不再使用它限幅或要求重新验证。默认入口和机型范围来源见[FORMAL_FOLLOW.md](docs/FORMAL_FOLLOW.md)。
 
 ## 已实现的控制行为
 
-- 通过四元数相对旋转得到校准后的视线 yaw / pitch，增益固定 1.00；roll 不跟随。
+- 通过四元数鼻尖方向及重力水平参考得到校准后的方位/仰角差，增益固定1.00；校准头部俯仰/侧歪不倾斜yaw平面，roll不跟随。
 - 0.7 秒稳定采样校准；连续 yaw 展开，q 与 -q 等价；接近竖直、姿态参考跳变、数据过期时停止并要求重校准。
 - 原始目标、限位目标、命令目标分别保存；低延迟/轻度平滑不改变静态增益。
 - 起步和恢复采用速率/加速度限制；暂停后可继续原关系或保留构图重新对齐。
@@ -37,7 +35,7 @@
 3. 将工程放进自己的私有 GitHub 仓库；先确认 Actions 额度及禁止超额付费的设置。
 4. 手动运行 `iPhone unsigned build`。它先生成工程、验证最小真机 SDK 链路、运行核心测试，再编译 iOS 真机目标并封装 IPA。
 5. 仅在工作流成功且产物检查通过后，按 [免费安装说明](INSTALL_FREE.md) 使用 Sideloadly 本地签名安装。
-6. 按 [真机测试清单](HARDWARE_TESTS.md) 逐步验证；不能把本页“代码已写”改成“硬件正常”。
+6. 按 [正式跟随真机步骤](docs/FORMAL_FOLLOW_QUICKSTART.md) 验证；不能把本页“代码已写”改成“硬件正常”。
 
 原生工程配置是 `project.yml`；XcodeGen 2.44.1 会生成 `HeadLink.xcodeproj`。iOS 最低版本暂定 17.0，源于上游要求；必须再用用户的实际 iOS 验证。云端选择 `macos-15` + `/Applications/Xcode_26.1.1.app`，不跟随 runner 默认 Xcode。
 
