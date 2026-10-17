@@ -22,9 +22,9 @@ final class HeadphoneMotion: @unchecked Sendable {
             lock.lock(); defer { lock.unlock() }
             guard generation == token else { return }
             guard error == nil,let motion else { failure=true; latest=nil; return }
-            let q=motion.attitude.quaternion, r=motion.rotationRate
+            let q=motion.attitude.quaternion, r=motion.rotationRate,g=motion.gravity
             latest = .init(attitude:.init(w:q.w,x:q.x,y:q.y,z:q.z),receivedAt:t,sensorTime:motion.timestamp,
-                rotationRate:sqrt(r.x*r.x+r.y*r.y+r.z*r.z))
+                rotationRate:sqrt(r.x*r.x+r.y*r.y+r.z*r.z),gravity:.init(x:g.x,y:g.y,z:g.z))
             callbackTimes.append(t); callbackTimes.removeAll { t-$0 > 2 }
         }
     }

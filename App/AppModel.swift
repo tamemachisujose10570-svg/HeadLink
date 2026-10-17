@@ -20,12 +20,6 @@ import HeadLinkCore
     var showingCalibration=false
     var showingCommissioning=false
     @ObservationIgnored var calibrationStarted:Double?
-    var manualFirmware="" { didSet { if oldValue != manualFirmware { confirmedModel=false; revokeExperiment() } } }
-    var confirmedModel=false { didSet { if oldValue != confirmedModel { revokeExperiment() } } }
-    var fixedBaseConfirmed=false { didSet { if oldValue != fixedBaseConfirmed { revokeExperiment() } } }
-    var followModeConfirmed=false { didSet { if oldValue != followModeConfirmed { revokeExperiment() } } }
-    var experimentAccepted=false
-    var savedProfileAccepted=false
     var controlRevision=0
     var telemetryRevision=0
     @ObservationIgnored private var presentationGate=PresentationGate<ControlPresentation>()
@@ -33,6 +27,11 @@ import HeadLinkCore
     @ObservationIgnored private var loopGap=0.0
     @ObservationIgnored private var events:[ControlEvent]=[]
     var axes:ControlAxes = .both { didSet { pause(); controller.axes=axes; UserDefaults.standard.set(axes.rawValue,forKey:"axes") } }
+    var mountMode:MountMode = .fixed { didSet {
+        if oldValue != mountMode { revokeExperiment(); UserDefaults.standard.set(mountMode.rawValue,forKey:"mountMode") }
+    } }
+    @ObservationIgnored private var feedback=FollowFeedbackMonitor()
+    var feedbackReading:FollowFeedbackReading? { feedback.reading }
     var response:ResponseMode = .immediate { didSet { pause(); controller.response=response; UserDefaults.standard.set(response.rawValue,forKey:"response") } }
     @ObservationIgnored let motion=HeadphoneMotion()
     @ObservationIgnored private var loop:Task<Void,Never>?
@@ -43,36 +42,34 @@ import HeadLinkCore
     @ObservationIgnored private var controlInfoAt=0.0
     @ObservationIgnored private var writesBefore=0
     @ObservationIgnored private var errorSince:Double?
-    @ObservationIgnored private var verifiedProfiles:[VerifiedLimits]=[]
     var headAge:Double? { controller.sample.map { max(0,now-$0.receivedAt) } }
     var profileReady:Bool { controller.limits?.valid == true }
-    var savedProfile:VerifiedLimits? { verifiedProfiles.first { $0.matches(currentIdentity) } }
-    var canUseSavedProfile:Bool {
-        guard let limits=savedProfile,let pose=camera.freshPose else { return false }
-        return camera.transportHealthy && confirmedModel && fixedBaseConfirmed && followModeConfirmed &&
-            camera.followModeBlock == nil && probe.movementObserved && canCalibrate && limits.clamp(pose.angles) == pose.angles
-    }
     var isFollowing:Bool { controller.state == .following }
-    var canCalibrate:Bool { !commissioning.running && commissioning.state != .awaitingConfirmation && camera.freshPose != nil && (headAge.map{$0 < 0.2} ?? false) }
+    var formalLimits:VerifiedLimits? { FormalFollowProfile.limits(model:camera.selected?.model.name,reportedFirmware:camera.status.firmware) }
+    var gravityAvailable:Bool {
+        guard let sample=controller.sample,let gravity=sample.gravity else { return false }
+        return (try? HeadDirectionReference(origin:sample.attitude,gravity:gravity)) != nil
+    }
+    var canCalibrate:Bool {
+        mountMode == .fixed && !commissioning.running && camera.transportHealthy && formalLimits != nil &&
+        camera.controlModeReadiness == nil && camera.freshPose != nil && gravityAvailable && (headAge.map{$0 < 0.2} ?? false)
+    }
     var currentIdentity:CommissioningIdentity {
-        .init(model:camera.selected?.model.name ?? "",firmware:camera.status.firmware ?? manualFirmware,
-              firmwareSource:camera.status.firmware == nil ? (confirmedModel ? "operator-confirmed" : "operator-entered-unconfirmed") : "camera-report")
+        .init(model:camera.selected?.model.name ?? "",firmware:camera.status.firmware ?? "",
+              firmwareSource:camera.status.firmware == nil ? "not-reported" : "camera-report")
     }
     var blockers:[String] {
         var result:[String]=[]
         if !camera.connected { result.append("相机未连接") }
         if !camera.transportHealthy { result.append("相机传输未就绪") }
+        if mountMode != .fixed { result.append("移动机身补偿未验证：目前没有独立机身朝向，不允许用固定机身映射跟随，避免重复转动") }
         if !(headAge.map{$0 <= controller.freshnessThreshold} ?? false) { result.append("未收到新鲜耳机姿态（需小于200ms）") }
-        if !probe.movementObserved { result.append("尚未观察到左右和上下各至少3°的真实头部变化") }
+        if !gravityAvailable { result.append("耳机重力参考缺失或头部接近竖直，无法建立水平朝向") }
         if camera.freshPose == nil { result.append("镜头姿态缺失或超过300ms") }
-        if let reason=camera.followModeBlock { result.append(reason) }
-        if !profileReady { result.append("未启用匹配的配置；请在跟随准备中选择已测配置或完成实验") }
-        if savedProfileAccepted && savedProfile == nil { result.append("保存的局部配置与当前真实型号或固件不匹配") }
-        if let limits=controller.limits,let pose=camera.freshPose,limits.clamp(pose.angles) != pose.angles {
-            result.append("镜头当前角度超出已测局部范围，请用机身摇杆调整回范围内")
-        }
-        if !controller.hasCalibration { result.append("尚未校准头部与镜头方向") }
-        if commissioning.running || commissioning.state == .awaitingConfirmation { result.append("云台实验仍在进行或等待确认") }
+        if let reason=camera.controlModeReadiness { result.append(reason) }
+        if formalLimits == nil { result.append("当前识别型号尚无正式协议配置；仅支持真实识别的Osmo Pocket 4") }
+        if !profileReady { result.append("机型协议范围尚未就绪") }
+        if commissioning.running || commissioning.state == .awaitingConfirmation { result.append("旧诊断实验仍在进行，请先停止") }
         if let rejection=controller.startBlocker(at:now),!result.contains(rejection.message) { result.append(rejection.message) }
         if !controller.hasCalibration,let invalidation=controller.invalidation,invalidation.calibrationID > 0 { result.append("上次校准失效原因："+invalidation.reason.message) }
         return result
@@ -81,9 +78,8 @@ import HeadLinkCore
     init() {
         axes=ControlAxes(rawValue:UserDefaults.standard.string(forKey:"axes") ?? "") ?? .both
         response=ResponseMode(rawValue:UserDefaults.standard.string(forKey:"response") ?? "") ?? .immediate
-        controller.axes=axes; controller.response=response
-        if let url=Bundle.main.url(forResource:"VerifiedProfiles",withExtension:"json"),let data=try? Data(contentsOf:url),
-           let profiles=try? JSONDecoder().decode([VerifiedLimits].self,from:data) { verifiedProfiles=profiles.filter(\.valid) }
+        controller.axes=axes; controller.response=response; controller.requiresGravityReference=true
+        mountMode=MountMode(rawValue:UserDefaults.standard.string(forKey:"mountMode") ?? "fixed") ?? .fixed
         camera.onVideoEvent={ [weak self] kind,detail in
             guard let self else { return }
             recordEvent(kind,detail:detail)
@@ -105,7 +101,6 @@ import HeadLinkCore
             if camera.lastDisconnect?.wasConnected == true { recordEvent("camera_disconnect",detail:camera.lastDisconnect?.reason ?? "unknown") }
             controller.connectionChanged(false); connectedBefore=false; revokeExperiment()
             if camera.lastDisconnect?.wasConnected == true { notice="相机连接中断："+(camera.lastDisconnect?.reason ?? "unknown") }
-            confirmedModel=false; fixedBaseConfirmed=false; followModeConfirmed=false; manualFirmware=""
         }
     }
     func activate() {
@@ -123,7 +118,7 @@ import HeadLinkCore
         let wasFollowing=isFollowing
         camera.stopTargets()
         controller.pause(invalidateCalibration:controller.state == .calibrating,reason:.sceneInactive)
-        if commissioning.running { commissioning.abort(.canceled); experimentAccepted=false; controller.limits=nil }
+        if commissioning.running { commissioning.abort(.canceled); controller.limits=nil }
         if wasFollowing { notice="应用暂时失去活动状态，已暂停跟随；请回到前台后明确恢复" }
         publishPresentation()
     }
@@ -139,16 +134,15 @@ import HeadLinkCore
         if camera.wifiRequest == nil { camera.disconnect(reason:"app_background") }
     }
     private func synchronizeLimits() {
-        let identity=currentIdentity
-        if let bound=commissioning.identity,(bound.model != identity.model || bound.firmware != identity.firmware) {
-            revokeExperiment(); notice="机型或固件信息变化，本次实验配置已清除"
+        let next=formalLimits
+        if let old=controller.limits,let next,(old.model != next.model || old.firmware != next.firmware) {
+            camera.stopTargets(); controller.pause(invalidateCalibration:true,reason:.configurationChanged)
+            recordEvent("protocol_identity_changed",detail:"model_or_reported_firmware_changed")
         }
-        let verified=savedProfileAccepted ? savedProfile : nil
-        if savedProfileAccepted && verified == nil {
-            savedProfileAccepted=false; camera.stopTargets(); controller.pause(invalidateCalibration:true,reason:.configurationChanged)
-            notice="真实型号或固件不再匹配，已撤销本次配置启用"
+        if next == nil,controller.hasCalibration {
+            camera.stopTargets(); controller.pause(invalidateCalibration:true,reason:.configurationChanged)
         }
-        controller.limits=verified ?? (experimentAccepted && commissioning.readyForFollow ? commissioning.experimentalLimits : nil)
+        controller.limits=next
     }
     private func captureInputs() {
         let frame=ControlInputFrame.capture(readMotion:{
@@ -175,11 +169,14 @@ import HeadLinkCore
         loopGap=lastStepAt.map{now-$0} ?? 0; lastStepAt=now
         defer { publishPresentation() }
         synchronizeLimits()
-        if let reason=camera.followModeBlock,(commissioning.state != .inactive || isFollowing || savedProfileAccepted) {
+        if let reason=camera.followModeBlock,(commissioning.state != .inactive || isFollowing || controller.hasCalibration) {
             revokeExperiment(reason:.modeChanged); notice=reason
         }
-        if camera.connected,showingCommissioning || isFollowing || commissioning.running || savedProfileAccepted,now-controlInfoAt >= 2 {
+        if camera.connected,now-controlInfoAt >= 2 {
             camera.refreshControlInfo(); controlInfoAt=now
+        }
+        if isFollowing,let reason=camera.controlModeReadiness {
+            pause(); notice="跟随已暂停："+reason+"；恢复模式回报后可明确继续"
         }
         if controller.state == .calibrating {
             if let started=calibrationStarted,now-started > 12 { controller.pause(invalidateCalibration:true,reason:.calibrationTimeout); notice="校准未完成，请保持头部和机身静止后重试" }
@@ -204,12 +201,18 @@ import HeadLinkCore
                     recordEvent("target_rejected",detail:camera.lastCommandIssue ?? "unknown")
                     notice="跟随已暂停："+(camera.lastCommandIssue ?? "目标命令被拒绝")+"；未判定相机断连，请查看诊断"
                 }
-                // Arrival-time feedback is not time-aligned precision measurement. Only a persistent
-                // large settled discrepancy is used as a conservative interlock.
-                if let pose=camera.freshPose,!output.transitioning,CommissioningSession.distance(pose.angles,output.limited) > 2.5 {
-                    if errorSince == nil { errorSince=now }
-                    if now-(errorSince ?? now) > 1 { pause(); notice="目标与最新镜头回报持续相差较大，已暂停；请检查方向和机身是否移动" }
-                } else { errorSince=nil }
+                if isFollowing {
+                    let previous=feedback.reading?.state
+                    let check=feedback.update(command:output.command,nativePitch:output.nativePitch,
+                        transitioning:output.transitioning,pose:controller.pose,at:now)
+                    if check.state == .diverged {
+                        camera.stopTargets(); controller.pause()
+                        recordEvent("feedback_diverged",detail:feedbackSummary)
+                        notice="相机姿态回报持续偏离已停稳目标，已暂停；请检查模式、方向、机身是否移动。未改倍率或基准"
+                    } else if check.state == .withinTolerance,previous != .withinTolerance {
+                        recordEvent("feedback_in_tolerance",detail:feedbackSummary)
+                    }
+                }
             } else { stopAfterInputFailure() }
         } else { camera.stopTargets() }
         if now-rateAt >= 1 {
@@ -217,7 +220,7 @@ import HeadLinkCore
             sendHz=rateAt > 0 && count >= writesBefore ? Double(count-writesBefore)/(now-rateAt) : 0
             writesBefore=count; rateAt=now
         }
-        if (UserDefaults.standard.bool(forKey:"recordDiagnostics") || commissioning.state != .inactive || savedProfileAccepted),now-diagnosticAt >= 0.1 {
+        if (UserDefaults.standard.bool(forKey:"recordDiagnostics") || commissioning.state != .inactive || profileReady),now-diagnosticAt >= 0.1 {
             diagnosticAt=now
             diagnostics.append(.init(uptime:now,state:controller.state.rawValue,headAge:headAge,
                 head:controller.head,probe:probe.look,raw:controller.rawTarget,command:camera.lastSubmittedAngles,
@@ -278,57 +281,15 @@ import HeadLinkCore
     func retryMotion() { defer { publishPresentation() }; motion.stop(); lastSensor=nil; controller.motionUnavailable(); probe.reset(); camera.stopTargets(); motion.start() }
     func revokeExperiment(reason:CalibrationInvalidationReason = .configurationChanged) { defer { publishPresentation() };
         camera.stopTargets(); controller.pause(invalidateCalibration:true,reason:reason); controller.limits=nil
-        commissioning = .init(); experimentAccepted=false; savedProfileAccepted=false; errorSince=nil
-    }
-    func useSavedProfile() { defer { publishPresentation() };
-        guard canUseSavedProfile else { notice="请核对真实型号、固件、固定机身和跟随模式，确认数据新鲜且镜头处于已测范围"; return }
-        revokeExperiment(); savedProfileAccepted=true; synchronizeLimits()
-        notice="已启用保存的局部配置，尚不运动。点击校准，并在弹窗点击开始校准；成功后点击开始／恢复跟随。"
-    }
-    func beginExperiment() { defer { publishPresentation() };
-        guard camera.transportHealthy,let pose=camera.freshPose,confirmedModel,fixedBaseConfirmed,followModeConfirmed,
-              currentIdentity.valid,camera.followModeBlock == nil else {
-            notice="请核对真实Pocket 4机型与固件、固定机身和跟随模式，并等待新鲜镜头姿态"; return
-        }
-        revokeExperiment(); camera.refreshControlInfo()
-        // These are upstream encoder/path bounds, never claimed as this device's mechanical range.
-        let candidate=VerifiedLimits(model:currentIdentity.model,firmware:currentIdentity.firmware,evidence:"upstream command envelope only",
-            yawMin:OpenCineBounds.panMin,yawMax:OpenCineBounds.panMax,pitchMin:OpenCineBounds.tiltMin,pitchMax:OpenCineBounds.tiltMax)
-        do { try commissioning.begin(identity:currentIdentity,pose:pose,candidate:candidate,at:now); notice="实验已准备，尚未发运动命令。请选择一个约5°测试，活动方向需无遮挡。" }
-        catch { notice="当前姿态超出上游已核实命令范围，不能开始实验；请查看诊断" }
-    }
-    func runTest(_ direction:TestDirection) { defer { publishPresentation() };
-        guard !isFollowing,camera.transportHealthy,camera.followModeBlock == nil,let pose=camera.freshPose else { notice="无法测试：需要已连接且新鲜的镜头姿态及跟随模式"; return }
-        controller.pause(invalidateCalibration:true,reason:.experimentStarted); experimentAccepted=false; controller.limits=nil
-        do {
-            try commissioning.startMove(direction,pose:pose,at:now)
-            guard camera.startTargets() else { throw CommissioningError.transport }
-            notice="小角度实验中，请保持机身固定，随时可点击停止"
-        } catch {
-            camera.stopTargets()
-            if commissioning.running { commissioning.abort(.transport) }
-            notice="当前测试不可开始：请先确认上一项，并沿已测路径返回起点；超出候选范围的方向不可用"
-        }
-    }
-    func confirmTest() { defer { publishPresentation() };
-        guard let pose=camera.freshPose,let receipt=commissioning.pendingReceipt,
-              CommissioningSession.distance(pose.angles,receipt.target) <= 0.8,
-              camera.followModeBlock == nil else { stopTest(); return }
-        do { try commissioning.confirmPhysicalObservation(); notice=commissioning.needsReturn ? "已记录，请明确点击沿已测路径返回起点，再确认返回与停止。" : "已记录。完成左右、上下端点及返回后，可启用本次实验跟随。" }
-        catch { notice="尚无可确认的到位与停止记录" }
-    }
-    func stopTest() { defer { publishPresentation() }; camera.stopTargets(); commissioning.abort(.canceled); experimentAccepted=false; controller.limits=nil; notice="实验已停止，已尝试发停止命令；请观察镜头，网络中断时无法确认送达" }
-    func acceptExperimentalFollow() { defer { publishPresentation() };
-        guard commissioning.readyForFollow,probe.movementObserved,canCalibrate,camera.followModeBlock == nil else { notice="请完成四个方向及返回确认，并确认耳机左右/上下姿态真实变化"; return }
-        experimentAccepted=true; synchronizeLimits(); controller.pause(invalidateCalibration:true,reason:.experimentAccepted)
-        notice="已启用本次连接的局部实验范围；请校准后明确点击开始。超出已测范围会限位，不会缩放头部角度。"
+        commissioning = .init(); errorSince=nil
     }
     func calibrate() {
         defer { publishPresentation() }
         camera.checkHealth(); captureInputs()
-        camera.stopTargets()
+        camera.stopTargets(); synchronizeLimits()
+        guard canCalibrate else { notice=blockers.filter{!$0.contains("尚未校准")}.joined(separator:"；"); return }
         do { try controller.beginCalibration(at:now); calibrationStarted=now; showingCalibration=true; notice=nil; recordEvent("calibration_started",detail:"user_action") }
-        catch { notice="需要新鲜的耳机姿态和镜头反馈才能校准" }
+        catch { notice="校准未开始："+((error as? TrackingError) == .gravityUnavailable ? "耳机重力参考不可用" : String(describing:error)); recordEvent("calibration_rejected",detail:notice ?? "unknown") }
     }
     func start() {
         defer { publishPresentation() }
@@ -343,9 +304,9 @@ import HeadLinkCore
             }
             // Queue ownership is established without sending a target. Re-snapshot after
             // the synchronous UDP handoff, then establish the control-loop time origin.
-            captureInputs(); try controller.start(at:now)
+            captureInputs(); try controller.start(at:now); feedback = .init(); errorSince=nil
             recordEvent("following_started",detail:"native_queue_armed")
-            notice="固定基座1∶1跟随中；仅在已测局部范围内运行，起步与恢复受限速保护"; haptic()
+            notice="固定机身1∶1方向跟随中；倍率1.00，超出协议可达范围会明确限位"; haptic()
         } catch {
             controller.pause(); camera.stopTargets()
             recordEvent("start_rejected",detail:String(describing:error))
@@ -355,10 +316,23 @@ import HeadLinkCore
     func pause() { defer { publishPresentation() };
         recordEvent("user_paused",detail:"user_action")
         camera.stopTargets(); controller.pause(); errorSince=nil
-        if commissioning.running { commissioning.abort(.canceled); experimentAccepted=false; controller.limits=nil }
+        if commissioning.running { commissioning.abort(.canceled); controller.limits=nil }
         notice="跟随已暂停；已尝试发送停止，未收到停止ACK。机身移动时不保证锁定世界方向。"
     }
     func clearCalibration() { defer { publishPresentation() }; camera.stopTargets(); controller.pause(invalidateCalibration:true,reason:.userCleared) }
+    var feedbackSummary:String {
+        guard let r=feedback.reading else { return "相机姿态核对：尚未运行" }
+        let state:String
+        switch r.state {
+        case .unavailable:state="回报不可用"
+        case .settling:state="运动或等待停稳"
+        case .withinTolerance:state="回报位于核对阈值内"
+        case .mismatch:state="回报偏差观察中"
+        case .diverged:state="回报持续偏离，已暂停"
+        }
+        guard let yaw=r.yawError,let pitch=r.pitchError,let native=r.nativePitchError else { return state }
+        return String(format:"%@ · 回报差 yaw %.1f° / pitch %.1f° / 原生pitch %.1f°",state,yaw,pitch,native)
+    }
     func haptic() { if UserDefaults.standard.bool(forKey:"haptics") { UIImpactFeedbackGenerator(style:.light).impactOccurred() } }
     func exportDiagnostics() {
         camera.captureVideoDiagnostic()
@@ -366,7 +340,7 @@ import HeadLinkCore
             let encoder=JSONEncoder(); encoder.outputFormatting=[.prettyPrinted,.sortedKeys]
             let url=FileManager.default.temporaryDirectory.appendingPathComponent("HeadLink-diagnostics.json")
             let context=DiagnosticContext(iOS:UIDevice.current.systemVersion,model:camera.selected?.model.name,
-                modelID:camera.selected?.modelId,reportedFirmware:camera.status.firmware,operatorFirmware:manualFirmware,
+                modelID:camera.selected?.modelId,reportedFirmware:camera.status.firmware,operatorFirmware:"",
                 firmwareSource:currentIdentity.firmwareSource,mode:camera.modeSummary,attitudeLength:camera.lastAttitudeLength,
                 attitudeFrames:camera.attitudeFrames,poseFrames:camera.poseFrames,probeMovementObserved:probe.movementObserved,
                 motionAvailable:motion.available,motionAuthorization:Int(motion.authorization.rawValue),
@@ -376,23 +350,20 @@ import HeadLinkCore
                 targetSubmissions:camera.targetSubmissions,nativeWrites:camera.nativeWrites,
                 lastSubmittedAngles:camera.lastSubmittedAngles,lastSubmittedNativePitch:camera.lastSubmittedNativePitch,
                 lastCommandIssue:camera.lastCommandIssue,calibrationComplete:controller.hasCalibration,
-                configurationSource:savedProfileAccepted ? "saved-local-envelope" : (experimentAccepted ? "session-experiment" : "none"),
+                configurationSource:profileReady ? FormalFollowProfile.source : "none",
                 events:events,lastDisconnect:camera.lastDisconnect,
                 appVersion:Bundle.main.object(forInfoDictionaryKey:"CFBundleShortVersionString") as? String,
                 buildNumber:Bundle.main.object(forInfoDictionaryKey:"CFBundleVersion") as? String,
                 appInstanceID:instanceID,connectionEpoch:camera.connectionEpoch,calibrationID:controller.calibrationID,
                 lastStartRejection:controller.lastStartRejection,currentStartBlocker:controller.startBlocker(at:now),calibrationInvalidation:controller.invalidation,
-                video:camera.videoDiagnostic,videoHistory:camera.videoHistory)
-            try encoder.encode(DiagnosticExport(schema:3,generatedAt:Date(),context:context,rows:diagnostics)).write(to:url,options:.atomic)
+                video:camera.videoDiagnostic,videoHistory:camera.videoHistory,
+                mountMode:mountMode.rawValue,gravityReferenceRequired:controller.requiresGravityReference,feedback:feedback.reading,
+                calibrationCameraAngles:controller.calibrationCameraPose?.angles,calibrationNativePitch:controller.calibrationCameraPose?.nativePitch,
+                headQuaternion:controller.sample?.attitude,headGravity:controller.sample?.gravity,directionReference:controller.directionReference)
+            try encoder.encode(DiagnosticExport(schema:4,generatedAt:Date(),context:context,rows:diagnostics)).write(to:url,options:.atomic)
             exportURL=url
         } catch { notice="诊断导出失败，请重试" }
     }
-}
-// Read directly from the pinned DJI encoder limits; this is not a hardware capability declaration.
-import OpenCineDJI
-private enum OpenCineBounds {
-    static let panMin=GimbalReach.panMinDeg, panMax=GimbalReach.panMaxDeg
-    static let tiltMin=GimbalReach.tiltMinDeg, tiltMax=GimbalReach.tiltMaxDeg
 }
 struct DiagnosticRow:Codable {
     let uptime:Double; let state:String; let headAge:Double?
@@ -411,6 +382,9 @@ struct DiagnosticContext:Codable {
     let appVersion:String?; let buildNumber:String?; let appInstanceID:String; let connectionEpoch:UInt64; let calibrationID:UInt64
     let lastStartRejection:TrackingStartRejection?; let currentStartBlocker:TrackingStartRejection?; let calibrationInvalidation:CalibrationInvalidation?
     let video:VideoDiagnostic?; let videoHistory:[VideoDiagnostic]
+    let mountMode:String; let gravityReferenceRequired:Bool; let feedback:FollowFeedbackReading?
+    let calibrationCameraAngles:Angles?; let calibrationNativePitch:Double?
+    let headQuaternion:Quaternion?; let headGravity:DirectionVector?; let directionReference:HeadDirectionReference?
 }
 struct DiagnosticExport:Codable { let schema:Int; let generatedAt:Date; let context:DiagnosticContext; let rows:[DiagnosticRow] }
 func commissioningFailure(_ reason:CommissioningError?) -> String {

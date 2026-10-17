@@ -74,3 +74,13 @@
 - [云端产物](https://github.com/wch33e/HeadLink/actions/runs/39006392871/artifacts/12091252663)，已下载独立复核：1.1.2（7）、org.headlink.personal、最低iOS17.0、iPhoneOS26.1 SDK/arm64、未签名，无内嵌provisioning profile。包内VerifiedProfiles.json与已有个人已测配置逐字相等。
 - SHA256：5dc8bd3c4f1520e3eb8ff1709f7b2c8cf7145f2bf3f69bbe388a4249a100cb36，与metadata及SHA256SUMS一致；inspection.json随产物保存，hardwareValidated=false。
 - 本轮没有改签名身份、权限或计费设置，没有购买服务。配对/手动Wi-Fi和录像协议保留；新视频恢复及一次校准后跟随须用户按docs/STABILITY_TEST_PLAN.md连续实测至少5分钟。
+
+## 2026-10-17 正式方向跟随1.2.0
+
+- 用户确认1.1.2（7）局部范围内头部联动通过；保存baseline-1.1.2-build-7及原IPA。完整大角度运动、外部精度及移动补偿未被该反馈验证。
+- 正式入口改为连接自动匹配协议配置→校准→开始，不依赖人工固件、实验确认或局部±5°范围；固件未知保持not-reported。
+- 正式范围来自固定GimbalReach，机身反馈yaw -48…225°、display pitch -44…70°，保留相机实际边界、原生可达路径及新鲜度保护，不扩大为机械止挡。
+- 加重力水平参考，校准时俯仰/侧歪不倾斜yaw平面；正式模式始终增益1.00。roll ignored，要求真实Follow/俯仰未锁定；不擅自切模式。
+- 低延迟提交最新目标方向；仅开始/恢复采用有限过渡保护；轻度平滑40ms不改终值。新增停稳后真实回报核对与schema4原点/参考/误差诊断。
+- 配对/Wi-Fi、录像、原视频恢复与健康路径和基线逐字比较一致；Vendor236文件未改。本地55项/8组通过，App语法检查通过。云端设备编译待完成。
+- 安装方式答复待收到；先交付机身竖直固定。无独立机身姿态时不伪造移动补偿，移动模式明确未验证并阻止运动；不因此暂停固定机身实现/构建。细节docs/FORMAL_FOLLOW.md，最短步骤docs/FORMAL_FOLLOW_QUICKSTART.md。

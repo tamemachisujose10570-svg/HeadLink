@@ -1,12 +1,112 @@
 {
   "sourceLanguage": "zh-Hans",
   "strings": {
+    "%@ · 回报差 yaw %.1f° / pitch %.1f° / 原生pitch %.1f°": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ · 回报差 yaw %.1f° / pitch %.1f° / 原生pitch %.1f°"
+          }
+        }
+      }
+    },
     "0.1.0 · 开发构建": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "0.1.0 · 开发构建"
+          }
+        }
+      }
+    },
+    "01.03.14.04（历史证据，不代表本次读取）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "01.03.14.04（历史证据，不代表本次读取）"
+          }
+        }
+      }
+    },
+    "1 · 真实耳机姿态": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 · 真实耳机姿态"
+          }
+        }
+      }
+    },
+    "2 · 相机与控制模式": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2 · 相机与控制模式"
+          }
+        }
+      }
+    },
+    "3 · 准备本次固定基座实验": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3 · 准备本次固定基座实验"
+          }
+        }
+      }
+    },
+    "3 · 固定基座跟随准备": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3 · 固定基座跟随准备"
+          }
+        }
+      }
+    },
+    "4 · 点击才会运动": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "4 · 点击才会运动"
+          }
+        }
+      }
+    },
+    "5 · 局部1∶1跟随": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5 · 局部1∶1跟随"
+          }
+        }
+      }
+    },
+    "FPV（姿态推送）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "FPV（姿态推送）"
+          }
+        }
+      }
+    },
+    "Osmo Pocket 4历史人工固件": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Osmo Pocket 4历史人工固件"
           }
         }
       }
@@ -31,12 +131,42 @@
         }
       }
     },
+    "上次校准失效原因：": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "上次校准失效原因："
+          }
+        }
+      }
+    },
+    "不包含相机密码、完整设备标识或视频。固件来源、姿态帧长度、目标/反馈、停止观察与未通过原因会保留。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不包含相机密码、完整设备标识或视频。固件来源、姿态帧长度、目标/反馈、停止观察与未通过原因会保留。"
+          }
+        }
+      }
+    },
     "不可用": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "不可用"
+          }
+        }
+      }
+    },
+    "不可用或接近竖直": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不可用或接近竖直"
           }
         }
       }
@@ -61,6 +191,66 @@
         }
       }
     },
+    "不可用；请在机身下拉菜单核对": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不可用；请在机身下拉菜单核对"
+          }
+        }
+      }
+    },
+    "不可达：已限位，未缩放倍率": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不可达：已限位，未缩放倍率"
+          }
+        }
+      }
+    },
+    "不是机械全行程验证。只有你主动点击下一节的测试并确认后，才累积本次局部可用范围；退出前台、断连、改机型/固件/模式会清除实验资格。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不是机械全行程验证。只有你主动点击下一节的测试并确认后，才累积本次局部可用范围；退出前台、断连、改机型/固件/模式会清除实验资格。"
+          }
+        }
+      }
+    },
+    "云台实验仍在进行或等待确认": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "云台实验仍在进行或等待确认"
+          }
+        }
+      }
+    },
+    "云台模式": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "云台模式"
+          }
+        }
+      }
+    },
+    "人工核对的完整固件版本": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "人工核对的完整固件版本"
+          }
+        }
+      }
+    },
     "仅上下": {
       "localizations": {
         "zh-Hans": {
@@ -71,12 +261,32 @@
         }
       }
     },
+    "仅上下 1∶1": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仅上下 1∶1"
+          }
+        }
+      }
+    },
     "仅左右": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "仅左右"
+          }
+        }
+      }
+    },
+    "仅左右 1∶1": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仅左右 1∶1"
           }
         }
       }
@@ -111,12 +321,72 @@
         }
       }
     },
+    "使用已测配置，返回拍摄页校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用已测配置，返回拍摄页校准"
+          }
+        }
+      }
+    },
+    "保存的局部配置与当前真实型号或固件不匹配": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保存的局部配置与当前真实型号或固件不匹配"
+          }
+        }
+      }
+    },
+    "俯仰锁定（真实回报）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "俯仰锁定（真实回报）"
+          }
+        }
+      }
+    },
+    "俯仰锁定，需在机身选择Follow模式": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "俯仰锁定，需在机身选择Follow模式"
+          }
+        }
+      }
+    },
     "倍率": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "倍率"
+          }
+        }
+      }
+    },
+    "停止后回报仍有明显移动，实验未通过": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "停止后回报仍有明显移动，实验未通过"
+          }
+        }
+      }
+    },
+    "停止后最大回报变化": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "停止后最大回报变化"
           }
         }
       }
@@ -131,12 +401,52 @@
         }
       }
     },
+    "停止运动但不重建会话；有效校准保留，绝不自动恢复": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "停止运动但不重建会话；有效校准保留，绝不自动恢复"
+          }
+        }
+      }
+    },
     "先在 iPhone 系统中连接 AirPods。只有收到新鲜姿态，才表示运动数据可用。": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "先在 iPhone 系统中连接 AirPods。只有收到新鲜姿态，才表示运动数据可用。"
+          }
+        }
+      }
+    },
+    "先完成向右、向左、向上、向下各约5°及每次返回。确认后才开放本次实验跟随。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "先完成向右、向左、向上、向下各约5°及每次返回。确认后才开放本次实验跟随。"
+          }
+        }
+      }
+    },
+    "先完成本次小角度实验，再启用局部1∶1跟随": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "先完成本次小角度实验，再启用局部1∶1跟随"
+          }
+        }
+      }
+    },
+    "先打开跟随准备，使用匹配的已测配置或完成小角度实验": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "先打开跟随准备，使用匹配的已测配置或完成小角度实验"
           }
         }
       }
@@ -161,12 +471,32 @@
         }
       }
     },
+    "准备本次实验（尚不运动）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "准备本次实验（尚不运动）"
+          }
+        }
+      }
+    },
     "分享 JSON": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "分享 JSON"
+          }
+        }
+      }
+    },
+    "分享诊断JSON": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "分享诊断JSON"
           }
         }
       }
@@ -181,6 +511,16 @@
         }
       }
     },
+    "协议机身坐标范围：yaw %.1f…%.1f°；pitch %.1f…%.1f°": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "协议机身坐标范围：yaw %.1f…%.1f°；pitch %.1f…%.1f°"
+          }
+        }
+      }
+    },
     "原生 iPhone 工具，数据在本地处理。无需账号，无广告，不上传运动数据或相机画面。": {
       "localizations": {
         "zh-Hans": {
@@ -191,12 +531,122 @@
         }
       }
     },
+    "原生 pitch": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "原生 pitch"
+          }
+        }
+      }
+    },
+    "原生俯仰回报": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "原生俯仰回报"
+          }
+        }
+      }
+    },
     "取消": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "取消"
+          }
+        }
+      }
+    },
+    "只执行这一次缓慢的目标角度测试，未确认结果不会开放跟随。可随时点击停止。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "只执行这一次缓慢的目标角度测试，未确认结果不会开放跟随。可随时点击停止。"
+          }
+        }
+      }
+    },
+    "可用": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可用"
+          }
+        }
+      }
+    },
+    "向上测试到 +%.0f°（新增5°）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "向上测试到 +%.0f°（新增5°）"
+          }
+        }
+      }
+    },
+    "向下测试到 −%.0f°（新增5°）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "向下测试到 −%.0f°（新增5°）"
+          }
+        }
+      }
+    },
+    "向右测试到 +%.0f°（新增5°）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "向右测试到 +%.0f°（新增5°）"
+          }
+        }
+      }
+    },
+    "向左测试到 −%.0f°（新增5°）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "向左测试到 −%.0f°（新增5°）"
+          }
+        }
+      }
+    },
+    "启动被拒绝：校准时镜头可能不在已测范围，或数据已过期": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "启动被拒绝：校准时镜头可能不在已测范围，或数据已过期"
+          }
+        }
+      }
+    },
+    "启用不等于开始运动。返回拍摄页后仍需校准，再明确点击开始跟随。需要扩大范围时，可回到这里逐侧新增5°测试；不自动扫行程。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "启用不等于开始运动。返回拍摄页后仍需校准，再明确点击开始跟随。需要扩大范围时，可回到这里逐侧新增5°测试；不自动扫行程。"
+          }
+        }
+      }
+    },
+    "启用本次实验跟随，返回拍摄页校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "启用本次实验跟随，返回拍摄页校准"
           }
         }
       }
@@ -221,12 +671,102 @@
         }
       }
     },
+    "命令链路与诊断": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "命令链路与诊断"
+          }
+        }
+      }
+    },
     "响应": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "响应"
+          }
+        }
+      }
+    },
+    "回报不可用": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回报不可用"
+          }
+        }
+      }
+    },
+    "回报位于核对阈值内": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回报位于核对阈值内"
+          }
+        }
+      }
+    },
+    "回报偏差观察中": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回报偏差观察中"
+          }
+        }
+      }
+    },
+    "回报固件": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回报固件"
+          }
+        }
+      }
+    },
+    "回报已到位并保持，等待你的物理观察确认": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回报已到位并保持，等待你的物理观察确认"
+          }
+        }
+      }
+    },
+    "回报持续偏离，已暂停": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回报持续偏离，已暂停"
+          }
+        }
+      }
+    },
+    "回调频率": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "回调频率"
+          }
+        }
+      }
+    },
+    "固定基座1∶1跟随中；仅在已测局部范围内运行，起步与恢复受限速保护": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "固定基座1∶1跟随中；仅在已测局部范围内运行，起步与恢复受限速保护"
           }
         }
       }
@@ -261,6 +801,96 @@
         }
       }
     },
+    "固定机身 · 重力水平参考 · 倍率1.00": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "固定机身 · 重力水平参考 · 倍率1.00"
+          }
+        }
+      }
+    },
+    "固定机身1∶1方向跟随中；倍率1.00，超出协议可达范围会明确限位": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "固定机身1∶1方向跟随中；倍率1.00，超出协议可达范围会明确限位"
+          }
+        }
+      }
+    },
+    "固定机身模式不补偿支架转动。移动机身需要独立机身姿态和安装外参，当前不能从云台关节角反推身体朝向；移动模式未验证，不允许以固定映射运动。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "固定机身模式不补偿支架转动。移动机身需要独立机身姿态和安装外参，当前不能从云台关节角反推身体朝向；移动模式未验证，不允许以固定映射运动。"
+          }
+        }
+      }
+    },
+    "图传恢复开始，已暂停跟随；恢复后不会自动启动，控制状态与视频分别显示": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "图传恢复开始，已暂停跟随；恢复后不会自动启动，控制状态与视频分别显示"
+          }
+        }
+      }
+    },
+    "图传恢复未成功：": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "图传恢复未成功："
+          }
+        }
+      }
+    },
+    "在机身顶部下滑选择Follow，关闭ActiveTrack与智能云台。Follow保留画面水平；FPV与俯仰锁定不能用于当前双轴跟随。App只核对真实回报，不擅自切换模式。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在机身顶部下滑选择Follow，关闭ActiveTrack与智能云台。Follow保留画面水平；FPV与俯仰锁定不能用于当前双轴跟随。App只核对真实回报，不擅自切换模式。"
+          }
+        }
+      }
+    },
+    "型号和固件已精确匹配，可复用已测范围，无需重复5°实验。需重新核对现场条件、校准并点击开始；不会连接后自动运动。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "型号和固件已精确匹配，可复用已测范围，无需重复5°实验。需重新核对现场条件、校准并点击开始；不会连接后自动运动。"
+          }
+        }
+      }
+    },
+    "复制密码": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "复制密码"
+          }
+        }
+      }
+    },
+    "头部接近竖直，方向解算不可用": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "头部接近竖直，方向解算不可用"
+          }
+        }
+      }
+    },
     "头部相对方向": {
       "localizations": {
         "zh-Hans": {
@@ -281,12 +911,62 @@
         }
       }
     },
+    "头部观察零点已重设；请分别左右转头、抬头低头，仅用于检查数据，不会转动云台": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "头部观察零点已重设；请分别左右转头、抬头低头，仅用于检查数据，不会转动云台"
+          }
+        }
+      }
+    },
+    "姿态 yaw / pitch": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "姿态 yaw / pitch"
+          }
+        }
+      }
+    },
+    "姿态参考中断或跳变，请重设观察零点并重新校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "姿态参考中断或跳变，请重设观察零点并重新校准"
+          }
+        }
+      }
+    },
+    "姿态帧长度 / 有效数": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "姿态帧长度 / 有效数"
+          }
+        }
+      }
+    },
     "姿态异常，请重新校准": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "姿态异常，请重新校准"
+          }
+        }
+      }
+    },
+    "姿态时效": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "姿态时效"
           }
         }
       }
@@ -321,12 +1001,42 @@
         }
       }
     },
+    "实际变化范围": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实际变化范围"
+          }
+        }
+      }
+    },
+    "实际回调 %.1f Hz": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实际回调 %.1f Hz"
+          }
+        }
+      }
+    },
     "实际回调频率": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "实际回调频率"
+          }
+        }
+      }
+    },
+    "实际网络写入数": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实际网络写入数"
           }
         }
       }
@@ -341,6 +1051,166 @@
         }
       }
     },
+    "实验停止：云台模式发生变化": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实验停止：云台模式发生变化"
+          }
+        }
+      }
+    },
+    "实验停止：另一轴出现明显运动，请检查机身固定和云台模式": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实验停止：另一轴出现明显运动，请检查机身固定和云台模式"
+          }
+        }
+      }
+    },
+    "实验停止：回报超出本次目标或上游命令范围": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实验停止：回报超出本次目标或上游命令范围"
+          }
+        }
+      }
+    },
+    "实验停止：实际回报方向与目标相反，请导出诊断": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实验停止：实际回报方向与目标相反，请导出诊断"
+          }
+        }
+      }
+    },
+    "实验停止：未能及时到位或收到足够停稳回报，请导出诊断": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实验停止：未能及时到位或收到足够停稳回报，请导出诊断"
+          }
+        }
+      }
+    },
+    "实验停止：目标队列或相机传输拒绝，详见命令链路状态": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实验停止：目标队列或相机传输拒绝，详见命令链路状态"
+          }
+        }
+      }
+    },
+    "实验包络 yaw %.1f…%.1f° / pitch %.1f…%.1f°": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实验包络 yaw %.1f…%.1f° / pitch %.1f…%.1f°"
+          }
+        }
+      }
+    },
+    "实验已停止，已尝试发停止命令；请观察镜头，网络中断时无法确认送达": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实验已停止，已尝试发停止命令；请观察镜头，网络中断时无法确认送达"
+          }
+        }
+      }
+    },
+    "实验已准备，尚未发运动命令。请选择一个约5°测试，活动方向需无遮挡。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实验已准备，尚未发运动命令。请选择一个约5°测试，活动方向需无遮挡。"
+          }
+        }
+      }
+    },
+    "实验暂停：控制节拍超过200ms": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实验暂停：控制节拍超过200ms"
+          }
+        }
+      }
+    },
+    "实验暂停：镜头姿态缺失或超过300ms": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实验暂停：镜头姿态缺失或超过300ms"
+          }
+        }
+      }
+    },
+    "实验未通过，已停止待发目标": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实验未通过，已停止待发目标"
+          }
+        }
+      }
+    },
+    "实验条件不满足，请检查设备信息、数据时效和确认步骤": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实验条件不满足，请检查设备信息、数据时效和确认步骤"
+          }
+        }
+      }
+    },
+    "实验状态": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实验状态"
+          }
+        }
+      }
+    },
+    "密码已复制": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "密码已复制"
+          }
+        }
+      }
+    },
+    "小角度实验中，请保持机身固定，随时可点击停止": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "小角度实验中，请保持机身固定，随时可点击停止"
+          }
+        }
+      }
+    },
     "尚不能开始：请检查校准、数据及机型验证配置": {
       "localizations": {
         "zh-Hans": {
@@ -351,12 +1221,82 @@
         }
       }
     },
+    "尚无可确认的到位与停止记录": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "尚无可确认的到位与停止记录"
+          }
+        }
+      }
+    },
+    "尚未准备，不发运动命令": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "尚未准备，不发运动命令"
+          }
+        }
+      }
+    },
+    "尚未校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "尚未校准"
+          }
+        }
+      }
+    },
+    "尚未校准头部与镜头方向": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "尚未校准头部与镜头方向"
+          }
+        }
+      }
+    },
+    "尚未观察到左右和上下各至少3°的真实头部变化": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "尚未观察到左右和上下各至少3°的真实头部变化"
+          }
+        }
+      }
+    },
     "就绪，尚未校准": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "就绪，尚未校准"
+          }
+        }
+      }
+    },
+    "就绪，等待你点击测试": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "就绪，等待你点击测试"
+          }
+        }
+      }
+    },
+    "左右 %.1f° · 上下 %.1f°": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "左右 %.1f° · 上下 %.1f°"
           }
         }
       }
@@ -391,12 +1331,112 @@
         }
       }
     },
+    "已保存局部配置：yaw %.1f°…%.1f°；pitch %.1f°…%.1f°": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已保存局部配置：yaw %.1f°…%.1f°；pitch %.1f°…%.1f°"
+          }
+        }
+      }
+    },
     "已加入 Wi-Fi，验证连接": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "已加入 Wi-Fi，验证连接"
+          }
+        }
+      }
+    },
+    "已启用保存的局部配置": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已启用保存的局部配置"
+          }
+        }
+      }
+    },
+    "已启用保存的局部配置，尚不运动。点击校准，并在弹窗点击开始校准；成功后点击开始／恢复跟随。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已启用保存的局部配置，尚不运动。点击校准，并在弹窗点击开始校准；成功后点击开始／恢复跟随。"
+          }
+        }
+      }
+    },
+    "已启用保存的局部配置，尚不运动。请进入拍摄，点击校准，并在弹窗再次点击校准；成功后点击开始／恢复跟随。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已启用保存的局部配置，尚不运动。请进入拍摄，点击校准，并在弹窗再次点击校准；成功后点击开始／恢复跟随。"
+          }
+        }
+      }
+    },
+    "已启用本次实验配置": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已启用本次实验配置"
+          }
+        }
+      }
+    },
+    "已启用本次连接的局部实验范围；请校准后明确点击开始。超出已测范围会限位，不会缩放头部角度。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已启用本次连接的局部实验范围；请校准后明确点击开始。超出已测范围会限位，不会缩放头部角度。"
+          }
+        }
+      }
+    },
+    "已尝试发送停止，并收到一段稳定的姿态回报；这不是设备停止ACK，也不是独立物理量角证明。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已尝试发送停止，并收到一段稳定的姿态回报；这不是设备停止ACK，也不是独立物理量角证明。"
+          }
+        }
+      }
+    },
+    "已尝试发送停止，观察真实回报是否保持": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已尝试发送停止，观察真实回报是否保持"
+          }
+        }
+      }
+    },
+    "已收到用户反馈：首版安装、耳机连接、Pocket配对与图传正常。头部姿态和运动控制需按本次实验逐项确认。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已收到用户反馈：首版安装、耳机连接、Pocket配对与图传正常。头部姿态和运动控制需按本次实验逐项确认。"
+          }
+        }
+      }
+    },
+    "已收到真实耳机姿态及四向5°运动、停止保持与返回确认记录。已保存该型号/固件的局部范围；校准后1∶1实测仍待完成。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已收到真实耳机姿态及四向5°运动、停止保持与返回确认记录。已保存该型号/固件的局部范围；校准后1∶1实测仍待完成。"
           }
         }
       }
@@ -411,12 +1451,92 @@
         }
       }
     },
+    "已校准，请明确点击开始跟随": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已校准，请明确点击开始跟随"
+          }
+        }
+      }
+    },
     "已校准，请点击开始跟随": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "已校准，请点击开始跟随"
+          }
+        }
+      }
+    },
+    "已核对机身为识别出的Pocket 4及固件": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已核对机身为识别出的Pocket 4及固件"
+          }
+        }
+      }
+    },
+    "已测范围 yaw %.1f…%.1f° / pitch %.1f…%.1f°": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已测范围 yaw %.1f…%.1f° / pitch %.1f…%.1f°"
+          }
+        }
+      }
+    },
+    "已确认运动记录": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已确认运动记录"
+          }
+        }
+      }
+    },
+    "已移除个人±5°实验窗口。这里是固定上游协议可达范围，不是DJI规格表的同号坐标，也不代表这台相机的大角度光学精度已经测量。硬件和协议路径限制继续生效，不缩放倍率或自动重设基准。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已移除个人±5°实验窗口。这里是固定上游协议可达范围，不是DJI规格表的同号坐标，也不代表这台相机的大角度光学精度已经测量。硬件和协议路径限制继续生效，不缩放倍率或自动重设基准。"
+          }
+        }
+      }
+    },
+    "已观察到两个方向真实变化": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已观察到两个方向真实变化"
+          }
+        }
+      }
+    },
+    "已记录。完成左右、上下端点及返回后，可启用本次实验跟随。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已记录。完成左右、上下端点及返回后，可启用本次实验跟随。"
+          }
+        }
+      }
+    },
+    "已记录，请明确点击沿已测路径返回起点，再确认返回与停止。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已记录，请明确点击沿已测路径返回起点，再确认返回与停止。"
           }
         }
       }
@@ -441,12 +1561,72 @@
         }
       }
     },
+    "已选跟随模式，已关闭跟踪和智能云台": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已选跟随模式，已关闭跟踪和智能云台"
+          }
+        }
+      }
+    },
     "平滑只改变过渡，停稳后收敛到原始目标。更改控制设置会暂停跟随。": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "平滑只改变过渡，停稳后收敛到原始目标。更改控制设置会暂停跟随。"
+          }
+        }
+      }
+    },
+    "广播型号编号": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "广播型号编号"
+          }
+        }
+      }
+    },
+    "应用暂时失去活动状态，已暂停跟随；请回到前台后明确恢复": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "应用暂时失去活动状态，已暂停跟随；请回到前台后明确恢复"
+          }
+        }
+      }
+    },
+    "应用进入后台，停止控制并清除本次校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "应用进入后台，停止控制并清除本次校准"
+          }
+        }
+      }
+    },
+    "开发构建": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开发构建"
+          }
+        }
+      }
+    },
+    "开始校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开始校准"
           }
         }
       }
@@ -491,6 +1671,66 @@
         }
       }
     },
+    "当前姿态超出上游已核实命令范围，不能开始实验；请查看诊断": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前姿态超出上游已核实命令范围，不能开始实验；请查看诊断"
+          }
+        }
+      }
+    },
+    "当前控制配置不可用": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前控制配置不可用"
+          }
+        }
+      }
+    },
+    "当前模式": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前模式"
+          }
+        }
+      }
+    },
+    "当前测试不可开始：请先确认上一项，并沿已测路径返回起点；超出候选范围的方向不可用": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前测试不可开始：请先确认上一项，并沿已测路径返回起点；超出候选范围的方向不可用"
+          }
+        }
+      }
+    },
+    "当前识别型号尚无正式协议配置；仅支持真实识别的Osmo Pocket 4": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前识别型号尚无正式协议配置；仅支持真实识别的Osmo Pocket 4"
+          }
+        }
+      }
+    },
+    "当前镜头超出已测范围，请用机身摇杆调整回上方范围内。App不会自动回中。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前镜头超出已测范围，请用机身摇杆调整回上方范围内。App不会自动回中。"
+          }
+        }
+      }
+    },
     "录像": {
       "localizations": {
         "zh-Hans": {
@@ -511,12 +1751,42 @@
         }
       }
     },
+    "必须先沿本次已测方向返回起点并确认，才可测试另一方向。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "必须先沿本次已测方向返回起点并确认，才可测试另一方向。"
+          }
+        }
+      }
+    },
     "恢复跟随": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "恢复跟随"
+          }
+        }
+      }
+    },
+    "我看到方向正确、约定角度正确且停止后保持": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "我看到方向正确、约定角度正确且停止后保持"
+          }
+        }
+      }
+    },
+    "我看到镜头沿原路返回起点并停稳": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "我看到镜头沿原路返回起点并停稳"
           }
         }
       }
@@ -561,12 +1831,62 @@
         }
       }
     },
+    "控制传输中断，停止未确认": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "控制传输中断，停止未确认"
+          }
+        }
+      }
+    },
+    "控制传输未就绪，未建立目标队列": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "控制传输未就绪，未建立目标队列"
+          }
+        }
+      }
+    },
+    "控制时钟早于耳机样本，已停止（时序错误）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "控制时钟早于耳机样本，已停止（时序错误）"
+          }
+        }
+      }
+    },
+    "控制节拍失效（本轮间隔%.0f ms）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "控制节拍失效（本轮间隔%.0f ms）"
+          }
+        }
+      }
+    },
     "控制轴": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "控制轴"
+          }
+        }
+      }
+    },
+    "提交目标数": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "提交目标数"
           }
         }
       }
@@ -621,6 +1941,16 @@
         }
       }
     },
+    "数据时效": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "数据时效"
+          }
+        }
+      }
+    },
     "数据正常": {
       "localizations": {
         "zh-Hans": {
@@ -631,12 +1961,62 @@
         }
       }
     },
+    "数据状态": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "数据状态"
+          }
+        }
+      }
+    },
     "断开": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "断开"
+          }
+        }
+      }
+    },
+    "方向锁定（姿态推送）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "方向锁定（姿态推送）"
+          }
+        }
+      }
+    },
+    "无法测试：需要已连接且新鲜的镜头姿态及跟随模式": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法测试：需要已连接且新鲜的镜头姿态及跟随模式"
+          }
+        }
+      }
+    },
+    "无需再次完成左右、上下小角度观察或实验确认。侧歪头不控制roll。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无需再次完成左右、上下小角度观察或实验确认。侧歪头不控制roll。"
+          }
+        }
+      }
+    },
+    "旧诊断实验仍在进行，请先停止": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "旧诊断实验仍在进行，请先停止"
           }
         }
       }
@@ -681,12 +2061,122 @@
         }
       }
     },
+    "最多保留最近约 10 分钟的角度、状态和频率；联动实验会自动记录。无视频、设备标识或网络密码；退出应用后不保留记录。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最多保留最近约 10 分钟的角度、状态和频率；联动实验会自动记录。无视频、设备标识或网络密码；退出应用后不保留记录。"
+          }
+        }
+      }
+    },
+    "最多保留最近约10分钟的角度、状态和频率；正式跟随配置就绪后自动记录。无视频、设备标识或网络密码；退出应用后不保留记录。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最多保留最近约10分钟的角度、状态和频率；正式跟随配置就绪后自动记录。无视频、设备标识或网络密码；退出应用后不保留记录。"
+          }
+        }
+      }
+    },
+    "最近提交目标": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最近提交目标"
+          }
+        }
+      }
+    },
+    "未上报": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未上报"
+          }
+        }
+      }
+    },
+    "未上报，不推测": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未上报，不推测"
+          }
+        }
+      }
+    },
     "未准备好": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "未准备好"
+          }
+        }
+      }
+    },
+    "未启用匹配的配置；请在跟随准备中选择已测配置或完成实验": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未启用匹配的配置；请在跟随准备中选择已测配置或完成实验"
+          }
+        }
+      }
+    },
+    "未启用匹配的配置；请完成本次小角度实验": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未启用匹配的配置；请完成本次小角度实验"
+          }
+        }
+      }
+    },
+    "未收到": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未收到"
+          }
+        }
+      }
+    },
+    "未收到新鲜耳机姿态（需小于200ms）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未收到新鲜耳机姿态（需小于200ms）"
+          }
+        }
+      }
+    },
+    "未收到有效镜头姿态": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未收到有效镜头姿态"
+          }
+        }
+      }
+    },
+    "未收到，不填写推测值": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未收到，不填写推测值"
           }
         }
       }
@@ -701,12 +2191,32 @@
         }
       }
     },
+    "未识别": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未识别"
+          }
+        }
+      }
+    },
     "未连接": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "未连接"
+          }
+        }
+      }
+    },
+    "未通过，停止并保存诊断": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未通过，停止并保存诊断"
           }
         }
       }
@@ -721,12 +2231,102 @@
         }
       }
     },
+    "本次已测包络：yaw %.1f°…%.1f°；pitch %.1f°…%.1f°": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本次已测包络：yaw %.1f°…%.1f°；pitch %.1f°…%.1f°"
+          }
+        }
+      }
+    },
+    "本次目标": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本次目标"
+          }
+        }
+      }
+    },
+    "本版请将Pocket机身竖直固定，云台自由活动；不支持倾斜安装的世界坐标转换。固定模式不补偿支架转动。移动机身需要独立机身姿态和安装外参，不能从云台关节角反推身体朝向；移动模式未验证，不允许以固定映射运动。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本版请将Pocket机身竖直固定，云台自由活动；不支持倾斜安装的世界坐标转换。固定模式不补偿支架转动。移动机身需要独立机身姿态和安装外参，不能从云台关节角反推身体朝向；移动模式未验证，不允许以固定映射运动。"
+          }
+        }
+      }
+    },
     "机型与限位待验证，跟随尚未开放": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "机型与限位待验证，跟随尚未开放"
+          }
+        }
+      }
+    },
+    "机型协议范围尚未就绪": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "机型协议范围尚未就绪"
+          }
+        }
+      }
+    },
+    "机型或固件信息变化，本次实验配置已清除": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "机型或固件信息变化，本次实验配置已清除"
+          }
+        }
+      }
+    },
+    "机身坐标 yaw %.1f…%.1f° / pitch %.1f…%.1f°": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "机身坐标 yaw %.1f…%.1f° / pitch %.1f…%.1f°"
+          }
+        }
+      }
+    },
+    "机身已固定，所测方向活动范围无遮挡": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "机身已固定，所测方向活动范围无遮挡"
+          }
+        }
+      }
+    },
+    "机身当前不是跟随模式，请在相机下拉菜单选择跟随": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "机身当前不是跟随模式，请在相机下拉菜单选择跟随"
+          }
+        }
+      }
+    },
+    "机身竖直固定 · 重力水平参考 · 倍率1.00": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "机身竖直固定 · 重力水平参考 · 倍率1.00"
           }
         }
       }
@@ -761,12 +2361,82 @@
         }
       }
     },
+    "校准后 yaw / pitch": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "校准后 yaw / pitch"
+          }
+        }
+      }
+    },
+    "校准后头部方向": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "校准后头部方向"
+          }
+        }
+      }
+    },
+    "校准成功后请明确点击开始跟随": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "校准成功后请明确点击开始跟随"
+          }
+        }
+      }
+    },
+    "校准暂停：": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "校准暂停："
+          }
+        }
+      }
+    },
     "校准未完成，请保持头部和机身静止后重试": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "校准未完成，请保持头部和机身静止后重试"
+          }
+        }
+      }
+    },
+    "校准未开始：": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "校准未开始："
+          }
+        }
+      }
+    },
+    "核对值来自相机姿态反馈，2.5°只是异常暂停阈值，不是达到该物理精度的声明。外部量角精度、端到端延迟和漂移未测量。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "核对值来自相机姿态反馈，2.5°只是异常暂停阈值，不是达到该物理精度的声明。外部量角精度、端到端延迟和漂移未测量。"
+          }
+        }
+      }
+    },
+    "检查真实数据与首次5°实验": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "检查真实数据与首次5°实验"
           }
         }
       }
@@ -797,6 +2467,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "正在检查稳定性，请保持头部和机身静止"
+          }
+        }
+      }
+    },
+    "正在缓慢发送绝对角度目标": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在缓慢发送绝对角度目标"
           }
         }
       }
@@ -841,12 +2521,52 @@
         }
       }
     },
+    "正式1∶1方向跟随": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正式1∶1方向跟随"
+          }
+        }
+      }
+    },
+    "正式方向跟随 · 协议可达范围": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正式方向跟随 · 协议可达范围"
+          }
+        }
+      }
+    },
     "此操作不会发送机械回中指令": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "此操作不会发送机械回中指令"
+          }
+        }
+      }
+    },
+    "此方向超出候选范围": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此方向超出候选范围"
+          }
+        }
+      }
+    },
+    "沿已测路径返回实验起点": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "沿已测路径返回实验起点"
           }
         }
       }
@@ -881,12 +2601,52 @@
         }
       }
     },
+    "状态": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "状态"
+          }
+        }
+      }
+    },
+    "生成本次诊断（含型号、模式和实验记录）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "生成本次诊断（含型号、模式和实验记录）"
+          }
+        }
+      }
+    },
     "生成脱敏诊断文件": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "生成脱敏诊断文件"
+          }
+        }
+      }
+    },
+    "用户停止实验；该项未通过": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用户停止实验；该项未通过"
+          }
+        }
+      }
+    },
+    "用户已确认原局部范围内头部联动通过。1.2.0移除实验窗口，正式连接、校准、开始；大角度响应、复合转头及连续稳定性仍需本版真机核对。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用户已确认原局部范围内头部联动通过。1.2.0移除实验窗口，正式连接、校准、开始；大角度响应、复合转头及连续稳定性仍需本版真机核对。"
           }
         }
       }
@@ -911,12 +2671,72 @@
         }
       }
     },
+    "目标 / 最终回报": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标 / 最终回报"
+          }
+        }
+      }
+    },
+    "目标与实际yaw相隔至少180°，直接指令可能穿越不可达扇区，已拒绝；请暂停后明确重新对齐": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标与实际yaw相隔至少180°，直接指令可能穿越不可达扇区，已拒绝；请暂停后明确重新对齐"
+          }
+        }
+      }
+    },
+    "目标与最新镜头回报持续相差较大，已暂停；请检查方向和机身是否移动": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标与最新镜头回报持续相差较大，已暂停；请检查方向和机身是否移动"
+          }
+        }
+      }
+    },
     "目标命令未被发送，请重新检查连接并校准": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "目标命令未被发送，请重新检查连接并校准"
+          }
+        }
+      }
+    },
+    "目标命令被拒绝": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标命令被拒绝"
+          }
+        }
+      }
+    },
+    "目标流未启动或已经暂停": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标流未启动或已经暂停"
+          }
+        }
+      }
+    },
+    "目标角度": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标角度"
           }
         }
       }
@@ -941,12 +2761,152 @@
         }
       }
     },
+    "目标队列不可用": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标队列不可用"
+          }
+        }
+      }
+    },
+    "目标队列拒绝：可能被底层新鲜度或可达路径检查停止": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标队列拒绝：可能被底层新鲜度或可达路径检查停止"
+          }
+        }
+      }
+    },
+    "目标随头部更新，保持姿势即保持目标": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标随头部更新，保持姿势即保持目标"
+          }
+        }
+      }
+    },
+    "相机从屏幕顶部下滑，选择跟随模式，并关闭ActiveTrack和智能云台。未收到模式参数时需人工核对；收到不兼容模式时会阻止运动。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机从屏幕顶部下滑，选择跟随模式，并关闭ActiveTrack和智能云台。未收到模式参数时需人工核对；收到不兼容模式时会阻止运动。"
+          }
+        }
+      }
+    },
+    "相机会话在，控制回报过期": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机会话在，控制回报过期"
+          }
+        }
+      }
+    },
+    "相机传输不可用": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机传输不可用"
+          }
+        }
+      }
+    },
+    "相机传输未就绪": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机传输未就绪"
+          }
+        }
+      }
+    },
+    "相机回报固件": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机回报固件"
+          }
+        }
+      }
+    },
+    "相机回报核对不是外部光学精度测量": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机回报核对不是外部光学精度测量"
+          }
+        }
+      }
+    },
+    "相机姿态回报持续偏离已停稳目标，已暂停；请检查模式、方向、机身是否移动。未改倍率或基准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机姿态回报持续偏离已停稳目标，已暂停；请检查模式、方向、机身是否移动。未改倍率或基准"
+          }
+        }
+      }
+    },
+    "相机姿态核对：尚未运行": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机姿态核对：尚未运行"
+          }
+        }
+      }
+    },
+    "相机已断连，请查看断连原因": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机已断连，请查看断连原因"
+          }
+        }
+      }
+    },
     "相机已连接": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "相机已连接"
+          }
+        }
+      }
+    },
+    "相机报告俯仰已锁定，请在机身改为跟随模式": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机报告俯仰已锁定，请在机身改为跟随模式"
+          }
+        }
+      }
+    },
+    "相机控制有回报": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机控制有回报"
           }
         }
       }
@@ -961,6 +2921,36 @@
         }
       }
     },
+    "相机真实回报": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机真实回报"
+          }
+        }
+      }
+    },
+    "相机连接中断，停止未确认": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机连接中断，停止未确认"
+          }
+        }
+      }
+    },
+    "相机连接中断：": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机连接中断："
+          }
+        }
+      }
+    },
     "看向你想设定的正前方，并让镜头对准同一方向。": {
       "localizations": {
         "zh-Hans": {
@@ -971,12 +2961,132 @@
         }
       }
     },
+    "看向正前方，让镜头对准对应方向，点击校准后开始。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "看向正前方，让镜头对准对应方向，点击校准后开始。"
+          }
+        }
+      }
+    },
+    "真实型号或固件不再匹配，已撤销本次配置启用": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "真实型号或固件不再匹配，已撤销本次配置启用"
+          }
+        }
+      }
+    },
+    "真实数据与跟随准备": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "真实数据与跟随准备"
+          }
+        }
+      }
+    },
+    "真实数据检查／首次5°实验": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "真实数据检查／首次5°实验"
+          }
+        }
+      }
+    },
     "知道了": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "知道了"
+          }
+        }
+      }
+    },
+    "确认本项物理观察": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "确认本项物理观察"
+          }
+        }
+      }
+    },
+    "确认机身已固定且目标方向无遮挡": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "确认机身已固定且目标方向无遮挡"
+          }
+        }
+      }
+    },
+    "离开活动状态，停止控制并清除本次校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "离开活动状态，停止控制并清除本次校准"
+          }
+        }
+      }
+    },
+    "移动机身补偿未验证，跟随不可启动": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移动机身补偿未验证，跟随不可启动"
+          }
+        }
+      }
+    },
+    "移动机身补偿未验证：目前没有独立机身朝向，不允许用固定机身映射跟随，避免重复转动": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移动机身补偿未验证：目前没有独立机身朝向，不允许用固定机身映射跟随，避免重复转动"
+          }
+        }
+      }
+    },
+    "移动机身补偿未验证；当前没有独立机身姿态输入，移动模式不允许启动，避免身体和云台重复转动。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移动机身补偿未验证；当前没有独立机身姿态输入，移动模式不允许启动，避免身体和云台重复转动。"
+          }
+        }
+      }
+    },
+    "立即停止实验／跟随": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "立即停止实验／跟随"
+          }
+        }
+      }
+    },
+    "等待匹配真实机型的正式协议配置": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "等待匹配真实机型的正式协议配置"
           }
         }
       }
@@ -1011,12 +3121,62 @@
         }
       }
     },
+    "等待新鲜云台参数回报（每2秒自动查询）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "等待新鲜云台参数回报（每2秒自动查询）"
+          }
+        }
+      }
+    },
+    "等待明确点击返回起点": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "等待明确点击返回起点"
+          }
+        }
+      }
+    },
+    "等待真实Follow模式与新鲜姿态回报": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "等待真实Follow模式与新鲜姿态回报"
+          }
+        }
+      }
+    },
     "等待真实相机预览": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "等待真实相机预览"
+          }
+        }
+      }
+    },
+    "等待真实视频帧": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "等待真实视频帧"
+          }
+        }
+      }
+    },
+    "等待视频": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "等待视频"
           }
         }
       }
@@ -1051,6 +3211,76 @@
         }
       }
     },
+    "网络写入数": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "网络写入数"
+          }
+        }
+      }
+    },
+    "耳机姿态参考跳变或回调间隔超过200ms": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耳机姿态参考跳变或回调间隔超过200ms"
+          }
+        }
+      }
+    },
+    "耳机姿态已过期（%.0f ms）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耳机姿态已过期（%.0f ms）"
+          }
+        }
+      }
+    },
+    "耳机姿态数值无效": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耳机姿态数值无效"
+          }
+        }
+      }
+    },
+    "耳机未提供有效姿态": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耳机未提供有效姿态"
+          }
+        }
+      }
+    },
+    "耳机真实输入": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耳机真实输入"
+          }
+        }
+      }
+    },
+    "耳机运动回调报告错误，请重新检查运动服务": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耳机运动回调报告错误，请重新检查运动服务"
+          }
+        }
+      }
+    },
     "耳机运动数据": {
       "localizations": {
         "zh-Hans": {
@@ -1061,12 +3291,122 @@
         }
       }
     },
+    "耳机重力参考不可用": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耳机重力参考不可用"
+          }
+        }
+      }
+    },
+    "耳机重力参考缺失或头部接近竖直，无法建立水平朝向": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耳机重力参考缺失或头部接近竖直，无法建立水平朝向"
+          }
+        }
+      }
+    },
+    "若未收到固件，请在机身设置或DJI Mimo设备信息核对后填写。此值始终标注“人工确认”，不会冒充相机回报。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "若未收到固件，请在机身设置或DJI Mimo设备信息核对后填写。此值始终标注“人工确认”，不会冒充相机回报。"
+          }
+        }
+      }
+    },
+    "范围、实际响应与诊断": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "范围、实际响应与诊断"
+          }
+        }
+      }
+    },
+    "范围已启用：点击“校准”，再在弹窗点击“开始校准”；成功后再开始跟随。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "范围已启用：点击“校准”，再在弹窗点击“开始校准”；成功后再开始跟随。"
+          }
+        }
+      }
+    },
     "蓝牙尚未就绪": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "蓝牙尚未就绪"
+          }
+        }
+      }
+    },
+    "观察 yaw / pitch": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "观察 yaw / pitch"
+          }
+        }
+      }
+    },
+    "观察头部方向（未校准也可看）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "观察头部方向（未校准也可看）"
+          }
+        }
+      }
+    },
+    "视频收流/组帧修复升级到共享UDP重建，校准已失效": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "视频收流/组帧修复升级到共享UDP重建，校准已失效"
+          }
+        }
+      }
+    },
+    "视频暂停，正在检查接收、组帧和解码": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "视频暂停，正在检查接收、组帧和解码"
+          }
+        }
+      }
+    },
+    "视频源帧持续更新": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "视频源帧持续更新"
+          }
+        }
+      }
+    },
+    "角度被已核实命令编码器拒绝": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "角度被已核实命令编码器拒绝"
           }
         }
       }
@@ -1131,12 +3471,32 @@
         }
       }
     },
+    "识别型号": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "识别型号"
+          }
+        }
+      }
+    },
     "诊断导出失败，请重试": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "诊断导出失败，请重试"
+          }
+        }
+      }
+    },
+    "请分别左右转头和抬头低头，各变化至少3°": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请分别左右转头和抬头低头，各变化至少3°"
           }
         }
       }
@@ -1171,6 +3531,16 @@
         }
       }
     },
+    "请完成四个方向及返回确认，并确认耳机左右/上下姿态真实变化": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请完成四个方向及返回确认，并确认耳机左右/上下姿态真实变化"
+          }
+        }
+      }
+    },
     "请开启蓝牙": {
       "localizations": {
         "zh-Hans": {
@@ -1187,6 +3557,46 @@
           "stringUnit": {
             "state": "translated",
             "value": "请手动加入相机 Wi-Fi"
+          }
+        }
+      }
+    },
+    "请核对真实Pocket 4机型与固件、固定机身和跟随模式，并等待新鲜镜头姿态": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请核对真实Pocket 4机型与固件、固定机身和跟随模式，并等待新鲜镜头姿态"
+          }
+        }
+      }
+    },
+    "请核对真实型号、固件、固定机身和跟随模式，确认数据新鲜且镜头处于已测范围": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请核对真实型号、固件、固定机身和跟随模式，确认数据新鲜且镜头处于已测范围"
+          }
+        }
+      }
+    },
+    "读取云台参数（不发运动命令）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "读取云台参数（不发运动命令）"
+          }
+        }
+      }
+    },
+    "读取模式参数": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "读取模式参数"
           }
         }
       }
@@ -1211,6 +3621,36 @@
         }
       }
     },
+    "跟随准备与实验": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跟随准备与实验"
+          }
+        }
+      }
+    },
+    "跟随已暂停：": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跟随已暂停："
+          }
+        }
+      }
+    },
+    "跟随已暂停；已尝试发送停止，未收到停止ACK。机身移动时不保证锁定世界方向。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跟随已暂停；已尝试发送停止，未收到停止ACK。机身移动时不保证锁定世界方向。"
+          }
+        }
+      }
+    },
     "跟随已暂停；已尝试发送停止，未确认镜头静止。移动机身时不保证锁定世界方向。": {
       "localizations": {
         "zh-Hans": {
@@ -1221,12 +3661,62 @@
         }
       }
     },
+    "跟随族；俯仰锁定参数未收到": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跟随族；俯仰锁定参数未收到"
+          }
+        }
+      }
+    },
+    "跟随未启动：": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跟随未启动："
+          }
+        }
+      }
+    },
+    "跟随状态与诊断": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跟随状态与诊断"
+          }
+        }
+      }
+    },
+    "跟随／俯仰未锁定（真实回报）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跟随／俯仰未锁定（真实回报）"
+          }
+        }
+      }
+    },
     "轻度平滑": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "轻度平滑"
+          }
+        }
+      }
+    },
+    "运动或等待停稳": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "运动或等待停稳"
           }
         }
       }
@@ -1261,12 +3751,52 @@
         }
       }
     },
+    "这些是相机机身参考角，只有单轴端点和返回经本次观察。组合运动仍属实验，异常差值会暂停。增益固定1.00，超出包络明确限位。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这些是相机机身参考角，只有单轴端点和返回经本次观察。组合运动仍属实验，异常差值会暂停。增益固定1.00，超出包络明确限位。"
+          }
+        }
+      }
+    },
+    "这里的观察零点只用于确认传感器数据，不等于跟随校准；侧歪头不控制roll。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这里的观察零点只用于确认传感器数据，不等于跟随校准；侧歪头不控制roll。"
+          }
+        }
+      }
+    },
+    "进入“真实数据与跟随准备”：核对现场条件后使用匹配的已测配置，或完成首次5°实验，再校准并开始。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "进入“真实数据与跟随准备”：核对现场条件后使用匹配的已测配置，或完成首次5°实验，再校准并开始。"
+          }
+        }
+      }
+    },
     "进入拍摄": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "进入拍摄"
+          }
+        }
+      }
+    },
+    "连接 → 校准 → 开始。倍率始终1.00，头部保持姿势即保持目标；回到基准即回到对应方向。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连接 → 校准 → 开始。倍率始终1.00，头部保持姿势即保持目标；回到基准即回到对应方向。"
           }
         }
       }
@@ -1301,6 +3831,16 @@
         }
       }
     },
+    "连接后：看向正前方、让镜头对准目标方向 → 校准 → 开始。无需重复首次实验。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连接后：看向正前方、让镜头对准目标方向 → 校准 → 开始。无需重复首次实验。"
+          }
+        }
+      }
+    },
     "连接失败：请检查相机确认、Wi-Fi 和本地网络权限后重试": {
       "localizations": {
         "zh-Hans": {
@@ -1321,12 +3861,112 @@
         }
       }
     },
+    "重力水平参考": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重力水平参考"
+          }
+        }
+      }
+    },
+    "重新检查耳机运动服务": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重新检查耳机运动服务"
+          }
+        }
+      }
+    },
+    "重设观察零点（不转动云台）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重设观察零点（不转动云台）"
+          }
+        }
+      }
+    },
+    "重试图传恢复（不启动跟随）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重试图传恢复（不启动跟随）"
+          }
+        }
+      }
+    },
     "镜头反馈（机身参考）": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
             "value": "镜头反馈（机身参考）"
+          }
+        }
+      }
+    },
+    "镜头姿态已失效（%.0f ms）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "镜头姿态已失效（%.0f ms）"
+          }
+        }
+      }
+    },
+    "镜头姿态已过期或布局不受支持": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "镜头姿态已过期或布局不受支持"
+          }
+        }
+      }
+    },
+    "镜头姿态缺失或超过300ms": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "镜头姿态缺失或超过300ms"
+          }
+        }
+      }
+    },
+    "镜头姿态缺失或超过300ms，未建立目标队列": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "镜头姿态缺失或超过300ms，未建立目标队列"
+          }
+        }
+      }
+    },
+    "镜头当前角度超出已测局部范围，请用机身摇杆调整回范围内": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "镜头当前角度超出已测局部范围，请用机身摇杆调整回范围内"
+          }
+        }
+      }
+    },
+    "镜头相对校准方向": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "镜头相对校准方向"
           }
         }
       }
@@ -1351,1172 +3991,12 @@
         }
       }
     },
-    "仅左右 1∶1": {
+    "首次使用请进入“首次5°实验”。真实姿态、单轴运动及返回确认通过后，可启用本次固定基座实验跟随。": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "仅左右 1∶1"
-          }
-        }
-      }
-    },
-    "仅上下 1∶1": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "仅上下 1∶1"
-          }
-        }
-      }
-    },
-    "最多保留最近约 10 分钟的角度、状态和频率；联动实验会自动记录。无视频、设备标识或网络密码；退出应用后不保留记录。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "最多保留最近约 10 分钟的角度、状态和频率；联动实验会自动记录。无视频、设备标识或网络密码；退出应用后不保留记录。"
-          }
-        }
-      }
-    },
-    "开发构建": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "开发构建"
-          }
-        }
-      }
-    },
-    "已收到用户反馈：首版安装、耳机连接、Pocket配对与图传正常。头部姿态和运动控制需按本次实验逐项确认。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已收到用户反馈：首版安装、耳机连接、Pocket配对与图传正常。头部姿态和运动控制需按本次实验逐项确认。"
-          }
-        }
-      }
-    },
-    "相机传输未就绪": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "相机传输未就绪"
-          }
-        }
-      }
-    },
-    "未收到新鲜耳机姿态（需小于200ms）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未收到新鲜耳机姿态（需小于200ms）"
-          }
-        }
-      }
-    },
-    "尚未观察到左右和上下各至少3°的真实头部变化": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "尚未观察到左右和上下各至少3°的真实头部变化"
-          }
-        }
-      }
-    },
-    "镜头姿态缺失或超过300ms": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "镜头姿态缺失或超过300ms"
-          }
-        }
-      }
-    },
-    "未启用匹配的配置；请完成本次小角度实验": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未启用匹配的配置；请完成本次小角度实验"
-          }
-        }
-      }
-    },
-    "尚未校准头部与镜头方向": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "尚未校准头部与镜头方向"
-          }
-        }
-      }
-    },
-    "云台实验仍在进行或等待确认": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "云台实验仍在进行或等待确认"
-          }
-        }
-      }
-    },
-    "机型或固件信息变化，本次实验配置已清除": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "机型或固件信息变化，本次实验配置已清除"
-          }
-        }
-      }
-    },
-    "姿态参考中断或跳变，请重设观察零点并重新校准": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "姿态参考中断或跳变，请重设观察零点并重新校准"
-          }
-        }
-      }
-    },
-    "已校准，请明确点击开始跟随": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已校准，请明确点击开始跟随"
-          }
-        }
-      }
-    },
-    "目标与最新镜头回报持续相差较大，已暂停；请检查方向和机身是否移动": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "目标与最新镜头回报持续相差较大，已暂停；请检查方向和机身是否移动"
-          }
-        }
-      }
-    },
-    "头部观察零点已重设；请分别左右转头、抬头低头，仅用于检查数据，不会转动云台": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "头部观察零点已重设；请分别左右转头、抬头低头，仅用于检查数据，不会转动云台"
-          }
-        }
-      }
-    },
-    "请核对真实Pocket 4机型与固件、固定机身和跟随模式，并等待新鲜镜头姿态": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请核对真实Pocket 4机型与固件、固定机身和跟随模式，并等待新鲜镜头姿态"
-          }
-        }
-      }
-    },
-    "实验已准备，尚未发运动命令。请选择一个约5°测试，活动方向需无遮挡。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实验已准备，尚未发运动命令。请选择一个约5°测试，活动方向需无遮挡。"
-          }
-        }
-      }
-    },
-    "当前姿态超出上游已核实命令范围，不能开始实验；请查看诊断": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "当前姿态超出上游已核实命令范围，不能开始实验；请查看诊断"
-          }
-        }
-      }
-    },
-    "无法测试：需要已连接且新鲜的镜头姿态及跟随模式": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "无法测试：需要已连接且新鲜的镜头姿态及跟随模式"
-          }
-        }
-      }
-    },
-    "小角度实验中，请保持机身固定，随时可点击停止": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "小角度实验中，请保持机身固定，随时可点击停止"
-          }
-        }
-      }
-    },
-    "当前测试不可开始：请先确认上一项，并沿已测路径返回起点；超出候选范围的方向不可用": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "当前测试不可开始：请先确认上一项，并沿已测路径返回起点；超出候选范围的方向不可用"
-          }
-        }
-      }
-    },
-    "已记录，请明确点击沿已测路径返回起点，再确认返回与停止。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已记录，请明确点击沿已测路径返回起点，再确认返回与停止。"
-          }
-        }
-      }
-    },
-    "已记录。完成左右、上下端点及返回后，可启用本次实验跟随。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已记录。完成左右、上下端点及返回后，可启用本次实验跟随。"
-          }
-        }
-      }
-    },
-    "尚无可确认的到位与停止记录": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "尚无可确认的到位与停止记录"
-          }
-        }
-      }
-    },
-    "实验已停止，已尝试发停止命令；请观察镜头，网络中断时无法确认送达": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实验已停止，已尝试发停止命令；请观察镜头，网络中断时无法确认送达"
-          }
-        }
-      }
-    },
-    "请完成四个方向及返回确认，并确认耳机左右/上下姿态真实变化": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请完成四个方向及返回确认，并确认耳机左右/上下姿态真实变化"
-          }
-        }
-      }
-    },
-    "已启用本次连接的局部实验范围；请校准后明确点击开始。超出已测范围会限位，不会缩放头部角度。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已启用本次连接的局部实验范围；请校准后明确点击开始。超出已测范围会限位，不会缩放头部角度。"
-          }
-        }
-      }
-    },
-    "固定基座1∶1跟随中；仅在已测局部范围内运行，起步与恢复受限速保护": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "固定基座1∶1跟随中；仅在已测局部范围内运行，起步与恢复受限速保护"
-          }
-        }
-      }
-    },
-    "启动被拒绝：校准时镜头可能不在已测范围，或数据已过期": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "启动被拒绝：校准时镜头可能不在已测范围，或数据已过期"
-          }
-        }
-      }
-    },
-    "跟随已暂停；已尝试发送停止，未收到停止ACK。机身移动时不保证锁定世界方向。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "跟随已暂停；已尝试发送停止，未收到停止ACK。机身移动时不保证锁定世界方向。"
-          }
-        }
-      }
-    },
-    "实验暂停：镜头姿态缺失或超过300ms": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实验暂停：镜头姿态缺失或超过300ms"
-          }
-        }
-      }
-    },
-    "实验暂停：控制节拍超过200ms": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实验暂停：控制节拍超过200ms"
-          }
-        }
-      }
-    },
-    "实验停止：实际回报方向与目标相反，请导出诊断": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实验停止：实际回报方向与目标相反，请导出诊断"
-          }
-        }
-      }
-    },
-    "实验停止：另一轴出现明显运动，请检查机身固定和云台模式": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实验停止：另一轴出现明显运动，请检查机身固定和云台模式"
-          }
-        }
-      }
-    },
-    "实验停止：回报超出本次目标或上游命令范围": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实验停止：回报超出本次目标或上游命令范围"
-          }
-        }
-      }
-    },
-    "实验停止：未能及时到位或收到足够停稳回报，请导出诊断": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实验停止：未能及时到位或收到足够停稳回报，请导出诊断"
-          }
-        }
-      }
-    },
-    "停止后回报仍有明显移动，实验未通过": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "停止后回报仍有明显移动，实验未通过"
-          }
-        }
-      }
-    },
-    "实验停止：目标队列或相机传输拒绝，详见命令链路状态": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实验停止：目标队列或相机传输拒绝，详见命令链路状态"
-          }
-        }
-      }
-    },
-    "实验停止：云台模式发生变化": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实验停止：云台模式发生变化"
-          }
-        }
-      }
-    },
-    "用户停止实验；该项未通过": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "用户停止实验；该项未通过"
-          }
-        }
-      }
-    },
-    "实验条件不满足，请检查设备信息、数据时效和确认步骤": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实验条件不满足，请检查设备信息、数据时效和确认步骤"
-          }
-        }
-      }
-    },
-    "相机传输不可用": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "相机传输不可用"
-          }
-        }
-      }
-    },
-    "镜头姿态已过期或布局不受支持": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "镜头姿态已过期或布局不受支持"
-          }
-        }
-      }
-    },
-    "目标流未启动或已经暂停": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "目标流未启动或已经暂停"
-          }
-        }
-      }
-    },
-    "角度被已核实命令编码器拒绝": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "角度被已核实命令编码器拒绝"
-          }
-        }
-      }
-    },
-    "目标队列拒绝：可能被底层新鲜度或可达路径检查停止": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "目标队列拒绝：可能被底层新鲜度或可达路径检查停止"
-          }
-        }
-      }
-    },
-    "机身当前不是跟随模式，请在相机下拉菜单选择跟随": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "机身当前不是跟随模式，请在相机下拉菜单选择跟随"
-          }
-        }
-      }
-    },
-    "相机报告俯仰已锁定，请在机身改为跟随模式": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "相机报告俯仰已锁定，请在机身改为跟随模式"
-          }
-        }
-      }
-    },
-    "不可用；请在机身下拉菜单核对": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "不可用；请在机身下拉菜单核对"
-          }
-        }
-      }
-    },
-    "方向锁定（姿态推送）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "方向锁定（姿态推送）"
-          }
-        }
-      }
-    },
-    "FPV（姿态推送）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "FPV（姿态推送）"
-          }
-        }
-      }
-    },
-    "跟随族；俯仰锁定参数未收到": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "跟随族；俯仰锁定参数未收到"
-          }
-        }
-      }
-    },
-    "跟随／俯仰未锁定（真实回报）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "跟随／俯仰未锁定（真实回报）"
-          }
-        }
-      }
-    },
-    "俯仰锁定（真实回报）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "俯仰锁定（真实回报）"
-          }
-        }
-      }
-    },
-    "1 · 真实耳机姿态": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "1 · 真实耳机姿态"
-          }
-        }
-      }
-    },
-    "数据状态": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "数据状态"
-          }
-        }
-      }
-    },
-    "观察 yaw / pitch": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "观察 yaw / pitch"
-          }
-        }
-      }
-    },
-    "回调频率": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "回调频率"
-          }
-        }
-      }
-    },
-    "数据时效": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "数据时效"
-          }
-        }
-      }
-    },
-    "未收到": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未收到"
-          }
-        }
-      }
-    },
-    "实际变化范围": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实际变化范围"
-          }
-        }
-      }
-    },
-    "左右 %.1f° · 上下 %.1f°": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "左右 %.1f° · 上下 %.1f°"
-          }
-        }
-      }
-    },
-    "已观察到两个方向真实变化": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已观察到两个方向真实变化"
-          }
-        }
-      }
-    },
-    "请分别左右转头和抬头低头，各变化至少3°": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请分别左右转头和抬头低头，各变化至少3°"
-          }
-        }
-      }
-    },
-    "重设观察零点（不转动云台）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "重设观察零点（不转动云台）"
-          }
-        }
-      }
-    },
-    "重新检查耳机运动服务": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "重新检查耳机运动服务"
-          }
-        }
-      }
-    },
-    "这里的观察零点只用于确认传感器数据，不等于跟随校准；侧歪头不控制roll。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "这里的观察零点只用于确认传感器数据，不等于跟随校准；侧歪头不控制roll。"
-          }
-        }
-      }
-    },
-    "2 · 相机与控制模式": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "2 · 相机与控制模式"
-          }
-        }
-      }
-    },
-    "识别型号": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "识别型号"
-          }
-        }
-      }
-    },
-    "未识别": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未识别"
-          }
-        }
-      }
-    },
-    "广播型号编号": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "广播型号编号"
-          }
-        }
-      }
-    },
-    "未上报": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未上报"
-          }
-        }
-      }
-    },
-    "相机回报固件": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "相机回报固件"
-          }
-        }
-      }
-    },
-    "未收到，不填写推测值": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未收到，不填写推测值"
-          }
-        }
-      }
-    },
-    "人工核对的完整固件版本": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "人工核对的完整固件版本"
-          }
-        }
-      }
-    },
-    "若未收到固件，请在机身设置或DJI Mimo设备信息核对后填写。此值始终标注“人工确认”，不会冒充相机回报。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "若未收到固件，请在机身设置或DJI Mimo设备信息核对后填写。此值始终标注“人工确认”，不会冒充相机回报。"
-          }
-        }
-      }
-    },
-    "姿态 yaw / pitch": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "姿态 yaw / pitch"
-          }
-        }
-      }
-    },
-    "原生俯仰回报": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "原生俯仰回报"
-          }
-        }
-      }
-    },
-    "姿态时效": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "姿态时效"
-          }
-        }
-      }
-    },
-    "当前模式": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "当前模式"
-          }
-        }
-      }
-    },
-    "姿态帧长度 / 有效数": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "姿态帧长度 / 有效数"
-          }
-        }
-      }
-    },
-    "读取云台参数（不发运动命令）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "读取云台参数（不发运动命令）"
-          }
-        }
-      }
-    },
-    "相机从屏幕顶部下滑，选择跟随模式，并关闭ActiveTrack和智能云台。未收到模式参数时需人工核对；收到不兼容模式时会阻止运动。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "相机从屏幕顶部下滑，选择跟随模式，并关闭ActiveTrack和智能云台。未收到模式参数时需人工核对；收到不兼容模式时会阻止运动。"
-          }
-        }
-      }
-    },
-    "3 · 准备本次固定基座实验": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "3 · 准备本次固定基座实验"
-          }
-        }
-      }
-    },
-    "已核对机身为识别出的Pocket 4及固件": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已核对机身为识别出的Pocket 4及固件"
-          }
-        }
-      }
-    },
-    "机身已固定，所测方向活动范围无遮挡": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "机身已固定，所测方向活动范围无遮挡"
-          }
-        }
-      }
-    },
-    "已选跟随模式，已关闭跟踪和智能云台": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已选跟随模式，已关闭跟踪和智能云台"
-          }
-        }
-      }
-    },
-    "准备本次实验（尚不运动）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "准备本次实验（尚不运动）"
-          }
-        }
-      }
-    },
-    "不是机械全行程验证。只有你主动点击下一节的测试并确认后，才累积本次局部可用范围；退出前台、断连、改机型/固件/模式会清除实验资格。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "不是机械全行程验证。只有你主动点击下一节的测试并确认后，才累积本次局部可用范围；退出前台、断连、改机型/固件/模式会清除实验资格。"
-          }
-        }
-      }
-    },
-    "4 · 点击才会运动": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "4 · 点击才会运动"
-          }
-        }
-      }
-    },
-    "实验状态": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实验状态"
-          }
-        }
-      }
-    },
-    "必须先沿本次已测方向返回起点并确认，才可测试另一方向。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "必须先沿本次已测方向返回起点并确认，才可测试另一方向。"
-          }
-        }
-      }
-    },
-    "本次目标": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "本次目标"
-          }
-        }
-      }
-    },
-    "目标 / 最终回报": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "目标 / 最终回报"
-          }
-        }
-      }
-    },
-    "停止后最大回报变化": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "停止后最大回报变化"
-          }
-        }
-      }
-    },
-    "已尝试发送停止，并收到一段稳定的姿态回报；这不是设备停止ACK，也不是独立物理量角证明。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已尝试发送停止，并收到一段稳定的姿态回报；这不是设备停止ACK，也不是独立物理量角证明。"
-          }
-        }
-      }
-    },
-    "我看到镜头沿原路返回起点并停稳": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "我看到镜头沿原路返回起点并停稳"
-          }
-        }
-      }
-    },
-    "我看到方向正确、约定角度正确且停止后保持": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "我看到方向正确、约定角度正确且停止后保持"
-          }
-        }
-      }
-    },
-    "确认本项物理观察": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "确认本项物理观察"
-          }
-        }
-      }
-    },
-    "未通过，停止并保存诊断": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未通过，停止并保存诊断"
-          }
-        }
-      }
-    },
-    "立即停止实验／跟随": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "立即停止实验／跟随"
-          }
-        }
-      }
-    },
-    "已确认运动记录": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已确认运动记录"
-          }
-        }
-      }
-    },
-    "5 · 局部1∶1跟随": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "5 · 局部1∶1跟随"
-          }
-        }
-      }
-    },
-    "本次已测包络：yaw %.1f°…%.1f°；pitch %.1f°…%.1f°": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "本次已测包络：yaw %.1f°…%.1f°；pitch %.1f°…%.1f°"
-          }
-        }
-      }
-    },
-    "这些是相机机身参考角，只有单轴端点和返回经本次观察。组合运动仍属实验，异常差值会暂停。增益固定1.00，超出包络明确限位。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "这些是相机机身参考角，只有单轴端点和返回经本次观察。组合运动仍属实验，异常差值会暂停。增益固定1.00，超出包络明确限位。"
-          }
-        }
-      }
-    },
-    "先完成向右、向左、向上、向下各约5°及每次返回。确认后才开放本次实验跟随。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "先完成向右、向左、向上、向下各约5°及每次返回。确认后才开放本次实验跟随。"
-          }
-        }
-      }
-    },
-    "启用本次实验跟随，返回拍摄页校准": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "启用本次实验跟随，返回拍摄页校准"
-          }
-        }
-      }
-    },
-    "启用不等于开始运动。返回拍摄页后仍需校准，再明确点击开始跟随。需要扩大范围时，可回到这里逐侧新增5°测试；不自动扫行程。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "启用不等于开始运动。返回拍摄页后仍需校准，再明确点击开始跟随。需要扩大范围时，可回到这里逐侧新增5°测试；不自动扫行程。"
-          }
-        }
-      }
-    },
-    "命令链路与诊断": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "命令链路与诊断"
-          }
-        }
-      }
-    },
-    "提交目标数": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "提交目标数"
-          }
-        }
-      }
-    },
-    "实际网络写入数": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实际网络写入数"
-          }
-        }
-      }
-    },
-    "最近提交目标": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "最近提交目标"
-          }
-        }
-      }
-    },
-    "生成本次诊断（含型号、模式和实验记录）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "生成本次诊断（含型号、模式和实验记录）"
-          }
-        }
-      }
-    },
-    "分享诊断JSON": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "分享诊断JSON"
-          }
-        }
-      }
-    },
-    "不包含相机密码、完整设备标识或视频。固件来源、姿态帧长度、目标/反馈、停止观察与未通过原因会保留。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "不包含相机密码、完整设备标识或视频。固件来源、姿态帧长度、目标/反馈、停止观察与未通过原因会保留。"
+            "value": "首次使用请进入“首次5°实验”。真实姿态、单轴运动及返回确认通过后，可启用本次固定基座实验跟随。"
           }
         }
       }
@@ -2531,532 +4011,22 @@
         }
       }
     },
-    "确认机身已固定且目标方向无遮挡": {
+    "；可手动重试图传，控制状态另行显示": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "确认机身已固定且目标方向无遮挡"
+            "value": "；可手动重试图传，控制状态另行显示"
           }
         }
       }
     },
-    "只执行这一次缓慢的目标角度测试，未确认结果不会开放跟随。可随时点击停止。": {
+    "；恢复模式回报后可明确继续": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "只执行这一次缓慢的目标角度测试，未确认结果不会开放跟随。可随时点击停止。"
-          }
-        }
-      }
-    },
-    "此方向超出候选范围": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "此方向超出候选范围"
-          }
-        }
-      }
-    },
-    "向右测试到 +%.0f°（新增5°）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "向右测试到 +%.0f°（新增5°）"
-          }
-        }
-      }
-    },
-    "向左测试到 −%.0f°（新增5°）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "向左测试到 −%.0f°（新增5°）"
-          }
-        }
-      }
-    },
-    "向上测试到 +%.0f°（新增5°）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "向上测试到 +%.0f°（新增5°）"
-          }
-        }
-      }
-    },
-    "向下测试到 −%.0f°（新增5°）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "向下测试到 −%.0f°（新增5°）"
-          }
-        }
-      }
-    },
-    "沿已测路径返回实验起点": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "沿已测路径返回实验起点"
-          }
-        }
-      }
-    },
-    "尚未准备，不发运动命令": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "尚未准备，不发运动命令"
-          }
-        }
-      }
-    },
-    "等待明确点击返回起点": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "等待明确点击返回起点"
-          }
-        }
-      }
-    },
-    "就绪，等待你点击测试": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "就绪，等待你点击测试"
-          }
-        }
-      }
-    },
-    "正在缓慢发送绝对角度目标": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "正在缓慢发送绝对角度目标"
-          }
-        }
-      }
-    },
-    "已尝试发送停止，观察真实回报是否保持": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已尝试发送停止，观察真实回报是否保持"
-          }
-        }
-      }
-    },
-    "回报已到位并保持，等待你的物理观察确认": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "回报已到位并保持，等待你的物理观察确认"
-          }
-        }
-      }
-    },
-    "实验未通过，已停止待发目标": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实验未通过，已停止待发目标"
-          }
-        }
-      }
-    },
-    "实际回调 %.1f Hz": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实际回调 %.1f Hz"
-          }
-        }
-      }
-    },
-    "检查真实数据与首次5°实验": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "检查真实数据与首次5°实验"
-          }
-        }
-      }
-    },
-    "首次使用请进入“首次5°实验”。真实姿态、单轴运动及返回确认通过后，可启用本次固定基座实验跟随。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "首次使用请进入“首次5°实验”。真实姿态、单轴运动及返回确认通过后，可启用本次固定基座实验跟随。"
-          }
-        }
-      }
-    },
-    "真实数据检查／首次5°实验": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "真实数据检查／首次5°实验"
-          }
-        }
-      }
-    },
-    "先完成本次小角度实验，再启用局部1∶1跟随": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "先完成本次小角度实验，再启用局部1∶1跟随"
-          }
-        }
-      }
-    },
-    "实验包络 yaw %.1f…%.1f° / pitch %.1f…%.1f°": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "实验包络 yaw %.1f…%.1f° / pitch %.1f…%.1f°"
-          }
-        }
-      }
-    },
-    "观察头部方向（未校准也可看）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "观察头部方向（未校准也可看）"
-          }
-        }
-      }
-    },
-    "校准后头部方向": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "校准后头部方向"
-          }
-        }
-      }
-    },
-    "复制密码": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "复制密码"
-          }
-        }
-      }
-    },
-    "密码已复制": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "密码已复制"
-          }
-        }
-      }
-    },
-    "已收到真实耳机姿态及四向5°运动、停止保持与返回确认记录。已保存该型号/固件的局部范围；校准后1∶1实测仍待完成。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已收到真实耳机姿态及四向5°运动、停止保持与返回确认记录。已保存该型号/固件的局部范围；校准后1∶1实测仍待完成。"
-          }
-        }
-      }
-    },
-    "保存的局部配置与当前真实型号或固件不匹配": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "保存的局部配置与当前真实型号或固件不匹配"
-          }
-        }
-      }
-    },
-    "镜头当前角度超出已测局部范围，请用机身摇杆调整回范围内": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "镜头当前角度超出已测局部范围，请用机身摇杆调整回范围内"
-          }
-        }
-      }
-    },
-    "真实型号或固件不再匹配，已撤销本次配置启用": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "真实型号或固件不再匹配，已撤销本次配置启用"
-          }
-        }
-      }
-    },
-    "请核对真实型号、固件、固定机身和跟随模式，确认数据新鲜且镜头处于已测范围": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "请核对真实型号、固件、固定机身和跟随模式，确认数据新鲜且镜头处于已测范围"
-          }
-        }
-      }
-    },
-    "已启用保存的局部配置，尚不运动。请进入拍摄，点击校准，并在弹窗再次点击校准；成功后点击开始／恢复跟随。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已启用保存的局部配置，尚不运动。请进入拍摄，点击校准，并在弹窗再次点击校准；成功后点击开始／恢复跟随。"
-          }
-        }
-      }
-    },
-    "3 · 固定基座跟随准备": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "3 · 固定基座跟随准备"
-          }
-        }
-      }
-    },
-    "已保存局部配置：yaw %.1f°…%.1f°；pitch %.1f°…%.1f°": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已保存局部配置：yaw %.1f°…%.1f°；pitch %.1f°…%.1f°"
-          }
-        }
-      }
-    },
-    "型号和固件已精确匹配，可复用已测范围，无需重复5°实验。需重新核对现场条件、校准并点击开始；不会连接后自动运动。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "型号和固件已精确匹配，可复用已测范围，无需重复5°实验。需重新核对现场条件、校准并点击开始；不会连接后自动运动。"
-          }
-        }
-      }
-    },
-    "当前镜头超出已测范围，请用机身摇杆调整回上方范围内。App不会自动回中。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "当前镜头超出已测范围，请用机身摇杆调整回上方范围内。App不会自动回中。"
-          }
-        }
-      }
-    },
-    "使用已测配置，返回拍摄页校准": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "使用已测配置，返回拍摄页校准"
-          }
-        }
-      }
-    },
-    "跟随准备与实验": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "跟随准备与实验"
-          }
-        }
-      }
-    },
-    "真实数据与跟随准备": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "真实数据与跟随准备"
-          }
-        }
-      }
-    },
-    "进入“真实数据与跟随准备”：核对现场条件后使用匹配的已测配置，或完成首次5°实验，再校准并开始。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "进入“真实数据与跟随准备”：核对现场条件后使用匹配的已测配置，或完成首次5°实验，再校准并开始。"
-          }
-        }
-      }
-    },
-    "先打开跟随准备，使用匹配的已测配置或完成小角度实验": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "先打开跟随准备，使用匹配的已测配置或完成小角度实验"
-          }
-        }
-      }
-    },
-    "已启用保存的局部配置": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已启用保存的局部配置"
-          }
-        }
-      }
-    },
-    "已启用本次实验配置": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已启用本次实验配置"
-          }
-        }
-      }
-    },
-    "已测范围 yaw %.1f…%.1f° / pitch %.1f…%.1f°": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已测范围 yaw %.1f…%.1f° / pitch %.1f…%.1f°"
-          }
-        }
-      }
-    },
-    "未启用匹配的配置；请在跟随准备中选择已测配置或完成实验": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未启用匹配的配置；请在跟随准备中选择已测配置或完成实验"
-          }
-        }
-      }
-    },
-    "已启用保存的局部配置，尚不运动。点击校准，并在弹窗点击开始校准；成功后点击开始／恢复跟随。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "已启用保存的局部配置，尚不运动。点击校准，并在弹窗点击开始校准；成功后点击开始／恢复跟随。"
-          }
-        }
-      }
-    },
-    "开始校准": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "开始校准"
-          }
-        }
-      }
-    },
-    "范围已启用：点击“校准”，再在弹窗点击“开始校准”；成功后再开始跟随。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "范围已启用：点击“校准”，再在弹窗点击“开始校准”；成功后再开始跟随。"
-          }
-        }
-      }
-    },
-    "相机连接中断：": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "相机连接中断："
-          }
-        }
-      }
-    },
-    "离开活动状态，停止控制并清除本次校准": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "离开活动状态，停止控制并清除本次校准"
-          }
-        }
-      }
-    },
-    "耳机运动回调报告错误，请重新检查运动服务": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "耳机运动回调报告错误，请重新检查运动服务"
-          }
-        }
-      }
-    },
-    "校准暂停：": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "校准暂停："
-          }
-        }
-      }
-    },
-    "跟随已暂停：": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "跟随已暂停："
-          }
-        }
-      }
-    },
-    "目标命令被拒绝": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "目标命令被拒绝"
+            "value": "；恢复模式回报后可明确继续"
           }
         }
       }
@@ -3071,236 +4041,6 @@
         }
       }
     },
-    "相机已断连，请查看断连原因": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "相机已断连，请查看断连原因"
-          }
-        }
-      }
-    },
-    "耳机未提供有效姿态": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "耳机未提供有效姿态"
-          }
-        }
-      }
-    },
-    "控制时钟早于耳机样本，已停止（时序错误）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "控制时钟早于耳机样本，已停止（时序错误）"
-          }
-        }
-      }
-    },
-    "耳机姿态已过期（%.0f ms）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "耳机姿态已过期（%.0f ms）"
-          }
-        }
-      }
-    },
-    "未收到有效镜头姿态": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "未收到有效镜头姿态"
-          }
-        }
-      }
-    },
-    "镜头姿态已失效（%.0f ms）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "镜头姿态已失效（%.0f ms）"
-          }
-        }
-      }
-    },
-    "耳机姿态参考跳变或回调间隔超过200ms": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "耳机姿态参考跳变或回调间隔超过200ms"
-          }
-        }
-      }
-    },
-    "头部接近竖直，方向解算不可用": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "头部接近竖直，方向解算不可用"
-          }
-        }
-      }
-    },
-    "耳机姿态数值无效": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "耳机姿态数值无效"
-          }
-        }
-      }
-    },
-    "当前控制配置不可用": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "当前控制配置不可用"
-          }
-        }
-      }
-    },
-    "控制节拍失效（本轮间隔%.0f ms）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "控制节拍失效（本轮间隔%.0f ms）"
-          }
-        }
-      }
-    },
-    "；需要重新校准。这不等同于相机断连。": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "；需要重新校准。这不等同于相机断连。"
-          }
-        }
-      }
-    },
-    "相机连接中断，停止未确认": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "相机连接中断，停止未确认"
-          }
-        }
-      }
-    },
-    "目标随头部更新，保持姿势即保持目标": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "目标随头部更新，保持姿势即保持目标"
-          }
-        }
-      }
-    },
-    "校准成功后请明确点击开始跟随": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "校准成功后请明确点击开始跟随"
-          }
-        }
-      }
-    },
-    "上次校准失效原因：": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "上次校准失效原因："
-          }
-        }
-      }
-    },
-    "图传恢复开始，已暂停跟随；恢复后不会自动启动，控制状态与视频分别显示": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "图传恢复开始，已暂停跟随；恢复后不会自动启动，控制状态与视频分别显示"
-          }
-        }
-      }
-    },
-    "视频收流/组帧修复升级到共享UDP重建，校准已失效": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "视频收流/组帧修复升级到共享UDP重建，校准已失效"
-          }
-        }
-      }
-    },
-    "停止运动但不重建会话；有效校准保留，绝不自动恢复": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "停止运动但不重建会话；有效校准保留，绝不自动恢复"
-          }
-        }
-      }
-    },
-    "应用暂时失去活动状态，已暂停跟随；请回到前台后明确恢复": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "应用暂时失去活动状态，已暂停跟随；请回到前台后明确恢复"
-          }
-        }
-      }
-    },
-    "应用进入后台，停止控制并清除本次校准": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "应用进入后台，停止控制并清除本次校准"
-          }
-        }
-      }
-    },
-    "跟随未启动：": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "跟随未启动："
-          }
-        }
-      }
-    },
-    "目标队列不可用": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "目标队列不可用"
-          }
-        }
-      }
-    },
     "；校准是否有效见当前状态": {
       "localizations": {
         "zh-Hans": {
@@ -3311,122 +4051,12 @@
         }
       }
     },
-    "等待真实视频帧": {
+    "；需要重新校准。这不等同于相机断连。": {
       "localizations": {
         "zh-Hans": {
           "stringUnit": {
             "state": "translated",
-            "value": "等待真实视频帧"
-          }
-        }
-      }
-    },
-    "视频源帧持续更新": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "视频源帧持续更新"
-          }
-        }
-      }
-    },
-    "图传恢复未成功：": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "图传恢复未成功："
-          }
-        }
-      }
-    },
-    "；可手动重试图传，控制状态另行显示": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "；可手动重试图传，控制状态另行显示"
-          }
-        }
-      }
-    },
-    "视频暂停，正在检查接收、组帧和解码": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "视频暂停，正在检查接收、组帧和解码"
-          }
-        }
-      }
-    },
-    "等待视频": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "等待视频"
-          }
-        }
-      }
-    },
-    "控制传输未就绪，未建立目标队列": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "控制传输未就绪，未建立目标队列"
-          }
-        }
-      }
-    },
-    "镜头姿态缺失或超过300ms，未建立目标队列": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "镜头姿态缺失或超过300ms，未建立目标队列"
-          }
-        }
-      }
-    },
-    "控制传输中断，停止未确认": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "控制传输中断，停止未确认"
-          }
-        }
-      }
-    },
-    "相机控制有回报": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "相机控制有回报"
-          }
-        }
-      }
-    },
-    "相机会话在，控制回报过期": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "相机会话在，控制回报过期"
-          }
-        }
-      }
-    },
-    "重试图传恢复（不启动跟随）": {
-      "localizations": {
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "重试图传恢复（不启动跟随）"
+            "value": "；需要重新校准。这不等同于相机断连。"
           }
         }
       }

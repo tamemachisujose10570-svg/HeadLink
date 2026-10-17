@@ -186,7 +186,10 @@ import HeadLinkCore
     }
     func submit(angles:Angles,nativePitch:Double) -> Bool {
         guard transportHealthy else { lastCommandIssue="相机传输不可用"; return false }
-        guard freshPose != nil else { lastCommandIssue="镜头姿态已过期或布局不受支持"; return false }
+        guard let live=freshPose else { lastCommandIssue="镜头姿态已过期或布局不受支持"; return false }
+        guard abs((angles.yaw*10).rounded()/10-live.angles.yaw) < 180 else {
+            lastCommandIssue="目标与实际yaw相隔至少180°，直接指令可能穿越不可达扇区，已拒绝；请暂停后明确重新对齐"; return false
+        }
         guard let token=targetToken else { lastCommandIssue="目标流未启动或已经暂停"; return false }
         guard let frame=Commands.gimbalTimedTarget(yawDeg:angles.yaw,nativePitchDeg:nativePitch,duration:0.1) else {
             lastCommandIssue="角度被已核实命令编码器拒绝"; return false
@@ -206,6 +209,13 @@ import HeadLinkCore
         if let parameterAt,now-parameterAt < 3,status.gimbalParams?.tiltLock == .locked {
             return "相机报告俯仰已锁定，请在机身改为跟随模式"
         }
+        return nil
+    }
+    var controlModeReadiness:String? {
+        if let reason=followModeBlock { return reason }
+        guard status.gimbalModeFamily == .follow,let pose,pose.fresh(at:now) else { return "等待真实Follow模式与新鲜姿态回报" }
+        guard let parameterAt,now-parameterAt < 3,let params=status.gimbalParams else { return "等待新鲜云台参数回报（每2秒自动查询）" }
+        guard params.tiltLock == .unlocked else { return "俯仰锁定，需在机身选择Follow模式" }
         return nil
     }
     var modeSummary:String {

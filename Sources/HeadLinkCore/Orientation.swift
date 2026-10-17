@@ -1,6 +1,6 @@
 import Foundation
 
-public enum TrackingError: Error, Equatable { case invalidQuaternion, vertical, stale, unstable, uncalibrated, unavailable, referenceJump }
+public enum TrackingError: Error, Equatable { case invalidQuaternion, vertical, stale, unstable, uncalibrated, unavailable, referenceJump, gravityUnavailable }
 
 /// Right-handed active rotation, Hamilton product; +X right, +Y nose, +Z up.
 /// q maps head-local vectors into the motion reference. Angles exposed in degrees.
@@ -62,8 +62,10 @@ public struct MotionSample: Sendable {
     public let receivedAt: Double
     public let sensorTime: Double
     public let rotationRate: Double
-    public init(attitude: Quaternion, receivedAt: Double, sensorTime: Double, rotationRate: Double) {
+    public let gravity:DirectionVector?
+    public init(attitude: Quaternion, receivedAt: Double, sensorTime: Double, rotationRate: Double,gravity:DirectionVector? = nil) {
         self.attitude=attitude; self.receivedAt=receivedAt; self.sensorTime=sensorTime; self.rotationRate=rotationRate
+        self.gravity=gravity
     }
     public func fresh(at now: Double, threshold: Double) -> Bool {
         receivedAt.isFinite && now.isFinite && now >= receivedAt && now-receivedAt <= threshold
@@ -78,7 +80,7 @@ public struct CameraPose: Sendable {
     }
 }
 
-/// Only install a profile after the exact model/firmware/fixed-base setup was measured.
+/// Configured coordinate reach. Evidence distinguishes personal measurements from pinned protocol limits.
 public struct VerifiedLimits: Sendable, Codable {
     public let model: String; public let firmware: String; public let evidence: String
     public let yawMin: Double; public let yawMax: Double; public let pitchMin: Double; public let pitchMax: Double

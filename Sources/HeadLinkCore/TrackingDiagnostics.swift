@@ -16,7 +16,7 @@ public enum CalibrationInvalidationReason:String,Codable,Sendable {
         case .calibrationRequested:return "用户明确开始新的校准"
         case .calibrationStale:return "校准期间输入数据过期"
         case .inputStale:return "运行时耳机或镜头数据过期"
-        case .configurationUnavailable:return "已测角度配置不可用"
+        case .configurationUnavailable:return "机型协议角度配置不可用"
         case .schedulerGap:return "控制循环间隔超过200ms"
         case .configurationChanged:return "型号、固件或现场确认条件发生变化"
         case .modeChanged:return "相机报告云台模式不兼容"
@@ -49,14 +49,14 @@ public enum TrackingStartRejection:String,Codable,Sendable {
         switch self {
         case .disconnected:return "控制器未绑定已连接会话"
         case .uncalibrated:return "尚未校准头部与镜头方向"
-        case .limitsUnavailable:return "未启用有效的已测角度范围"
+        case .limitsUnavailable:return "未匹配有效的机型协议范围"
         case .motionMissing:return "控制器未收到耳机姿态"
         case .motionStale:return "耳机姿态超过200ms"
         case .motionFuture:return "耳机样本时间晚于本次控制时钟"
         case .cameraMissing:return "控制器未收到镜头姿态"
         case .cameraStale:return "镜头姿态超过300ms"
         case .cameraFuture:return "镜头样本时间晚于本次控制时钟"
-        case .outsideLimits:return "当前镜头角度超出已测范围"
+        case .outsideLimits:return "当前镜头角度超出协议可达范围"
         }
     }
     var error:TrackingError {

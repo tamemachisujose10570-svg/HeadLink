@@ -44,7 +44,7 @@ struct RootView: View {
                             DisclosureGroup("精度与诊断",isExpanded:$diagnostics) { DiagnosticsPanel(model:model) }
                         } else { connection }
                         if let notice=model.notice { Label(LocalizedStringKey(notice),systemImage:"info.circle").font(.footnote).foregroundStyle(.secondary).frame(maxWidth:.infinity,alignment:.leading) }
-                        Text("固定支架 · 移动基座补偿尚未支持").font(.caption).foregroundStyle(.secondary)
+                        Text(model.mountMode == .fixed ? "机身竖直固定 · 重力水平参考 · 倍率1.00" : "移动机身补偿未验证，跟随不可启动").font(.caption).foregroundStyle(.secondary)
                     }.padding(16)
                 }.background(backdrop)
             }
@@ -77,8 +77,7 @@ struct RootView: View {
                 Button("取消",role:.cancel) {}
             } message: { Text("继续原关系会以受限速度过渡到当前目标；重新对齐会保留当前构图。") }
             .onChange(of:shooting) { _,value in UIApplication.shared.isIdleTimerDisabled=value && keepAwake }
-            .onChange(of:model.savedProfileAccepted) { _,value in if value { shooting=true } }
-            .onChange(of:model.experimentAccepted) { _,value in if value { shooting=true } }
+            .onChange(of:model.camera.connected) { _,value in if value { shooting=true } }
             .onChange(of:keepAwake) { _,value in UIApplication.shared.isIdleTimerDisabled=value && shooting }
             .tint(accent)
         }
@@ -89,7 +88,7 @@ struct RootView: View {
             card("耳机运动数据",icon:"airpodspro") {
                 Text(LocalizedStringKey(model.motionLabel))
                 HeadMotionReadout(model:model)
-                Button("真实数据与跟随准备") { model.pause(); model.showingCommissioning=true }.buttonStyle(.bordered)
+                Button("跟随状态与诊断") { model.pause(); model.showingCommissioning=true }.buttonStyle(.bordered)
                 Text("先在 iPhone 系统中连接 AirPods。只有收到新鲜姿态，才表示运动数据可用。").font(.footnote).foregroundStyle(.secondary)
                 Button("检查运动数据") { model.retryMotion() }.buttonStyle(.bordered)
                 if model.motion.authorization == .denied { settingsLink }
@@ -116,7 +115,7 @@ struct RootView: View {
                 Text("配对时请在相机屏幕确认。关闭 DJI Mimo，避免占用连接。").font(.footnote).foregroundStyle(.secondary)
             }
             Button("进入拍摄",systemImage:"viewfinder") { shooting=true }.frame(maxWidth:.infinity,minHeight:44).buttonStyle(.borderedProminent)
-            Text("进入“真实数据与跟随准备”：核对现场条件后使用匹配的已测配置，或完成首次5°实验，再校准并开始。").font(.footnote).foregroundStyle(.orange)
+            Text("连接后：看向正前方、让镜头对准目标方向 → 校准 → 开始。无需重复首次实验。").font(.footnote).foregroundStyle(.orange)
         }
     }
     private var statusBar: some View {
@@ -151,14 +150,14 @@ struct RootView: View {
     private var controls: some View {
         VStack(spacing:14) {
             Text(model.axes == .both ? "左右＋上下 1∶1" : model.axes == .yaw ? "仅左右 1∶1" : "仅上下 1∶1").font(.headline)
-            Button("真实数据与跟随准备",systemImage:"testtube.2") { model.pause(); model.showingCommissioning=true }.buttonStyle(.bordered)
-            if !model.profileReady { Text("先打开跟随准备，使用匹配的已测配置或完成小角度实验").font(.footnote).foregroundStyle(.orange) }
+            Button("跟随状态与诊断",systemImage:"waveform.path") { model.pause(); model.showingCommissioning=true }.buttonStyle(.bordered)
+            if !model.profileReady { Text("等待匹配真实机型的正式协议配置").font(.footnote).foregroundStyle(.orange) }
             if model.profileReady,let limits=model.controller.limits {
-                Text(model.savedProfileAccepted ? "已启用保存的局部配置" : "已启用本次实验配置").font(.caption)
-                Text(String(format:"已测范围 yaw %.1f…%.1f° / pitch %.1f…%.1f°",limits.yawMin,limits.yawMax,limits.pitchMin,limits.pitchMax)).font(.caption).monospacedDigit()
+                Text("正式方向跟随 · 协议可达范围").font(.caption)
+                Text(String(format:"机身坐标 yaw %.1f…%.1f° / pitch %.1f…%.1f°",limits.yawMin,limits.yawMax,limits.pitchMin,limits.pitchMax)).font(.caption).monospacedDigit()
             }
             if model.profileReady && !model.controller.hasCalibration {
-                Text("范围已启用：点击“校准”，再在弹窗点击“开始校准”；成功后再开始跟随。").font(.footnote).foregroundStyle(.orange)
+                Text("看向正前方，让镜头对准对应方向，点击校准后开始。").font(.footnote).foregroundStyle(.orange)
             }
             Text(model.isFollowing ? "目标随头部更新，保持姿势即保持目标" : "校准成功后请明确点击开始跟随").font(.caption).foregroundStyle(.secondary)
             Button(model.isFollowing ? "暂停跟随" : "开始／恢复跟随",systemImage:model.isFollowing ? "pause.fill" : "play.fill") {
@@ -173,6 +172,9 @@ struct RootView: View {
                 Button(model.camera.actualRecording == true ? "停止录像" : "录像",systemImage:"record.circle") { model.camera.toggleRecording() }
                     .tint(.red).disabled(model.camera.actualRecording == nil || model.camera.recordPending != nil)
             }.buttonStyle(.bordered).frame(minHeight:44)
+            if !model.isFollowing && !model.canStart {
+                ForEach(Array(model.blockers.prefix(3)),id:\.self) { Text(LocalizedStringKey($0)).font(.footnote).foregroundStyle(.orange) }
+            }
             if let error=model.camera.recordError { Text(LocalizedStringKey(error)).font(.footnote).foregroundStyle(.orange) }
         }
     }
@@ -194,7 +196,11 @@ private struct DiagnosticsPanel:View {
             metric("未裁剪目标",format(model.controller.rawTarget))
             metric("命令目标（已提交）",format(model.controller.output?.command))
             metric("镜头反馈（机身参考）",format(model.camera.freshPose?.angles))
-            metric("角度误差","不可用：参考与时间对齐待验证")
+            if let base=model.controller.calibrationCameraPose?.angles,let actual=model.camera.freshPose?.angles {
+                metric("镜头相对校准方向",format(.init(yaw:actual.yaw-base.yaw,pitch:actual.pitch-base.pitch)))
+            }
+            Text(LocalizedStringKey(model.feedbackSummary))
+            Text("相机回报核对不是外部光学精度测量").font(.caption).foregroundStyle(.secondary)
             metric("运动数据时效",model.headAge.map{String(format:"%.0f ms",$0*1000)} ?? "不可用")
             metric("实际回调频率",String(format:"%.1f Hz",model.callbackHz))
             metric("实际网络写入频率",String(format:"%.1f Hz",model.sendHz))
@@ -224,7 +230,7 @@ private struct LiveRangeIndicator:View {
     @Bindable var model:AppModel
     var body:some View {
         let _=model.telemetryRevision
-        Label("目标超出可达范围",systemImage:"exclamationmark.triangle.fill")
+        Label("不可达：已限位，未缩放倍率",systemImage:"exclamationmark.triangle.fill")
             .foregroundStyle(.orange).opacity(model.controller.output?.limitedByRange == true ? 1 : 0)
             .accessibilityHidden(model.controller.output?.limitedByRange != true)
     }
