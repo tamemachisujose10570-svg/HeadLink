@@ -1,6 +1,6 @@
 # 不安装 Xcode 的安装、更新和刷新
 
-**首次云端 IPA 已生成。** [下载 run #1 产物](https://github.com/wch33e/HeadLink/actions/runs/38896370871/artifacts/12044256826)，解压得到 `HeadLink-unsigned.ipa`。这是 iPhoneOS arm64 Release 包，需要 Sideloadly 本地签名；用户已报告首版安装、连接和图传正常，真实跟随尚待实验。未签名 IPA 不能直接点开安装。
+当前使用云端生成的iPhoneOS arm64 Release包，由原Sideloadly账户在本地重签并覆盖安装，无需完整Xcode。未签名IPA不能直接点开安装。
 
 **当前新版1.2.0（8）：** [下载run #8产物](https://github.com/wch33e/HeadLink/actions/runs/39009820676/artifacts/12092815403)。原org.headlink.personal及Sideloadly账户/设置覆盖更新，不卸载，不重做权限或实验。正常连接后自动匹配正式机型范围，校准后明确开始。仅用于Pocket机身竖直固定；移动补偿未验证。见[最短使用步骤](docs/FORMAL_FOLLOW_QUICKSTART.md)。原1.1.2（7）和baseline-1.1.2-build-7保留。
 

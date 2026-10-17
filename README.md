@@ -14,7 +14,7 @@
 | 核心编译和测试 | 本地与云端55项/8组通过，覆盖校准生命周期、输入时间竞态、1∶1映射及有界视频恢复；工程生成、Swift语法与236个Vendor哈希通过 |
 | iOS App 编译 | **云端成功**：Actions run #8，Xcode 26.1.1，iPhoneOS arm64 Release |
 | IPA / 安装 | **已生成未签名 device IPA**，供 Sideloadly 本地重签；首版已安装，新版待覆盖更新 |
-| 硬件运行 | 用户已确认配对、录像、小角度控制及真实耳机数据；后续报告连接间歇中断、视频冻结和校准循环。旧诊断未包含本轮失败现场，新版修复待连续5分钟真机核对 |
+| 硬件运行 | 用户已确认1.1.2（7）原允许范围内头部联动通过，既有配对/录像链路保留；1.2.0新增大角度、复合方向与连续5分钟稳定性仍待用户实测 |
 
 历史个人局部配置与原实验记录仍在`App/VerifiedProfiles.json`和[DEVICE_EVIDENCE.md](docs/DEVICE_EVIDENCE.md)保留，正式控制不再使用它限幅或要求重新验证。默认入口和机型范围来源见[FORMAL_FOLLOW.md](docs/FORMAL_FOLLOW.md)。
 
