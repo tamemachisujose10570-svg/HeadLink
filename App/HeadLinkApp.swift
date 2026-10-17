@@ -9,7 +9,7 @@ import SwiftUI
                 .onChange(of:scenePhase) { _,phase in
                     switch phase {
                     case .active: model.activate()
-                    case .inactive: model.suspendControl()
+                    case .inactive: model.pauseForInactiveScene()
                     case .background: model.deactivate()
                     @unknown default: model.deactivate()
                     }

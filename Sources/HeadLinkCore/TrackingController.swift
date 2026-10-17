@@ -25,6 +25,10 @@ public struct TrackingController: Sendable {
         return .init(yaw:base.angles.yaw+(axes == .pitch ? 0 : head.yaw),pitch:base.angles.pitch+(axes == .yaw ? 0 : head.pitch))
     }
     public private(set) var failure: TrackingError?
+    public private(set) var calibrationID:UInt64=0
+    public private(set) var invalidation:CalibrationInvalidation?
+    private var invalidationSequence:UInt64=0
+    public private(set) var lastStartRejection:TrackingStartRejection?
     public var freshnessThreshold = 0.2
     public var axes: ControlAxes = .both
     public var response: ResponseMode = .immediate
@@ -41,27 +45,35 @@ public struct TrackingController: Sendable {
     private var velocity=Angles.zero
     public init() {}
     public var hasCalibration: Bool { origin != nil }
-    public mutating func connecting() { invalidate(); connected=false; state = .connecting }
+    public mutating func connecting() { invalidate(reason:.connectionChanged); connected=false; state = .connecting }
     public mutating func connectionChanged(_ value: Bool) {
-        invalidate(); connected=value; pose=nil; state=value ? .waitingMotion : .deviceDisconnected
+        // Repeated "still connected" observations are not a new transport session.
+        if value == connected && (value || state == .deviceDisconnected || state == .disconnected) { return }
+        invalidate(reason:.connectionChanged); connected=value; pose=nil; state=value ? .waitingMotion : .deviceDisconnected
     }
-    public mutating func invalidate() {
+    public mutating func invalidate(reason:CalibrationInvalidationReason = .explicitReset,at:Double? = nil) {
+        if hasCalibration || state == .calibrating {
+            invalidationSequence &+= 1
+            invalidation = .init(sequence:invalidationSequence,calibrationID:calibrationID,reason:reason,
+                at:at ?? ProcessInfo.processInfo.systemUptime,stateBefore:state,headReceivedAt:sample?.receivedAt,
+                cameraReceivedAt:pose?.receivedAt,cameraAngles:pose?.angles,nativePitch:pose?.nativePitch,limits:limits)
+        }
         origin=nil; cameraOrigin=nil; output=nil; head=nil; lastTick=nil; velocity = .zero
         calibrationSamples=[]; calibrationPoses=[]; previousYaw=0
     }
-    public mutating func motionUnavailable() { invalidate(); sample=nil; state = connected ? .waitingMotion : .disconnected }
+    public mutating func motionUnavailable() { invalidate(reason:.motionUnavailable); sample=nil; state = connected ? .waitingMotion : .disconnected }
     public mutating func ingest(_ next: MotionSample) {
         guard next.sensorTime.isFinite, next.rotationRate.isFinite, next.rotationRate >= 0,
               (try? next.attitude.normalized()) != nil else {
-            invalidate(); failure = .invalidQuaternion; state = .fault; return
+            invalidate(reason:.invalidQuaternion,at:next.receivedAt); failure = .invalidQuaternion; state = .fault; return
         }
         if let old=sample {
             let dt=next.receivedAt-old.receivedAt
             guard dt > 0, next.sensorTime > old.sensorTime else {
-                invalidate(); failure = .referenceJump; state = .fault; sample=next; return
+                invalidate(reason:.sensorTimeReset,at:next.receivedAt); failure = .referenceJump; state = .fault; sample=next; return
             }
             if dt > freshnessThreshold || ((try? next.attitude.distance(to:old.attitude)) ?? 180) > max(20,dt*900) {
-                invalidate(); failure = .referenceJump; state = .stalePaused
+                invalidate(reason:dt > freshnessThreshold ? .sampleGap : .referenceJump,at:next.receivedAt); failure = .referenceJump; state = .stalePaused
             }
         }
         sample=next
@@ -69,7 +81,7 @@ public struct TrackingController: Sendable {
             do {
                 let look=try Orientation.look(current:next.attitude,origin:origin,previousYaw:previousYaw)
                 head=look; previousYaw=look.yaw
-            } catch { invalidate(); failure = .vertical; state = .fault }
+            } catch { invalidate(reason:.vertical,at:next.receivedAt); failure = .vertical; state = .fault }
         }
         if connected && state == .waitingMotion { state = .ready }
     }
@@ -77,13 +89,13 @@ public struct TrackingController: Sendable {
     public mutating func beginCalibration(at now: Double) throws {
         guard connected, let s=sample, s.fresh(at:now,threshold:freshnessThreshold),
               let p=pose, p.fresh(at:now) else { throw TrackingError.stale }
-        invalidate(); state = .calibrating; failure=nil
+        invalidate(reason:.calibrationRequested,at:now); state = .calibrating; failure=nil
     }
     /// 0.7 seconds of stable samples; camera and head must both remain stable.
     public mutating func collectCalibration(at now: Double) throws -> Bool {
         guard state == .calibrating else { throw TrackingError.uncalibrated }
         guard let s=sample, s.fresh(at:now,threshold:freshnessThreshold), let p=pose, p.fresh(at:now) else {
-            invalidate(); state = .stalePaused; throw TrackingError.stale
+            invalidate(reason:.calibrationStale,at:now); state = .stalePaused; throw TrackingError.stale
         }
         if calibrationSamples.last?.sensorTime == s.sensorTime { return false }
         if s.rotationRate > 0.08 ||
@@ -103,27 +115,40 @@ public struct TrackingController: Sendable {
             sum.w+=sign*q.w; sum.x+=sign*q.x; sum.y+=sign*q.y; sum.z+=sign*q.z
         }
         origin=try sum.normalized(); cameraOrigin=p; previousYaw=0; head = .zero
+        calibrationID &+= 1
         state = .calibrated; failure=nil; calibrationSamples=[]; calibrationPoses=[]; return true
     }
+    public func startBlocker(at now:Double) -> TrackingStartRejection? {
+        guard connected else { return .disconnected }
+        guard origin != nil,cameraOrigin != nil else { return .uncalibrated }
+        guard let limits,limits.valid else { return .limitsUnavailable }
+        guard let sample else { return .motionMissing }
+        if sample.receivedAt > now { return .motionFuture }
+        if !sample.fresh(at:now,threshold:freshnessThreshold) { return .motionStale }
+        guard let pose else { return .cameraMissing }
+        if pose.receivedAt > now { return .cameraFuture }
+        if !pose.fresh(at:now) { return .cameraStale }
+        if limits.clamp(pose.angles) != pose.angles { return .outsideLimits }
+        return nil
+    }
     public mutating func start(at now: Double) throws {
-        guard connected, origin != nil, cameraOrigin != nil else { throw TrackingError.uncalibrated }
-        guard limits?.valid == true else { throw TrackingError.unavailable }
-        guard let s=sample, s.fresh(at:now,threshold:freshnessThreshold), let p=pose, p.fresh(at:now),
-              limits?.clamp(p.angles) == p.angles else { throw TrackingError.stale }
+        lastStartRejection=startBlocker(at:now)
+        if let lastStartRejection { throw lastStartRejection.error }
+        guard let p=pose else { throw TrackingError.stale }
         lastCommand=p.angles; filtered=p.angles; velocity = .zero; lastTick=now
         state = .following; failure=nil
     }
-    public mutating func pause(invalidateCalibration: Bool = false) {
-        if invalidateCalibration { invalidate() }
+    public mutating func pause(invalidateCalibration: Bool = false,reason:CalibrationInvalidationReason = .explicitReset) {
+        if invalidateCalibration { invalidate(reason:reason) }
         output=nil; state = .userPaused; lastTick=nil; velocity = .zero
     }
     public mutating func tick(at now: Double) -> TrackingOutput? {
         guard state == .following else { return nil }
         guard connected, let s=sample, s.fresh(at:now,threshold:freshnessThreshold), let p=pose, p.fresh(at:now) else {
-            invalidate(); failure = .stale; state = .stalePaused; return nil
+            invalidate(reason:.inputStale,at:now); failure = .stale; state = .stalePaused; return nil
         }
         guard let origin, let base=cameraOrigin, let limits, limits.valid else {
-            invalidate(); failure = .unavailable; state = .fault; return nil
+            invalidate(reason:.configurationUnavailable,at:now); failure = .unavailable; state = .fault; return nil
         }
         do {
             let head=try Orientation.look(current:s.attitude,origin:origin,previousYaw:previousYaw)
@@ -157,7 +182,7 @@ public struct TrackingController: Sendable {
                 transitioning:abs(command.yaw-limited.yaw)+abs(command.pitch-limited.pitch)>0.1)
             output=value; return value
         } catch {
-            invalidate(); failure=(error as? TrackingError) ?? .unavailable; state = .fault; return nil
+            invalidate(reason:(error as? TrackingError) == .stale ? .schedulerGap : .configurationUnavailable,at:now); failure=(error as? TrackingError) ?? .unavailable; state = .fault; return nil
         }
     }
 }

@@ -1,13 +1,13 @@
 # HeadLink · 头部联动拍摄
 
-原生 Swift / SwiftUI iPhone 工程。目标组合是 iPhone + AirPods Pro 3 + DJI Pocket 4，先以固定支架、相机机身不动为基线。当前为 **1.1.1 开发构建，云端真机编译和未签名 IPA 打包已通过，首版连接/图传用户已报告正常，真实跟随待实验**。
+原生 Swift / SwiftUI iPhone 工程。目标组合是 iPhone + AirPods Pro 3 + DJI Pocket 4，先以固定支架、相机机身不动为基线。当前为 **1.1.2 开发构建，云端真机编译和未签名 IPA 打包已通过，首版连接/图传用户已报告正常，真实跟随待实验**。
 
 ## 当前状态（2026-10-16）
 
 | 层次 | 结果 |
 | --- | --- |
 | 代码已写 | 耳机运动读取、配对与手动 Wi-Fi 适配、真实遥测解析、绝对角度命令、预览接入、录像请求/确认、中文界面、诊断导出 |
-| 核心编译和测试 | macOS / Swift 6.2，新版28项本地及云端全部通过，新增实验和贯通跟随测试，见测试记录；工程生成、Swift 语法检查、plist 校验通过 |
+| 核心编译和测试 | macOS / Swift 6.2，稳定性修复45项本地通过，云端编译结果见最新记录，新增实验和贯通跟随测试，见测试记录；工程生成、Swift 语法检查、plist 校验通过 |
 | iOS App 编译 | **云端成功**：Actions run #6，Xcode 26.1.1，iPhoneOS arm64 Release |
 | IPA / 安装 | **已生成未签名 device IPA**，供 Sideloadly 本地重签；首版已安装，新版待覆盖更新 |
 | 硬件运行 | 用户已反馈首版安装、耳机连接、Pocket配对/连接和图传正常；诊断确认iOS27.0、人工固件01.03.14.04、真实头部回调和四向小角度控制；校准后1∶1仍待用户实测 |
@@ -62,3 +62,7 @@ HeadLink 新增代码采用 Apache-2.0，见 `LICENSE`。固定依赖版本、�
 ## 1.1.0 首次联动
 
 新增独立头部观察、固件来源区分、模式只读查询、小角度实验和当前启动阻塞列表。保持bundle ID `org.headlink.personal`，配对、Wi-Fi交接、预览绑定与首版逐字相同。新版构建结果以PROGRESS.md为准，首版IPA仍可用于回退。
+
+## 稳定性修复
+
+1.1.2优先修复校准—开始循环、按钮高频刷新和视频停滞恢复。控制/视频分别记录，必要检查保留，无新增拍摄功能。依据见 [STABILITY_FIX.md](docs/STABILITY_FIX.md)，至少5分钟真机流程见 [STABILITY_TEST_PLAN.md](docs/STABILITY_TEST_PLAN.md)。硬件结果待用户提供。

@@ -3000,6 +3000,436 @@
           }
         }
       }
+    },
+    "相机连接中断：": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机连接中断："
+          }
+        }
+      }
+    },
+    "离开活动状态，停止控制并清除本次校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "离开活动状态，停止控制并清除本次校准"
+          }
+        }
+      }
+    },
+    "耳机运动回调报告错误，请重新检查运动服务": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耳机运动回调报告错误，请重新检查运动服务"
+          }
+        }
+      }
+    },
+    "校准暂停：": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "校准暂停："
+          }
+        }
+      }
+    },
+    "跟随已暂停：": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跟随已暂停："
+          }
+        }
+      }
+    },
+    "目标命令被拒绝": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标命令被拒绝"
+          }
+        }
+      }
+    },
+    "；未判定相机断连，请查看诊断": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "；未判定相机断连，请查看诊断"
+          }
+        }
+      }
+    },
+    "相机已断连，请查看断连原因": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机已断连，请查看断连原因"
+          }
+        }
+      }
+    },
+    "耳机未提供有效姿态": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耳机未提供有效姿态"
+          }
+        }
+      }
+    },
+    "控制时钟早于耳机样本，已停止（时序错误）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "控制时钟早于耳机样本，已停止（时序错误）"
+          }
+        }
+      }
+    },
+    "耳机姿态已过期（%.0f ms）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耳机姿态已过期（%.0f ms）"
+          }
+        }
+      }
+    },
+    "未收到有效镜头姿态": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未收到有效镜头姿态"
+          }
+        }
+      }
+    },
+    "镜头姿态已失效（%.0f ms）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "镜头姿态已失效（%.0f ms）"
+          }
+        }
+      }
+    },
+    "耳机姿态参考跳变或回调间隔超过200ms": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耳机姿态参考跳变或回调间隔超过200ms"
+          }
+        }
+      }
+    },
+    "头部接近竖直，方向解算不可用": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "头部接近竖直，方向解算不可用"
+          }
+        }
+      }
+    },
+    "耳机姿态数值无效": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "耳机姿态数值无效"
+          }
+        }
+      }
+    },
+    "当前控制配置不可用": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前控制配置不可用"
+          }
+        }
+      }
+    },
+    "控制节拍失效（本轮间隔%.0f ms）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "控制节拍失效（本轮间隔%.0f ms）"
+          }
+        }
+      }
+    },
+    "；需要重新校准。这不等同于相机断连。": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "；需要重新校准。这不等同于相机断连。"
+          }
+        }
+      }
+    },
+    "相机连接中断，停止未确认": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机连接中断，停止未确认"
+          }
+        }
+      }
+    },
+    "目标随头部更新，保持姿势即保持目标": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标随头部更新，保持姿势即保持目标"
+          }
+        }
+      }
+    },
+    "校准成功后请明确点击开始跟随": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "校准成功后请明确点击开始跟随"
+          }
+        }
+      }
+    },
+    "上次校准失效原因：": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "上次校准失效原因："
+          }
+        }
+      }
+    },
+    "图传恢复开始，已暂停跟随；恢复后不会自动启动，控制状态与视频分别显示": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "图传恢复开始，已暂停跟随；恢复后不会自动启动，控制状态与视频分别显示"
+          }
+        }
+      }
+    },
+    "视频收流/组帧修复升级到共享UDP重建，校准已失效": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "视频收流/组帧修复升级到共享UDP重建，校准已失效"
+          }
+        }
+      }
+    },
+    "停止运动但不重建会话；有效校准保留，绝不自动恢复": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "停止运动但不重建会话；有效校准保留，绝不自动恢复"
+          }
+        }
+      }
+    },
+    "应用暂时失去活动状态，已暂停跟随；请回到前台后明确恢复": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "应用暂时失去活动状态，已暂停跟随；请回到前台后明确恢复"
+          }
+        }
+      }
+    },
+    "应用进入后台，停止控制并清除本次校准": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "应用进入后台，停止控制并清除本次校准"
+          }
+        }
+      }
+    },
+    "跟随未启动：": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跟随未启动："
+          }
+        }
+      }
+    },
+    "目标队列不可用": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目标队列不可用"
+          }
+        }
+      }
+    },
+    "；校准是否有效见当前状态": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "；校准是否有效见当前状态"
+          }
+        }
+      }
+    },
+    "等待真实视频帧": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "等待真实视频帧"
+          }
+        }
+      }
+    },
+    "视频源帧持续更新": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "视频源帧持续更新"
+          }
+        }
+      }
+    },
+    "图传恢复未成功：": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "图传恢复未成功："
+          }
+        }
+      }
+    },
+    "；可手动重试图传，控制状态另行显示": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "；可手动重试图传，控制状态另行显示"
+          }
+        }
+      }
+    },
+    "视频暂停，正在检查接收、组帧和解码": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "视频暂停，正在检查接收、组帧和解码"
+          }
+        }
+      }
+    },
+    "等待视频": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "等待视频"
+          }
+        }
+      }
+    },
+    "控制传输未就绪，未建立目标队列": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "控制传输未就绪，未建立目标队列"
+          }
+        }
+      }
+    },
+    "镜头姿态缺失或超过300ms，未建立目标队列": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "镜头姿态缺失或超过300ms，未建立目标队列"
+          }
+        }
+      }
+    },
+    "控制传输中断，停止未确认": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "控制传输中断，停止未确认"
+          }
+        }
+      }
+    },
+    "相机控制有回报": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机控制有回报"
+          }
+        }
+      }
+    },
+    "相机会话在，控制回报过期": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机会话在，控制回报过期"
+          }
+        }
+      }
+    },
+    "重试图传恢复（不启动跟随）": {
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重试图传恢复（不启动跟随）"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

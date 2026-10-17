@@ -12,28 +12,47 @@ import HeadLinkCore
     var message = "未连接"
     var connected = false
     var selected: DjiAppleSighting?
-    var pose: CameraPose?
-    var lastAttitudeLength:Int?
-    var attitudeFrames=0
-    var poseFrames=0
-    var parameterAt:Double?
-    var lastSubmittedAngles:Angles?
-    var lastSubmittedNativePitch:Double?
-    var targetSubmissions=0
-    var lastCommandIssue:String?
-    var lastStopAttemptAt:Double?
+    @ObservationIgnored var pose: CameraPose?
+    @ObservationIgnored var lastAttitudeLength:Int?
+    @ObservationIgnored var attitudeFrames=0
+    @ObservationIgnored var poseFrames=0
+    @ObservationIgnored var parameterAt:Double?
+    @ObservationIgnored var lastSubmittedAngles:Angles?
+    @ObservationIgnored var lastSubmittedNativePitch:Double?
+    @ObservationIgnored var targetSubmissions=0
+    @ObservationIgnored var lastCommandIssue:String?
+    @ObservationIgnored var lastStopAttemptAt:Double?
 
-    var status = CameraStatus()
-    var statusAt: Double?
-    var recordingAt: Double?
+    @ObservationIgnored var status = CameraStatus()
+    @ObservationIgnored var statusAt: Double?
+    @ObservationIgnored var recordingAt: Double?
     var recordPending: Bool?
     var recordDeadline: Double?
     var recordError: String?
     var wifiRequest: DjiAppleConnectionTransport.AccessPointJoin?
     var decoder = MonitorLiveVideoRuntime()
-    var lastPresentedAt: Double?
-    var onDisconnected: (() -> Void)?
-    @ObservationIgnored private var link: DjiAppleDatalink?
+    @ObservationIgnored var lastPresentedAt: Double?
+    @ObservationIgnored var lastDisconnect:CameraDisconnect?
+    @ObservationIgnored var connectionEpoch:UInt64=0
+    @ObservationIgnored var connectedAt:Double?
+    @ObservationIgnored var lastControlFrameAt:Double?
+    @ObservationIgnored var unhealthySince:Double?
+    @ObservationIgnored var videoPolicy=VideoRecoveryPolicy()
+    @ObservationIgnored var videoRecoveryTask:Task<Void,Never>?
+    @ObservationIgnored var videoTimeoutTask:Task<Void,Never>?
+    @ObservationIgnored var videoCheckAt=0.0
+    @ObservationIgnored var videoHistoryAt=0.0
+    @ObservationIgnored var videoHistory:[VideoDiagnostic]=[]
+    @ObservationIgnored var videoDiagnostic:VideoDiagnostic?
+    @ObservationIgnored var lastCompleteAccessUnitAt:Double?
+    @ObservationIgnored var lastAcceptedSampleAt:Double?
+    @ObservationIgnored var lastCameraSetAt:Double?
+    @ObservationIgnored var onVideoEvent:((String,String)->Void)?
+    @ObservationIgnored var onControlTransportReset:(()->Void)?
+    var videoMessage="等待视频"
+
+    @ObservationIgnored var onDisconnected: (() -> Void)?
+    @ObservationIgnored var link: DjiAppleDatalink?
     @ObservationIgnored private var scanTask: Task<Void,Never>?
     @ObservationIgnored private var wifiContinue = false
     @ObservationIgnored private var targetToken: UInt64?
@@ -49,7 +68,7 @@ import HeadLinkCore
         endpoint:.init(writeBLE:{ [weak self] in self?.bluetooth.send($0) },registerDatalink:{ [weak self] in self?.link?.reRegister() },transport:{ .init() }),
         context:{ [weak self] in .init(live:self?.connected == true,ownedConnection:true,
             pathReady:DjiAppleWiFiJoiner.isCameraPathReady(),sceneActive:true,holdsMonitor:true) },event:{ [weak self] event in
-            if event == .cameraPathLost { self?.disconnect() }
+            if event == .cameraPathLost { self?.disconnect(reason:"camera_path_lost") }
         })
     var now: Double { ProcessInfo.processInfo.systemUptime }
     var freshPose: CameraPose? { guard let pose,pose.fresh(at:now) else { return nil }; return pose }
@@ -57,13 +76,13 @@ import HeadLinkCore
         guard connected,status.recordingReported,let t=recordingAt,now-t <= 2 else { return nil }
         return status.isRecording
     }
-    var previewLive: Bool { guard let t=lastPresentedAt else { return false }; return connected && now-t < 0.7 }
+    var previewLive: Bool { videoSample().live }
     var transportHealthy: Bool { connected && link?.isFlowHealthy == true }
     // Counts actual UDP writes, not UI timer ticks or accepted mailbox submissions.
     var nativeWrites: Int { link?.headLinkNativeWriteCount ?? 0 }
 
     func scan() {
-        disconnect(); sightings=[]; message="搜索相机…"
+        disconnect(reason:"scan_started"); sightings=[]; message="搜索相机…"
         scanTask=Task { [weak self] in
             guard let self else { return }
             guard await bluetooth.waitUntilPoweredOn() else { message=bluetooth.unavailableReason; return }
@@ -74,7 +93,7 @@ import HeadLinkCore
         }
     }
     func connect(_ sighting: DjiAppleSighting) {
-        disconnect(); selected=sighting; message="连接中…"
+        disconnect(reason:"replace_connection"); selected=sighting; message="连接中…"
         decoder=MonitorLiveVideoRuntime(); decoder.onPresentedFrame={ [weak self] in self?.lastPresentedAt=self?.now }
         var transport=DjiAppleConnectionTransport(bluetooth:bluetooth)
         // Replace only the OS Wi-Fi action; retain upstream pairing, identity verification and registration.
@@ -100,14 +119,14 @@ import HeadLinkCore
                     self?.link?.close(); self?.link=endpoint as? DjiAppleDatalink
                     self?.bindLink()
                 },registered:{ [weak self] _,_,_ in
-                    self?.connected=true; self?.message="已连接（兼容性待真机验证）"
+                    self?.connected=true; self?.beginVideoSession(); self?.message="已连接（兼容性待真机验证）"
                     self?.link?.startLiveView()
                 }), event:{ [weak self] event in
                     guard let self else { return }
                     switch event {
                     case .stage(let stage,_): message=Self.stageLabel(stage)
                     case .finished(.failure(_),_):
-                        disconnect(); message="连接失败：请检查相机确认、Wi-Fi 和本地网络权限后重试"
+                        disconnect(reason:"connection_setup_failed"); message="连接失败：请检查相机确认、Wi-Fi 和本地网络权限后重试"
                     default: break
                     }
                 })
@@ -130,11 +149,13 @@ import HeadLinkCore
         let source=decoder.sourceToken
         link.onAccessUnit={ [weak self] bytes in
             guard let self,self.connected else { return }
-            _=decoder.decode(accessUnit:bytes,source:source)
+            lastCompleteAccessUnitAt=now
+            if decoder.decode(accessUnit:bytes,source:source) { lastAcceptedSampleAt=now }
         }
         link.onVideoDiscontinuity={ [weak self] in self?.decoder.noteCompressedDiscontinuity() }
     }
     private func receive(_ frame: Duml.Frame) {
+        lastControlFrameAt=now
         exchange.receive(frame)
         if frame.cmdSet == 4,frame.cmdId == 5 { lastAttitudeLength=frame.payload.count; attitudeFrames += 1 }
         if CameraStatusDecoder.apply(frame,to:&status,model:selected?.model) {
@@ -155,7 +176,9 @@ import HeadLinkCore
     }
     func confirmWiFi() { wifiContinue=true }
     func startTargets() -> Bool {
-        guard transportHealthy,freshPose != nil else { return false }
+        guard transportHealthy else { lastCommandIssue="控制传输未就绪，未建立目标队列"; return false }
+        guard freshPose != nil else { lastCommandIssue="镜头姿态缺失或超过300ms，未建立目标队列"; return false }
+        lastCommandIssue=nil
         stopTargets(); tokenCounter &+= 1; targetToken=tokenCounter; link?.beginNativeTargets(token:tokenCounter); return true
     }
     func submit(_ output: TrackingOutput) -> Bool {
@@ -203,22 +226,37 @@ import HeadLinkCore
     }
     func toggleRecording() {
         guard connected,recordPending == nil,let current=actualRecording else { return }
+        lastCameraSetAt=now
         recordError=nil; recordPending = !current; recordDeadline=now+4
         _=link?.send(current ? Commands.recordStop() : Commands.recordStart())
     }
     func checkHealth() {
         if let deadline=recordDeadline,now >= deadline { recordPending=nil; recordDeadline=nil; recordError="录像请求未确认，请检查相机" }
-        if connected, !transportHealthy || (statusAt.map { now-$0 > 3 } ?? false) {
-            disconnect(); message="连接中断，停止未确认"
-        }
+        guard connected else { return }
+        if link?.isRebuilding == true,videoRecoveryTask != nil { return }
+        if !transportHealthy {
+            if unhealthySince == nil { unhealthySince=now }
+            if now-(unhealthySince ?? now) >= 1 { disconnect(reason:"transport_unhealthy_1s"); message="控制传输中断，停止未确认" }
+        } else { unhealthySince=nil }
+        // Video silence or an unsupported status layout is not evidence of a disconnected camera.
+        // A half-dead shared endpoint is handled once by the bounded video recovery policy.
     }
-    func disconnect() {
+    func disconnect(reason:String = "user_request") {
+        captureVideoDiagnostic()
+        videoRecoveryTask?.cancel(); videoRecoveryTask=nil; videoTimeoutTask?.cancel(); videoTimeoutTask=nil
+        lastDisconnect = .init(uptime:now,reason:reason,wasConnected:connected,transportHealthy:transportHealthy,
+            statusAge:statusAt.map{now-$0},poseAge:pose.map{now-$0.receivedAt},nativeWrites:nativeWrites,
+            socketErrorCode:link?.lastSendError?.code)
         stopTargets(); scanTask?.cancel(); scanTask=nil; bluetooth.stopScan()
         connectRun?.retire(); connectRun=nil; heartbeat.stop(); exchange.stopBLEDrain(); exchange.retire(DjiAppleControlExchange.Error.disconnected)
         link?.close(); link=nil; bluetooth.disconnect(); decoder.close(); lastPresentedAt=nil
         lastAttitudeLength=nil; attitudeFrames=0; poseFrames=0; parameterAt=nil
         lastSubmittedAngles=nil; lastSubmittedNativePitch=nil; targetSubmissions=0; lastCommandIssue=nil; lastStopAttemptAt=nil
-        connected=false; pose=nil; status = .init(); statusAt=nil; recordingAt=nil
+        connected=false; connectedAt=nil; unhealthySince=nil; lastControlFrameAt=nil; pose=nil; status = .init(); statusAt=nil; recordingAt=nil
         recordPending=nil; recordDeadline=nil; wifiRequest=nil; message="未连接"; onDisconnected?()
     }
+}
+struct CameraDisconnect:Codable {
+    let uptime:Double; let reason:String; let wasConnected:Bool; let transportHealthy:Bool
+    let statusAge:Double?; let poseAge:Double?; let nativeWrites:Int; let socketErrorCode:Int?
 }

@@ -64,3 +64,7 @@ fixture 为本项目合成的合法脱敏数据，没有私人设备信息。测
 1.1.1（6）云端成功：[https://github.com/wch33e/HeadLink/actions/runs/38919199454](https://github.com/wch33e/HeadLink/actions/runs/38919199454)，源码107834d9e6d9b874bd49281fab72d630860554a6。标准full Xcode环境28项/4组全部通过，完整iOS device编译及IPA打包通过；本地测试脚本的CLT分支兼容修复不影响本次App二进制或云端测试命令。
 
 真实IPA本地复核通过：版本1.1.1（6）、bundle ID不变、arm64/iPhoneOS、未签名、无provisioning profile；包内已测配置资源与源文件逐字相同。SHA256 82477b322e879863774193f2fb9638cc27455661d819361e0babd69c1622d70a 与云端metadata/SHA256SUMS相同。
+
+## 2026-10-17 稳定性修复
+
+本地45项/7组通过，App语法解析通过，Vendor236文件哈希不变。新增校准生命周期、时钟并发到达复现和VideoRecoveryPolicy故障回归，日志stability-tests.log。5分钟健康运行是12001次输入的模拟时间，不是实机验证。真实故障日志仍待用户导出，真机计划见STABILITY_TEST_PLAN.md。

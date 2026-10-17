@@ -7,6 +7,8 @@ struct CommissioningView:View {
     @State private var observed=false
     @State private var requestedDirection:TestDirection?
     var body:some View {
+        let _=model.controlRevision
+        let _=model.telemetryRevision
         NavigationStack {
             Form {
                 Section("1 · 真实耳机姿态") {

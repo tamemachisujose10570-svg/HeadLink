@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 import AVFoundation
+import QuartzCore
 import HeadLinkCore
 import OpenCineApple
 
@@ -19,6 +20,7 @@ struct RootView: View {
     @AppStorage("keepAwake") private var keepAwake=false
     @State private var diagnostics=false
     var body: some View {
+        let _=model.controlRevision
         NavigationStack {
             GeometryReader { geo in
                 ScrollView {
@@ -39,7 +41,7 @@ struct RootView: View {
                                     if !leftHanded { controls.frame(width:200) }
                                 }
                             } else { preview.frame(minHeight:250); controls }
-                            DisclosureGroup("精度与诊断",isExpanded:$diagnostics) { diagnosticsPanel }
+                            DisclosureGroup("精度与诊断",isExpanded:$diagnostics) { DiagnosticsPanel(model:model) }
                         } else { connection }
                         if let notice=model.notice { Label(LocalizedStringKey(notice),systemImage:"info.circle").font(.footnote).foregroundStyle(.secondary).frame(maxWidth:.infinity,alignment:.leading) }
                         Text("固定支架 · 移动基座补偿尚未支持").font(.caption).foregroundStyle(.secondary)
@@ -86,8 +88,7 @@ struct RootView: View {
             Text("头部联动拍摄").font(.title3).foregroundStyle(.secondary)
             card("耳机运动数据",icon:"airpodspro") {
                 Text(LocalizedStringKey(model.motionLabel))
-                Text("观察 yaw / pitch：\(format((model.headAge.map{$0 <= 0.2} ?? false) ? model.probe.look : nil))").monospacedDigit()
-                Text(String(format:"实际回调 %.1f Hz",model.callbackHz)).font(.caption)
+                HeadMotionReadout(model:model)
                 Button("真实数据与跟随准备") { model.pause(); model.showingCommissioning=true }.buttonStyle(.bordered)
                 Text("先在 iPhone 系统中连接 AirPods。只有收到新鲜姿态，才表示运动数据可用。").font(.footnote).foregroundStyle(.secondary)
                 Button("检查运动数据") { model.retryMotion() }.buttonStyle(.bordered)
@@ -120,7 +121,7 @@ struct RootView: View {
     }
     private var statusBar: some View {
         VStack(alignment:.leading,spacing:6) {
-            HStack { Label(LocalizedStringKey(model.motionLabel),systemImage:"airpodspro"); Spacer(); Label(model.camera.connected ? "相机已连接" : "相机未连接",systemImage:"camera") }.font(.caption)
+            HStack { Label(LocalizedStringKey(model.motionLabel),systemImage:"airpodspro"); Spacer(); Label(model.camera.connected ? (model.camera.controlReceiveFresh ? "相机控制有回报" : "相机会话在，控制回报过期") : "相机未连接",systemImage:"camera") }.font(.caption)
             Text(LocalizedStringKey(stateLabel(model.controller.state))).font(.headline).foregroundStyle(model.isFollowing ? accent : .primary)
         }
     }
@@ -132,6 +133,7 @@ struct RootView: View {
                 VStack(spacing:12) {
                     Image(systemName:"video.slash").font(.largeTitle)
                     Text(model.camera.lastPresentedAt == nil ? "等待真实相机预览" : "画面已暂停 · 最后一帧")
+                    Text(LocalizedStringKey(model.camera.videoMessage)).font(.footnote)
                 }.padding().background(.black.opacity(0.75),in:RoundedRectangle(cornerRadius:12))
             }
             if crosshair { Image(systemName:"plus").font(.body.weight(.ultraLight)).foregroundStyle(.white.opacity(0.6)).accessibilityHidden(true) }
@@ -140,7 +142,7 @@ struct RootView: View {
                     if model.camera.actualRecording == true { Label("REC \(model.camera.status.recordElapsedSec)s",systemImage:"record.circle.fill").foregroundStyle(.red).monospacedDigit() }
                     else if model.camera.recordPending != nil { Text("等待录像确认…").foregroundStyle(.orange) }
                     Spacer()
-                    if model.controller.output?.limitedByRange == true { Label("目标超出可达范围",systemImage:"exclamationmark.triangle.fill").foregroundStyle(.orange) }
+                    LiveRangeIndicator(model:model)
                 }.font(.caption.bold()).padding(12).background(.black.opacity(0.5))
                 Spacer()
             }
@@ -158,7 +160,7 @@ struct RootView: View {
             if model.profileReady && !model.controller.hasCalibration {
                 Text("范围已启用：点击“校准”，再在弹窗点击“开始校准”；成功后再开始跟随。").font(.footnote).foregroundStyle(.orange)
             }
-            if model.controller.output?.transitioning == true { Text("正在过渡到目标方向").font(.caption).foregroundStyle(accent) }
+            Text(model.isFollowing ? "目标随头部更新，保持姿势即保持目标" : "校准成功后请明确点击开始跟随").font(.caption).foregroundStyle(.secondary)
             Button(model.isFollowing ? "暂停跟随" : "开始／恢复跟随",systemImage:model.isFollowing ? "pause.fill" : "play.fill") {
                 if model.isFollowing { model.pause() }
                 else if model.controller.state == .userPaused { resume=true }
@@ -174,7 +176,18 @@ struct RootView: View {
             if let error=model.camera.recordError { Text(LocalizedStringKey(error)).font(.footnote).foregroundStyle(.orange) }
         }
     }
-    private var diagnosticsPanel: some View {
+    private func card<Content:View>(_ title:String,icon:String,@ViewBuilder content:()->Content) -> some View {
+        VStack(alignment:.leading,spacing:12) { Label(LocalizedStringKey(title),systemImage:icon).font(.headline); content() }
+            .frame(maxWidth:.infinity,alignment:.leading).padding(18).background(panel,in:RoundedRectangle(cornerRadius:16))
+    }
+    private func format(_ a:Angles?) -> String { a.map{String(format:"%.1f° / %.1f°",$0.yaw,$0.pitch)} ?? "不可用" }
+    private var settingsLink: some View { Button("打开应用设置") { if let url=URL(string:UIApplication.openSettingsURLString) { UIApplication.shared.open(url) } } }
+}
+
+private struct DiagnosticsPanel:View {
+    @Bindable var model:AppModel
+    var body:some View {
+        let _=model.telemetryRevision
         VStack(spacing:10) {
             metric("观察头部方向（未校准也可看）",format((model.headAge.map{$0 <= 0.2} ?? false) ? model.probe.look : nil))
             metric("校准后头部方向",format(model.controller.head))
@@ -187,18 +200,34 @@ struct RootView: View {
             metric("实际网络写入频率",String(format:"%.1f Hz",model.sendHz))
             metric("完整端到端延迟","不可用：需要外部同步测量")
             if !model.blockers.isEmpty { ForEach(model.blockers,id:\.self) { Text(LocalizedStringKey($0)).foregroundStyle(.orange) } }
+            Text(LocalizedStringKey(model.camera.videoMessage))
+            Button("重试图传恢复（不启动跟随）") { model.camera.retryVideoRecovery() }
+                .disabled(!model.camera.connected)
             Text("命令提交或网络写入不等于镜头已到位。暂停命令尚无停止确认。").font(.caption).foregroundStyle(.secondary)
         }.padding(.top,12).font(.footnote).monospacedDigit()
-    }
-    private func card<Content:View>(_ title:String,icon:String,@ViewBuilder content:()->Content) -> some View {
-        VStack(alignment:.leading,spacing:12) { Label(LocalizedStringKey(title),systemImage:icon).font(.headline); content() }
-            .frame(maxWidth:.infinity,alignment:.leading).padding(18).background(panel,in:RoundedRectangle(cornerRadius:16))
     }
     private func metric(_ name:String,_ value:String) -> some View {
         HStack(alignment:.top) { Text(LocalizedStringKey(name)).foregroundStyle(.secondary); Spacer(); Text(LocalizedStringKey(value)).multilineTextAlignment(.trailing) }
     }
     private func format(_ a:Angles?) -> String { a.map{String(format:"%.1f° / %.1f°",$0.yaw,$0.pitch)} ?? "不可用" }
-    private var settingsLink: some View { Button("打开应用设置") { if let url=URL(string:UIApplication.openSettingsURLString) { UIApplication.shared.open(url) } } }
+}
+private struct HeadMotionReadout:View {
+    @Bindable var model:AppModel
+    var body:some View {
+        let _=model.telemetryRevision
+        let fresh=(model.headAge.map{$0 <= 0.2} ?? false) ? model.probe.look : nil
+        Text("观察 yaw / pitch：\(fresh.map{String(format:"%.1f° / %.1f°",$0.yaw,$0.pitch)} ?? "不可用")").monospacedDigit()
+        Text(String(format:"实际回调 %.1f Hz",model.callbackHz)).font(.caption)
+    }
+}
+private struct LiveRangeIndicator:View {
+    @Bindable var model:AppModel
+    var body:some View {
+        let _=model.telemetryRevision
+        Label("目标超出可达范围",systemImage:"exclamationmark.triangle.fill")
+            .foregroundStyle(.orange).opacity(model.controller.output?.limitedByRange == true ? 1 : 0)
+            .accessibilityHidden(model.controller.output?.limitedByRange != true)
+    }
 }
 private struct SecureCredential: View {
     let password:String
@@ -222,15 +251,25 @@ private struct SecureCredential: View {
 }
 struct PreviewSurface: UIViewRepresentable {
     let runtime:MonitorLiveVideoRuntime
-    func makeUIView(context:Context) -> VideoContainer { let v=VideoContainer(); v.display=runtime.displayLayer; v.layer.addSublayer(runtime.displayLayer); return v }
-    func updateUIView(_ view:VideoContainer,context:Context) {
-        if view.display !== runtime.displayLayer { view.display?.removeFromSuperlayer(); view.display=runtime.displayLayer; view.layer.addSublayer(runtime.displayLayer) }
-        view.setNeedsLayout(); runtime.noteDisplayReady()
-    }
+    func makeUIView(context:Context) -> VideoContainer { let view=VideoContainer(); view.bind(runtime); return view }
+    func updateUIView(_ view:VideoContainer,context:Context) { view.bind(runtime) }
 }
 final class VideoContainer: UIView {
-    var display:AVSampleBufferDisplayLayer?
-    override func layoutSubviews() { super.layoutSubviews(); display?.frame=bounds; display?.videoGravity = .resizeAspect }
+    private weak var runtime:MonitorLiveVideoRuntime?
+    private var display:AVSampleBufferDisplayLayer?
+    func bind(_ next:MonitorLiveVideoRuntime) {
+        guard runtime !== next || display !== next.displayLayer else { return }
+        display?.removeFromSuperlayer(); runtime=next; display=next.displayLayer
+        display?.videoGravity = .resizeAspect
+        layer.addSublayer(next.displayLayer); setNeedsLayout()
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        CATransaction.begin(); CATransaction.setDisableActions(true)
+        if display?.frame != bounds { display?.frame=bounds }
+        CATransaction.commit()
+        runtime?.noteDisplayReady()
+    }
 }
 func stateLabel(_ state:TrackingState) -> String {
     switch state {
