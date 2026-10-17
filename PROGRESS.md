@@ -66,4 +66,11 @@
 - 控制40Hz保持，UI离散状态与最多10Hz遥测分离，预览层禁隐式布局动画。
 - 补视频分层有界恢复、3次预算/动作间隔、最多一次共享UDP重建/10秒上限。视频停滞不等于相机断连，不自动完整配对或自动跟随。
 - schema3实际构建号、实例/连接/校准ID、失效/拒绝事件、视频各层时间/缓冲/错误与恢复记录。压缩显示路径解码完成不可观测时如实nil。
-- 本地45项/7组通过（含模拟5分钟健康视频、竞态复现、正常更新保校准、故障分层恢复）；不是5分钟硬件验证。Vendor236文件不变。云端编译待完成。
+- 本地45项/7组通过（含模拟5分钟健康视频、竞态复现、正常更新保校准、故障分层恢复）；不是5分钟硬件验证。Vendor236文件不变。云端run #7已通过，产物独立检查结果另附。
+
+### 1.1.2（7）交付与证据
+
+- 源码e8f2399ea87ed989b0e337eead36053dbf8ad391；[run #7](https://github.com/wch33e/HeadLink/actions/runs/39006392871)成功，job 2分27秒。45项/7组标准云端测试、完整iPhoneOS arm64 Release编译与打包通过。
+- [云端产物](https://github.com/wch33e/HeadLink/actions/runs/39006392871/artifacts/12091252663)，已下载独立复核：1.1.2（7）、org.headlink.personal、最低iOS17.0、iPhoneOS26.1 SDK/arm64、未签名，无内嵌provisioning profile。包内VerifiedProfiles.json与已有个人已测配置逐字相等。
+- SHA256：5dc8bd3c4f1520e3eb8ff1709f7b2c8cf7145f2bf3f69bbe388a4249a100cb36，与metadata及SHA256SUMS一致；inspection.json随产物保存，hardwareValidated=false。
+- 本轮没有改签名身份、权限或计费设置，没有购买服务。配对/手动Wi-Fi和录像协议保留；新视频恢复及一次校准后跟随须用户按docs/STABILITY_TEST_PLAN.md连续实测至少5分钟。

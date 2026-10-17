@@ -2,7 +2,7 @@
 
 **首次云端 IPA 已生成。** [下载 run #1 产物](https://github.com/wch33e/HeadLink/actions/runs/38896370871/artifacts/12044256826)，解压得到 `HeadLink-unsigned.ipa`。这是 iPhoneOS arm64 Release 包，需要 Sideloadly 本地签名；用户已报告首版安装、连接和图传正常，真实跟随尚待实验。未签名 IPA 不能直接点开安装。
 
-**当前新版1.1.1（6）：** [下载run #6产物](https://github.com/wch33e/HeadLink/actions/runs/38919199454/artifacts/12053409458)。保留org.headlink.personal和首次相同签名设置覆盖更新；已保存Pocket 4 / 人工固件01.03.14.04的局部已测配置。核对现场条件后可复用，再校准并明确开始，无需重复5°实验。见 [DEVICE_EVIDENCE.md](docs/DEVICE_EVIDENCE.md)。
+**当前新版1.1.2（7）：** [下载run #7产物](https://github.com/wch33e/HeadLink/actions/runs/39006392871/artifacts/12091252663)。保留org.headlink.personal，用首次相同Sideloadly签名账户/设置覆盖更新，无需卸载或重做权限。已保存的局部配置不变，不需重做四向5°实验；本次优先验收校准循环、视频恢复与稳定性，按 [连续5分钟步骤](docs/STABILITY_TEST_PLAN.md)操作。IPA已完成独立版本/校验值检查，真机结果待提供。旧1.1.1（6）及baseline-1.1.1-build-6标签保留作为回退基线。
 
 ## 1. 云端获得正确产物
 

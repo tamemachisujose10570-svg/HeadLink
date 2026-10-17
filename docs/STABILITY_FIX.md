@@ -46,3 +46,18 @@ schema3包含实际App版本/构建号、实例/连接/校准ID、最近100个�
 **压缩直通显示路径无法独立观测VideoToolbox解码完成或屏幕像素**：该时间为nil，`presentationObservation=compressed_layer_enqueue_not_physical_display`，不把入队成功冒充解码成功。只有新源帧时刻推进且无解码/关键帧故障才清除暂停标志，保留旧帧和缓存重绘不刷新时刻。物理屏幕是否恢复仍须真机观察。
 
 本地45项自动测试及App语法检查通过，Vendor236文件哈希不变。测试中的5分钟是模拟时间，不是真机5分钟。完整iOS编译与产物结果在PROGRESS.md/TEST_RESULTS.md记录。
+
+## 代码定位（1.1.2 源码）
+
+| 检查项 | 位置 |
+| --- | --- |
+| 唯一AppModel实例 | App/HeadLinkApp.swift:3 |
+| 先读取输入、再取时钟 | Sources/HeadLinkCore/ControlInputFrame.swift:19；App/AppModel.swift:153 |
+| UI与start共用核心检查 | Sources/HeadLinkCore/TrackingController.swift:121；App/AppModel.swift:333 |
+| 失效原因与当时状态记录 | Sources/HeadLinkCore/TrackingController.swift:54；Sources/HeadLinkCore/TrackingDiagnostics.swift |
+| 暂时inactive只暂停 | App/AppModel.swift:121 |
+| 独立UI发布与预览层绑定 | App/AppModel.swift:229；App/Views.swift:260 |
+| 控制连接判断 | App/PocketCamera.swift:233 |
+| 视频阶段诊断和实际恢复动作 | App/PocketCamera+Video.swift:23、43 |
+| 分层判定、4秒间隔和3次预算 | Sources/HeadLinkCore/VideoRecoveryPolicy.swift:32 |
+| 带实际版本/构建号的schema3导出 | App/AppModel.swift:363 |

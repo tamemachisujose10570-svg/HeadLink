@@ -68,3 +68,7 @@ fixture 为本项目合成的合法脱敏数据，没有私人设备信息。测
 ## 2026-10-17 稳定性修复
 
 本地45项/7组通过，App语法解析通过，Vendor236文件哈希不变。新增校准生命周期、时钟并发到达复现和VideoRecoveryPolicy故障回归，日志stability-tests.log。5分钟健康运行是12001次输入的模拟时间，不是实机验证。真实故障日志仍待用户导出，真机计划见STABILITY_TEST_PLAN.md。
+
+1.1.2（7）[云端run #7](https://github.com/wch33e/HeadLink/actions/runs/39006392871)通过，源码e8f2399ea87ed989b0e337eead36053dbf8ad391。标准full Xcode 26.1.1环境45项/7组通过，完整iOS Release设备编译与打包通过。云端日志含校准后启动、1200次正常状态更新保持校准、旧时钟竞态复现、新快照顺序持续运行、未来/过期保护、分层恢复与重试预算回归。
+
+下载真实IPA独立校验：1.1.2（7）、org.headlink.personal、最低iOS17.0、iPhoneOS/arm64、未签名无profile；已测局部配置资源未改变。SHA256 5dc8bd3c4f1520e3eb8ff1709f7b2c8cf7145f2bf3f69bbe388a4249a100cb36 与云端metadata及SHA256SUMS相等。完整archive CRC检查通过。未执行手机测试；不得将模拟5分钟写成真实5分钟，图传实际恢复、录像响应、镜头真实运动和按钮闪烁仍按STABILITY_TEST_PLAN.md验收。
